@@ -3,8 +3,8 @@
   "project": "SCOR",
   "active_version": "v01",
   "updated_date": "2026-10-10",
-  "objective": "基于 Agent0-VL 官方代码尝试四张 RTX 4090 上的小规模复现与受控 reward 错误验证",
-  "status": "native_core_and_resume_verified; paired_gpu_reward_trial_waiting_for_resources",
+  "objective": "在最多四张RTX4090上建立v01自有Agent0-VL类机制baseline，并按v02–v07顺序验证六个Gate；当前先完成设计与最新规范同步",
+  "status": "baseline_and_gate_design_documented; new_baseline_not_implemented_or_frozen",
   "code": {
     "status": "native_gpu_executed",
     "entry": "solutions/v01/src",
@@ -25,7 +25,8 @@
       "old_training_signature_preserved": true,
       "model_commit_unit": "Full checkpoint boundary; later updates may require rerunning on interruption",
       "native_gpu_policy_test_executed": false
-    }
+    },
+    "new_baseline_implemented": false
   },
   "tests": {
     "local": "19 passed, 1 native module skipped; latest interval-policy and lifecycle checks included",
@@ -35,7 +36,52 @@
     "sampling_rng_bitwise_verified": false,
     "offline_reward_counterfactual": "Actual captured batch recomputation matches native updater input; changing row0 return by -2 changes all four group advantages, flips another trajectory sign, leaves other groups unchanged",
     "version_control": "Actual credential/runtime/data/output/PDF paths ignored; 65 UTF-8 files staged; credential-pattern scan clear; source/config blobs match local bytes. Existing legacy documentation whitespace warnings retained.",
-    "checkpoint_policy": "13 policy/lifecycle unit tests with simulated small shards; native 4-GPU interval save/resume pending"
+    "checkpoint_policy": "13 policy/lifecycle unit tests with simulated small shards; native 4-GPU interval save/resume pending",
+    "design_documentation": {
+      "status": "checked",
+      "json_valid": true,
+      "utf8_documents_checked": 10,
+      "local_document_links_checked": 27,
+      "source_files_compared_to_previous_commit": 15,
+      "source_files_unchanged": true,
+      "historical_runs_and_claims_unchanged": true,
+      "standard_source_body_matches_except_server_rule": true,
+      "training_tests_rerun": false,
+      "reason": "Only research design, documentation, project state and standard changed; no training code or profile change",
+      "gate5_budget_enumeration": {
+        "1": {
+          "paired_updates": 2,
+          "positions": 1
+        },
+        "2": {
+          "paired_updates": 6,
+          "positions": 2
+        },
+        "8": {
+          "paired_updates": 72,
+          "positions": 8
+        },
+        "24": {
+          "paired_updates": 600,
+          "positions": 24
+        }
+      },
+      "interface_smoke": "Codex open request queued; native Codex UI read prohibited by computer-use tool; published GitHub document check pending",
+      "preserved_source_whitespace_findings": [
+        {
+          "line": 96,
+          "origin": "blank-line whitespace preserved verbatim from user-supplied research standard"
+        },
+        {
+          "line": 98,
+          "origin": "blank-line whitespace preserved verbatim from user-supplied research standard"
+        },
+        {
+          "line": 100,
+          "origin": "blank-line whitespace preserved verbatim from user-supplied research standard"
+        }
+      ]
+    }
   },
   "data": {
     "status": "generated_and_frozen_on_server",
@@ -45,7 +91,8 @@
     "training_questions_used": 8,
     "training_trajectories": 32,
     "dataset_directory": "solutions/v01/inputs/visual_pilot_v2",
-    "data_signature": "6732fb48dcf873739dbbf6c1504d568536870126bc26b4b89509ef7b6b94327a"
+    "data_signature": "6732fb48dcf873739dbbf6c1504d568536870126bc26b4b89509ef7b6b94327a",
+    "new_baseline_data_prepared": false
   },
   "server": {
     "alias": "WHU84piYB",
@@ -62,7 +109,10 @@
     "initial_free_disk_gib": 95,
     "last_free_disk_gib": 32.77,
     "last_resource_status": "GPU4/5 occupied by another task; only GPU6/7 available",
-    "host_keys": "User authorized first connection; task-specific known_hosts pinned; administrator verification not claimed"
+    "host_keys": "User authorized first connection; task-specific known_hosts pinned; administrator verification not claimed",
+    "future_experiments_maximum_gpu_count": 4,
+    "branch_scheduling": "Serial branches; same world size/topology within each comparison",
+    "resource_snapshot_note": "Historical observation only; no SSH/resource refresh during this design task; recheck before use"
   },
   "upstream": {
     "repository": "https://github.com/aiming-lab/Agent0",
@@ -120,14 +170,18 @@
   ],
   "evidence_storage": "Small JSON/CSV/log and checkpoint completion certificate copied locally; full model/optimizer shards and raw tensors retained on server only",
   "open_items": [
-    "Paired same-generation GPU reward counterfactual when four GPUs are idle; use new run_id",
-    "vLLM sampling RNG bitwise recovery remains unverified",
-    "Step2 model not persisted; provision storage before further complete-checkpoint work",
-    "Verify periodic full GPU snapshot/restore when four GPUs and enough storage are available; CPU lifecycle checks are not GPU acceptance"
+    "Measure new model native-loop capability, real GPU peaks, complete checkpoint and raw-history sizes; no model/configuration frozen yet",
+    "Provision authorized personal storage for protected/rolling/new snapshots and raw records; do not delete existing recovery assets",
+    "Implement version-local baseline entry, full state signatures, step0/late fork, native replay and case-level evaluation",
+    "Close correctness evidence gaps using design/code/parameter review, independent counterexamples and actual GPU state/replay checks",
+    "Freeze normal baseline and Gate protocols only after independent calibration; record all changes and failures",
+    "vLLM sampling probability capture and bitwise recovery remain unverified",
+    "Existing step2 model was not persisted; old 3B periodic GPU snapshot policy and paired reward GPU trial still pending, not prerequisites for paper-score reproduction"
   ],
   "next_research_steps": [
-    "Reproduce paper SFT/model/benchmark settings separately",
-    "Execute six hypothesis gates after baseline data and evaluation protocol are established"
+    "Implement and validate the new v01 own baseline under the four-GPU and storage budgets",
+    "Accept normal training, evaluation and complete recovery; prepare same-state reward interventions",
+    "Execute Gate1–6 in v02–v07 with independent freezes/reviews/reports; actual HED/CSS/TRA/RR follow feasibility evidence"
   ],
   "research_claims": {
     "six_gates_passed": false,
@@ -145,14 +199,17 @@
     "flash_attention": "2.7.4.post1 official wheel; ZIP and SHA256 verified"
   },
   "documentation": {
-    "status": "updated",
+    "status": "design_and_new_standard_checked; publication_pending; historical_pilot_reports_retained",
     "report": "docs/v01/pilot_report.md",
     "review": "docs/v01/runtime_review.md",
     "history": "docs/CHANGE_HISTORY.md",
-    "checkpoint_policy": "docs/v01/checkpoint_policy.md"
+    "checkpoint_policy": "docs/v01/checkpoint_policy.md",
+    "baseline_design": "docs/v01/baseline_design.md",
+    "gate_protocol": "docs/v01/gate_protocol.md",
+    "design_review": "docs/v01/design_review.md"
   },
   "version_control": {
-    "status": "published",
+    "status": "documentation_update_pending_publication",
     "remote": "git@github.com:xiao-Huahuo/SCOR.git",
     "branch": "main",
     "tracked_scope": "source, configuration, research documentation and bibliography manifests/scripts",
@@ -164,8 +221,51 @@
       "downloaded literature PDFs and caches",
       "macOS metadata"
     ],
-    "publication_status": "initial_commit_verified_on_origin_main",
+    "publication_status": "design_documents_checked; commit_and_remote_verification_pending",
     "transport": "SSH through local HTTP proxy from user-provided terminal script; local Git config only",
-    "initial_published_commit": "3064bf33b7281bb1f1788e3d22597f8cd819911c"
+    "initial_published_commit": "3064bf33b7281bb1f1788e3d22597f8cd819911c",
+    "last_verified_published_commit": "4901a9afcfbf10934c5caba030b77ae05b26358c",
+    "publication_receipt_for_this_task": ".runtime/git/baseline_design_publication.json"
+  },
+  "design": {
+    "status": "proposal_not_frozen",
+    "baseline": "docs/v01/baseline_design.md",
+    "gate_protocol": "docs/v01/gate_protocol.md",
+    "review": "docs/v01/design_review.md",
+    "user_confirmed_constraints": [
+      "v01 is the own mechanism baseline",
+      "at most four RTX4090 for future training and repair experiments",
+      "model and configuration may change for controlled mechanism comparisons",
+      "preserve Agent0-VL core loop and version-isolated organization"
+    ],
+    "version_roadmap": {
+      "v01": "own baseline",
+      "v02": "Gate1",
+      "v03": "Gate2",
+      "v04": "Gate3",
+      "v05": "Gate4",
+      "v06": "Gate5",
+      "v07": "Gate6"
+    },
+    "model_candidate": "Qwen/Qwen2-VL-2B-Instruct",
+    "model_candidate_verified_in_native_training": false,
+    "paper_setting_reproduction_is_prerequisite": false,
+    "reward_proposal": "native mixed reward, alpha_out=1; artificial terminal false-positive; not pure self-reward or natural Verifier error",
+    "replay_proposal": "native reanchor forced-history intervention; not claimed on-policy/unbiased; denominator/support sensitivity required",
+    "oracle_gate6": "cached counterfactual-data upper bound and actual current-policy regeneration measured separately",
+    "proposed_numbers_frozen": false,
+    "formal_run_started": false,
+    "correctness_acceptance": "Independent design/code and parameter review with counterexamples and actual evidence; unresolved implementation P0/P1 blocks dependent formal experiments"
+  },
+  "governance": {
+    "research_standard": "科研开发规范.md",
+    "updated_from": "/Users/slumpyfufu/Desktop/Projects/MarkdownNotes/杂项/开发规范/科研开发规范.md",
+    "updated_date": "2026-10-10",
+    "source_sha256": "d5f010004d32ef9f32fba039c01019d5098fefa10fd73b4e90a31d8ead478749",
+    "project_sha256": "d3967b069ed0dfae812a554de3fa874cd64d400de86fcb4a5468c91a3480b006",
+    "local_addition_preserved": "Server usage rule, first-priority item 9, previously requested by user",
+    "new_requirement": "Mandatory deep code correctness review, code-development item 5",
+    "source_content_match_except_server_rule": true,
+    "agent_instructions_standard_reference": "AGENTS.md and CLAUDE.md point to 科研开发规范.md"
   }
 }

@@ -132,7 +132,7 @@ CLAUDE.md
 
 
 
-5\. 每次开始编写代码,都必须先阅读`开发规范.md`.只允许符合开发规范的代码,禁止一切不符合开发规范的代码.
+5\. 每次开始编写代码,都必须先阅读`科研开发规范.md`.只允许符合开发规范的代码,禁止一切不符合开发规范的代码.
 编码规范：本项目所有文件必须使用 UTF-8（推荐 UTF-8 no BOM）读写和保存，避免因 Windows PowerShell 5.1、系统默认代码页（如 CP936/GBK/ANSI）或工具链隐式编码导致中文、日文、emoji、特殊标点等字符乱码。修改文件时不得依赖 PowerShell 的默认 `Get-Content`、`Set-Content`、`Out-File` 编码行为；如必须使用 PowerShell，应显式指定 UTF-8 编码，或优先使用 Python/Node.js 等明确以 UTF-8 读写文件的方式。提交前请确保 VS Code、Git、终端和脚本均按 UTF-8 处理文本，避免将已经乱码的内容再次写回文件。
 
 # Compact Instructions

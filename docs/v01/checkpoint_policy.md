@@ -2,6 +2,8 @@
 
 日期：2026-10-10（Asia/Shanghai）。这是存储与恢复策略修订，保留原生奖励、GRPO loss 和 optimizer 更新规则；旧运行与其失败状态不改写。
 
+本文件描述已实现的3B工程试跑策略。新的v01自有baseline设计见 [baseline_design.md](baseline_design.md)：新模型须实测空间预算，step0与晚期分叉协议尚待实现，不能直接复用本文件的3B固定空间门槛。
+
 ## 保存规则
 
 - 完整快照按 `trainer.save_freq` 的 global step 间隔保存。v01 两步试跑默认间隔为2，因此正常跑到step2只保存一份。

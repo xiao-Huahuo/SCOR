@@ -1,4 +1,6 @@
-# v01：Agent0-VL 小规模实验
+# v01：自有机制 baseline
+
+本版目标是基于 Agent0-VL 建立自己的机制 baseline，后续最多四张4090、各实验分支串行。设计见 [baseline_design.md](../../docs/v01/baseline_design.md)，六Gate协议见 [gate_protocol.md](../../docs/v01/gate_protocol.md)。优先验证2B候选；配置未冻结、新入口尚未实现。v02–v07规划为Gate1–6，正式baseline不另占v02。
 
 本版采用官方 Agent0-VL 原生训练链路。四卡 3B 试验已执行两次 GRPO 更新，完整 step1 checkpoint 的恢复续训通过；具体证据和限制见 [pilot_report.md](../../docs/v01/pilot_report.md)。配对 reward 错误 GPU 对照尚因资源预检未通过而未启动。
 
@@ -6,7 +8,9 @@
 
 上游固定为 `aiming-lab/Agent0@f775b5101e62fe92976831adf4a21a38fcc0a767`。源码修改为三处：`TaskRunner.run` 的记录与检查点策略 hook；多卡 padding 与验证元数据宽度一致性修复；GRPO 无 critic 时跳过 critic 数值指标，保留长度指标。真实 token、mask、原生奖励、GRPO loss 和 optimizer 规则不改。工具、Verifier、Repair 和 FSDP 仍使用官方实现。`math-verify` 使用符合原生评分接口的 0.7.0，评分源码保持原样。24 GB 卡在 vLLM 唤醒前释放未使用的 PyTorch 缓存；使用 V0、0.55 显存预算，并关闭 prefix cache 和 chunked prefill 以避免重复图像的占位符错误。
 
-## 入口
+## 现有工程试跑入口
+
+以下入口和配置仍针对已验证的3B试跑，最多8步、仅支持初始step1 generation重放，保存空间门槛也是3B条件。新设计中的run_baseline/state分叉/replay接口尚未实现，不能直接以这些命令执行正式baseline或后续Gate。
 
 以下命令在项目根目录执行，服务器 Python 为本项目 `.runtime/gpu-venv/bin/python`。本机数据与结构测试使用 `.runtime/venvs/scor-local/bin/python`。
 
@@ -42,7 +46,7 @@ python solutions/v01/src/compare_rewards.py solutions/v01/outputs/native_stop1_1
 ## 证据与边界
 
 - `raw/generation_step_*.pt`：官方 rollout 输出及用于检查配对一致性的 prompt。
-- `raw/training_group_step_*.pt`：真正进入原生 updater 的完整 batch，包含原行为 logprob、reward 和 advantage。
+- `raw/training_group_step_*.pt`：真正进入原生 updater 的完整 batch，包含训练器重算的 `old_log_probs`、reward 和 advantage；该字段尚未验收为实际采样概率。
 - `raw/reward_step_*.json`：原始 reward、修改后 reward 与工具/验证/repair 信息。
 - `raw/metrics_step_*.json`：原生训练指标与实际参数采样变化。
 - `checkpoints/global_step_*/scor_complete.json`：模型、optimizer、scheduler/RNG 和 dataloader 写完后的完成标记。
