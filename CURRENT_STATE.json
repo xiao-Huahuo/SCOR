@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "project": "SCOR",
+  "active_version": "v01",
+  "updated_date": "2026-10-10",
+  "objective": "基于 Agent0-VL 官方代码尝试四张 RTX 4090 上的小规模复现与受控 reward 错误验证",
+  "status": "native_core_and_resume_verified; paired_gpu_reward_trial_waiting_for_resources",
+  "code": {
+    "status": "native_gpu_executed",
+    "entry": "solutions/v01/src",
+    "native_diff": "TaskRunner hook; common DP padding/verification widths; critic-only metric guard for GRPO. Original scoring, GRPO loss and optimizer update rules preserved.",
+    "training_signature": "0a0fd00185a624189484f29955052fafb645c4671cfdbe2f15d0320b8048a720",
+    "offline_analysis_entry": "solutions/v01/src/compare_rewards.py",
+    "scor_core_implemented": false
+  },
+  "tests": {
+    "local": "6 passed; native module skipped because torch absent locally",
+    "native_cpu": "10 passed in 4.40s on server; latest evidence native_tests_05.log",
+    "gpu": "Actual CUDA matmul and BF16 FlashAttention kernels passed; native GRPO ran on four GPUs",
+    "checkpoint_resume": "Actual model/optimizer/scheduler/worker RNG/dataloader and driver RNG restored; next batch 4–7 used for step2",
+    "sampling_rng_bitwise_verified": false,
+    "offline_reward_counterfactual": "Actual captured batch recomputation matches native updater input; changing row0 return by -2 changes all four group advantages, flips another trajectory sign, leaves other groups unchanged",
+    "version_control": "Actual credential/runtime/data/output/PDF paths ignored; 65 UTF-8 files staged; credential-pattern scan clear; source/config blobs match local bytes. Existing legacy documentation whitespace warnings retained."
+  },
+  "data": {
+    "status": "generated_and_frozen_on_server",
+    "kind": "synthetic visual engineering pilot; not paper benchmark",
+    "train_rows": 16,
+    "evaluation_rows": 4,
+    "training_questions_used": 8,
+    "training_trajectories": 32,
+    "dataset_directory": "solutions/v01/inputs/visual_pilot_v2",
+    "data_signature": "6732fb48dcf873739dbbf6c1504d568536870126bc26b4b89509ef7b6b94327a"
+  },
+  "server": {
+    "alias": "WHU84piYB",
+    "maximum_gpu_count": 4,
+    "observed_gpu_count": 8,
+    "selected_gpu_ids": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "gpu_model": "RTX 4090 24 GB",
+    "workspace": "/data1/yangbin/SCOR_v01",
+    "initial_free_disk_gib": 95,
+    "last_free_disk_gib": 32.77,
+    "last_resource_status": "GPU4/5 occupied by another task; only GPU6/7 available",
+    "host_keys": "User authorized first connection; task-specific known_hosts pinned; administrator verification not claimed"
+  },
+  "upstream": {
+    "repository": "https://github.com/aiming-lab/Agent0",
+    "commit": "f775b5101e62fe92976831adf4a21a38fcc0a767"
+  },
+  "runs": {
+    "native_stop1_10": {
+      "status": "failed_after_complete_checkpoint_save",
+      "native_update_executed": true,
+      "step": 1,
+      "original_final_gpu_metrics_missing": true,
+      "failure": "GRPO metric_utils used undefined critic values",
+      "complete_checkpoint_server_path": "/data1/yangbin/SCOR_v01/solutions/v01/outputs/native_stop1_10/checkpoints/global_step_1",
+      "checkpoint_bytes": 46302239618
+    },
+    "native_resume2_01": {
+      "status": "completed",
+      "returncode": 0,
+      "step": 2,
+      "native_chain_observation_passed": true,
+      "trajectories": 16,
+      "nonzero_advantage_tokens": 3315,
+      "gradient_norm": 2.954097270965576,
+      "parameter_probe_changed_fraction": 1.0,
+      "parameter_probe_finite": 1.0,
+      "tool_success_steps": 11,
+      "verified_steps": 23,
+      "repaired_steps": 5,
+      "final_model_saved": false
+    },
+    "native_corrupt1_01": {
+      "status": "preflight_failed",
+      "gpu_training_started": false,
+      "reason": "GPU4/5 busy"
+    }
+  },
+  "validation": {
+    "examples": 4,
+    "initial_accuracy": 0.75,
+    "after_step1_accuracy": 0.75,
+    "after_step2_accuracy": 0.75,
+    "performance_improvement_observed": false,
+    "metric": "direct native per-sample correctness, not prompt-grouped mean@k"
+  },
+  "evidence": [
+    "solutions/v01/outputs/native_resume2_01/processed/verification.json",
+    "solutions/v01/outputs/native_resume2_01/raw/resume_loaded.json",
+    "solutions/v01/outputs/native_resume2_01/raw/group_step_000002.json",
+    "solutions/v01/outputs/native_stop1_10/checkpoints/global_step_1/scor_complete.json",
+    "solutions/v01/outputs/native_stop1_10/processed/reward_counterfactual_step_000001.json",
+    "solutions/v01/outputs/native_corrupt1_01/raw/preflight.json",
+    "solutions/v01/outputs/server_preflight_20261010/raw/native_tests_05.log"
+  ],
+  "evidence_storage": "Small JSON/CSV/log and checkpoint completion certificate copied locally; full model/optimizer shards and raw tensors retained on server only",
+  "open_items": [
+    "Paired same-generation GPU reward counterfactual when four GPUs are idle; use new run_id",
+    "vLLM sampling RNG bitwise recovery remains unverified",
+    "Step2 model not persisted; provision storage before further complete-checkpoint work"
+  ],
+  "next_research_steps": [
+    "Reproduce paper SFT/model/benchmark settings separately",
+    "Execute six hypothesis gates after baseline data and evaluation protocol are established"
+  ],
+  "research_claims": {
+    "six_gates_passed": false,
+    "full_paper_reproduced": false,
+    "scor_effectiveness_proven": false
+  },
+  "environment": {
+    "status": "ready; isolated venv; pip check and actual kernels passed",
+    "isolated_environment": "/data1/yangbin/SCOR_v01/.runtime/gpu-venv",
+    "torch": "2.6.0+cu124",
+    "vllm": "0.8.2",
+    "transformers": "4.49.0",
+    "math_verify": "0.7.0; original scoring APIs/source",
+    "xgrammar": "0.1.16 compiled from official source tag",
+    "flash_attention": "2.7.4.post1 official wheel; ZIP and SHA256 verified"
+  },
+  "documentation": {
+    "status": "updated",
+    "report": "docs/v01/pilot_report.md",
+    "review": "docs/v01/runtime_review.md",
+    "history": "docs/CHANGE_HISTORY.md"
+  },
+  "version_control": {
+    "status": "initialized_and_reviewed",
+    "remote": "git@github.com:xiao-Huahuo/SCOR.git",
+    "branch": "main",
+    "tracked_scope": "source, configuration, research documentation and bibliography manifests/scripts",
+    "ignored_scope": [
+      "server credentials and backups",
+      "local task handoff",
+      "runtime and Python environments",
+      "inputs/outputs/checkpoints/models",
+      "downloaded literature PDFs and caches",
+      "macOS metadata"
+    ],
+    "publication_status": "ready_to_push",
+    "transport": "SSH through local HTTP proxy from user-provided terminal script; local Git config only"
+  }
+}

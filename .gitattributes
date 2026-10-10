@@ -1,0 +1,3 @@
+# 保持源码与配置的 LF，避免跨平台换行改变实验代码哈希
+* text=auto eol=lf
+*.bat text eol=crlf

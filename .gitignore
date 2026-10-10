@@ -1,0 +1,51 @@
+# 本机凭据与个人运行记录
+/服务器.txt*
+/TASK_STATE.md
+.env
+.env.*
+!.env.example
+!.env.sample
+.ssh/
+*.pem
+*.key
+id_rsa
+id_ed25519
+id_ecdsa
+id_dsa
+
+# 运行环境、输入输出、历史运行与模型
+.runtime/
+.venv/
+venv/
+/solutions/*/inputs/
+/solutions/*/outputs/
+/history/**/inputs/
+/history/**/outputs/
+/exports/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# 论文下载副本；保留 Markdown、来源清单与下载脚本
+.pdf_cache/
+/docs/RSI-Agent/evo-vl-mustread/papers/*.pdf
+/docs/RSI-Agent/SCOR_related_papers_by_algorithm/**/*.pdf
+*.part
+*.downloading
+
+# Python 与工具缓存
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# macOS 元数据
+.DS_Store
+.AppleDouble
+._*
+Icon?

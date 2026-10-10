@@ -1,0 +1,7 @@
+编号	文件名	论文名	官方PDF
+01	01_Agent0-VL.pdf	Agent0-VL: Exploring Self-Evolving Agent for Tool-Integrated Vision-Language Reasoning	https://arxiv.org/pdf/2511.19900
+02	02_Preference-Leakage.pdf	Preference Leakage: A Contamination Problem in LLM-as-a-judge	https://arxiv.org/pdf/2502.01534.pdf
+03	03_CoVerRL.pdf	CoVerRL: Breaking the Consensus Trap in Label-Free Reasoning via Generator-Verifier Co-Evolution	https://aclanthology.org/2026.acl-long.1376.pdf
+04	04_Self-Rewarding-Language-Models.pdf	Self-Rewarding Language Models	https://proceedings.mlr.press/v235/yuan24d/yuan24d.pdf
+05	05_Self-Preference-Bias.pdf	Self-Preference Bias in LLM-as-a-Judge	https://arxiv.org/pdf/2410.21819.pdf
+06	06_DeepSeekMath.pdf	DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models	https://arxiv.org/pdf/2402.03300.pdf
