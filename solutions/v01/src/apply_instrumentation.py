@@ -1,4 +1,4 @@
-"""Add one explicit project hook to the pinned upstream driver."""
+"""Add recording and storage-policy hooks to the pinned upstream driver."""
 from __future__ import annotations
 
 import argparse
@@ -8,10 +8,14 @@ import subprocess
 from pilot_utils import UPSTREAM_COMMIT, file_digest
 
 BEFORE = "    def run(self, config):\n        from verl.utils.fs import copy_to_local\n"
-AFTER = ("    def run(self, config):\n"
+LEGACY_AFTER = ("    def run(self, config):\n"
          "        from scor_hooks import install\n"
          "        install(config)\n"
          "        from verl.utils.fs import copy_to_local\n")
+AFTER = LEGACY_AFTER.replace("        from verl.utils.fs import copy_to_local\n",
+        "        from checkpoint_policy import install as install_checkpoint_policy\n"
+        "        install_checkpoint_policy(config)\n"
+        "        from verl.utils.fs import copy_to_local\n")
 
 
 def apply(checkout: Path) -> str:
@@ -21,9 +25,10 @@ def apply(checkout: Path) -> str:
     path = checkout / "Agent0-VL/verl/trainer/main_ppo.py"
     text = path.read_text(encoding="utf-8")
     if AFTER not in text:
-        if text.count(BEFORE) != 1:
+        before = LEGACY_AFTER if LEGACY_AFTER in text else BEFORE
+        if text.count(before) != 1:
             raise ValueError("Upstream hook location changed; do not patch by guesswork")
-        path.write_text(text.replace(BEFORE, AFTER), encoding="utf-8")
+        path.write_text(text.replace(before, AFTER), encoding="utf-8")
     score_path = checkout / "Agent0-VL/verl/utils/reward_score/math_verify.py"
     score_text = score_path.read_text(encoding="utf-8")
     native_import = "from math_verify.errors import TimeoutException"

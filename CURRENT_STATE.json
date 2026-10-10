@@ -8,19 +8,34 @@
   "code": {
     "status": "native_gpu_executed",
     "entry": "solutions/v01/src",
-    "native_diff": "TaskRunner hook; common DP padding/verification widths; critic-only metric guard for GRPO. Original scoring, GRPO loss and optimizer update rules preserved.",
+    "native_diff": "TaskRunner recording and checkpoint-policy hooks; common DP padding/verification widths; critic-only GRPO metric guard. Scoring, GRPO loss, optimizer rules and original scor_hooks bytes unchanged.",
     "training_signature": "0a0fd00185a624189484f29955052fafb645c4671cfdbe2f15d0320b8048a720",
     "offline_analysis_entry": "solutions/v01/src/compare_rewards.py",
-    "scor_core_implemented": false
+    "scor_core_implemented": false,
+    "checkpoint_policy": {
+      "entry": "solutions/v01/src/checkpoint_policy.py",
+      "default_interval_global_steps": 2,
+      "default_keep_latest": null,
+      "extra_save_boundaries": [
+        "final",
+        "intentional_stop",
+        "explicit_protected_steps"
+      ],
+      "retirement": "Only owned complete same-signature snapshots after a new certified/fsynced replacement; other runs untouched",
+      "old_training_signature_preserved": true,
+      "model_commit_unit": "Full checkpoint boundary; later updates may require rerunning on interruption",
+      "native_gpu_policy_test_executed": false
+    }
   },
   "tests": {
-    "local": "6 passed; native module skipped because torch absent locally",
-    "native_cpu": "10 passed in 4.40s on server; latest evidence native_tests_05.log",
+    "local": "19 passed, 1 native module skipped; latest interval-policy and lifecycle checks included",
+    "native_cpu": "23 passed on server after policy addition; includes previous 10 tests and 13 policy tests",
     "gpu": "Actual CUDA matmul and BF16 FlashAttention kernels passed; native GRPO ran on four GPUs",
     "checkpoint_resume": "Actual model/optimizer/scheduler/worker RNG/dataloader and driver RNG restored; next batch 4–7 used for step2",
     "sampling_rng_bitwise_verified": false,
     "offline_reward_counterfactual": "Actual captured batch recomputation matches native updater input; changing row0 return by -2 changes all four group advantages, flips another trajectory sign, leaves other groups unchanged",
-    "version_control": "Actual credential/runtime/data/output/PDF paths ignored; 65 UTF-8 files staged; credential-pattern scan clear; source/config blobs match local bytes. Existing legacy documentation whitespace warnings retained."
+    "version_control": "Actual credential/runtime/data/output/PDF paths ignored; 65 UTF-8 files staged; credential-pattern scan clear; source/config blobs match local bytes. Existing legacy documentation whitespace warnings retained.",
+    "checkpoint_policy": "13 policy/lifecycle unit tests with simulated small shards; native 4-GPU interval save/resume pending"
   },
   "data": {
     "status": "generated_and_frozen_on_server",
@@ -99,13 +114,16 @@
     "solutions/v01/outputs/native_stop1_10/checkpoints/global_step_1/scor_complete.json",
     "solutions/v01/outputs/native_stop1_10/processed/reward_counterfactual_step_000001.json",
     "solutions/v01/outputs/native_corrupt1_01/raw/preflight.json",
-    "solutions/v01/outputs/server_preflight_20261010/raw/native_tests_05.log"
+    "solutions/v01/outputs/server_preflight_20261010/raw/native_tests_05.log",
+    "solutions/v01/outputs/checkpoint_policy_cpu_01/raw/compatibility.json",
+    "solutions/v01/outputs/checkpoint_policy_cpu_02/raw/tests.log"
   ],
   "evidence_storage": "Small JSON/CSV/log and checkpoint completion certificate copied locally; full model/optimizer shards and raw tensors retained on server only",
   "open_items": [
     "Paired same-generation GPU reward counterfactual when four GPUs are idle; use new run_id",
     "vLLM sampling RNG bitwise recovery remains unverified",
-    "Step2 model not persisted; provision storage before further complete-checkpoint work"
+    "Step2 model not persisted; provision storage before further complete-checkpoint work",
+    "Verify periodic full GPU snapshot/restore when four GPUs and enough storage are available; CPU lifecycle checks are not GPU acceptance"
   ],
   "next_research_steps": [
     "Reproduce paper SFT/model/benchmark settings separately",
@@ -130,7 +148,8 @@
     "status": "updated",
     "report": "docs/v01/pilot_report.md",
     "review": "docs/v01/runtime_review.md",
-    "history": "docs/CHANGE_HISTORY.md"
+    "history": "docs/CHANGE_HISTORY.md",
+    "checkpoint_policy": "docs/v01/checkpoint_policy.md"
   },
   "version_control": {
     "status": "published",

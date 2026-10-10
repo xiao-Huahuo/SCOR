@@ -12,6 +12,7 @@ import subprocess
 import sys
 
 from apply_instrumentation import apply
+from checkpoint_policy import complete_checkpoint, plan_checkpoints, required_disk_bytes
 from pilot_utils import ROOT, SRC, UPSTREAM_COMMIT, VERSION, atomic_json, check_profile, digest, file_digest, hydra_value, read_json
 from preflight import inspect
 
@@ -40,6 +41,12 @@ def main() -> int:
     parser.add_argument("--resume-from", type=Path)
     parser.add_argument("--no-new-checkpoint", action="store_true",
                         help="Bounded diagnostic run without a new checkpoint; final model is not persisted.")
+    parser.add_argument("--checkpoint-interval", type=int,
+                        help="Save a full snapshot every N training global steps; also save at final/stop/protected steps.")
+    parser.add_argument("--checkpoint-keep", type=int,
+                        help="Retain latest N snapshots in this run after a complete new save; default keeps all.")
+    parser.add_argument("--checkpoint-pin-step", type=int, action="append", default=[],
+                        help="Force and protect a critical checkpoint step; may be repeated.")
     parser.add_argument("--corrupt-step", type=int)
     parser.add_argument("--corrupt-row", type=int, default=0)
     parser.add_argument("--corrupt-delta", type=float, default=-2.0)
@@ -52,6 +59,20 @@ def main() -> int:
         parser.error("Paired replay in this pilot requires step 1 from the same fresh initial model")
     profile = read_json(args.profile)
     check_profile(profile)
+    interval = args.checkpoint_interval if args.checkpoint_interval is not None else profile["overrides"]["trainer.save_freq"]
+    if profile["overrides"].get("trainer.max_actor_ckpt_to_keep") is not None:
+        parser.error("Use --checkpoint-keep; native pre-save deletion is disabled")
+    start = 0
+    if args.resume_from:
+        if not complete_checkpoint(args.resume_from):
+            parser.error("Resume requires actual complete checkpoint shards, not only a certificate")
+        start = read_json(args.resume_from / "scor_complete.json")["step"]
+    try:
+        checkpoint_plan = plan_checkpoints(profile["overrides"]["trainer.total_training_steps"],
+            interval, start=start, stop=args.stop_after, protected=args.checkpoint_pin_step,
+            keep=args.checkpoint_keep, enabled=not args.no_new_checkpoint)
+    except ValueError as error:
+        parser.error(str(error))
     ids = [int(i) for i in args.gpus.split(",")]
     if len(ids) != profile["overrides"]["trainer.n_gpus_per_node"]:
         parser.error("GPU count must match the profile")
@@ -73,6 +94,15 @@ def main() -> int:
         if file_digest(data / split["file"]) != split["sha256"]:
             raise ValueError("Input parquet hash mismatch")
     overrides = dict(profile["overrides"])
+    batch_size = overrides.get("data.gen_batch_size") or overrides["data.train_batch_size"]
+    available_steps = (dataset["splits"]["train"]["rows"] // batch_size) * overrides["trainer.total_epochs"]
+    if overrides["trainer.total_training_steps"] > available_steps:
+        problem = {"status": "data_budget_failed", "available_steps": available_steps,
+                   "requested_steps": overrides["trainer.total_training_steps"]}
+        atomic_json(run / "status.json", problem)
+        print(json.dumps(problem))
+        return 2
+    overrides["trainer.save_freq"] = interval
     overrides.update({"actor_rollout_ref.model.path": str(model),
                       "data.train_files": str(data / "train.parquet"),
                       "data.val_files": str(data / "val.parquet"),
@@ -87,14 +117,14 @@ def main() -> int:
     checkout = ROOT / ".runtime/upstream/Agent0"
     patch_hash = apply(checkout)
     signature = training_signature(overrides, model, dataset)
-    checkpoint_count = 0 if args.no_new_checkpoint else (
-        args.stop_after or overrides["trainer.total_training_steps"])
-    # Conservatively estimate fp32 weights and two Adam moments from BF16 weight size.
+    checkpoint_count = len(checkpoint_plan["scheduled_steps"])
+    # Include final/stop/protected boundaries and replacement coexistence before retirement.
     model_bytes = sum(path.stat().st_size for path in model.glob("*.safetensors"))
-    needed = checkpoint_count * model_bytes * 6 + 5 * 2**30
+    needed = required_disk_bytes(model_bytes, checkpoint_plan)
     if shutil.disk_usage(ROOT).free < needed:
         problem = {"status": "storage_budget_failed", "needed_gib": round(needed / 2**30, 1),
-                   "free_gib": report["free_disk_gib"], "checkpoint_count": checkpoint_count}
+                   "free_gib": report["free_disk_gib"], "checkpoint_count": checkpoint_count,
+                   "peak_snapshot_slots": checkpoint_plan["peak_snapshot_slots"]}
         atomic_json(run / "status.json", problem)
         print(json.dumps(problem))
         return 2
@@ -110,11 +140,13 @@ def main() -> int:
                 "config_hash": digest(overrides), "data_signature": dataset["data_signature"],
                 "model_snapshot": str(model), "selected_gpus": ids,
                 "stop_after": args.stop_after, "final_checkpoint_disabled": args.no_new_checkpoint,
+                "checkpoint_policy": checkpoint_plan,
                 "corruption": {"step": args.corrupt_step, "row": args.corrupt_row, "delta": args.corrupt_delta},
                 "replay_generation": ({"run_dir": str(args.replay_generation_from.resolve()),
                                        "step": args.replay_step} if args.replay_generation_from else None),
                 "limitations": ["Small synthetic dataset and 3B adaptation; not paper benchmark reproduction",
-                                "vLLM sampling RNG bitwise recovery is not yet verified"]}
+                                "vLLM sampling RNG bitwise recovery is not yet verified",
+                                "Only full checkpoint boundaries commit model state; interruption may require rerunning the later segment in a new run"]}
     if args.no_new_checkpoint:
         manifest["limitations"].append("No final model checkpoint is saved in this diagnostic attempt")
     if args.replay_generation_from:

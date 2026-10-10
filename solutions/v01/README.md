@@ -4,7 +4,7 @@
 
 方案与验收规则见 [pilot_plan.md](../../docs/v01/pilot_plan.md)。`inputs/` 与 `outputs/` 不进入 Git；凭据不写入本版代码或收据。
 
-上游固定为 `aiming-lab/Agent0@f775b5101e62fe92976831adf4a21a38fcc0a767`。源码修改为三处：`TaskRunner.run` 的两行项目 hook；多卡 padding 与验证元数据宽度一致性修复；GRPO 无 critic 时跳过 critic 数值指标，保留长度指标。真实 token、mask、原生奖励、GRPO loss 和 optimizer 规则不改。工具、Verifier、Repair 和 FSDP 仍使用官方实现。`math-verify` 使用符合原生评分接口的 0.7.0，评分源码保持原样。24 GB 卡在 vLLM 唤醒前释放未使用的 PyTorch 缓存；使用 V0、0.55 显存预算，并关闭 prefix cache 和 chunked prefill 以避免重复图像的占位符错误。
+上游固定为 `aiming-lab/Agent0@f775b5101e62fe92976831adf4a21a38fcc0a767`。源码修改为三处：`TaskRunner.run` 的记录与检查点策略 hook；多卡 padding 与验证元数据宽度一致性修复；GRPO 无 critic 时跳过 critic 数值指标，保留长度指标。真实 token、mask、原生奖励、GRPO loss 和 optimizer 规则不改。工具、Verifier、Repair 和 FSDP 仍使用官方实现。`math-verify` 使用符合原生评分接口的 0.7.0，评分源码保持原样。24 GB 卡在 vLLM 唤醒前释放未使用的 PyTorch 缓存；使用 V0、0.55 显存预算，并关闭 prefix cache 和 chunked prefill 以避免重复图像的占位符错误。
 
 ## 入口
 
@@ -32,6 +32,12 @@ python solutions/v01/src/compare_rewards.py solutions/v01/outputs/native_stop1_1
 受控错误入口为 `--corrupt-step 1 --corrupt-row 0 --corrupt-delta -2`。要比较同一批轨迹的奖励变化，必须再加 `--replay-generation-from <已保存原生生成结果的运行目录> --replay-step 1`，并使用同一模型初始状态和数据配置。这个试验不等同于真实 Verifier mistakes。
 
 已保存的 `native_corrupt1_01` 因 GPU4/5 被其他任务占用，在训练前停止。四卡空闲时应使用新编号，例如 `native_corrupt1_02`，从原始模型启动，配合 `--replay-generation-from solutions/v01/outputs/native_stop1_10 --replay-step 1 --no-new-checkpoint`；不能覆盖旧目录。离线 `compare_rewards.py` 已在真正进入 updater 的 batch 上验证：只改一条 return，同组四条 advantage 都变，另一条轨迹由负变正。离线脚本不会做新的 GPU 参数更新。
+
+## 间隔式 checkpoint
+
+默认每2个训练步保存完整快照，末步、主动停止点和显式关键点额外保存。可用 `--checkpoint-interval N` 调整间隔，`--checkpoint-keep N` 在新快照完整写入后只清理本轮旧快照，`--checkpoint-pin-step S` 强制保存并保护关键训练步。默认保留所有已保存快照，不自动清理旧运行。
+
+磁盘预算按实际保存步和替换时的新旧共存峰值计算。每步仍保存轨迹和指标；模型状态仅在完整快照边界提交，中断后可能需要重算其后的未提交区间。策略、配置、验收和恢复边界见 [checkpoint_policy.md](../../docs/v01/checkpoint_policy.md)。新策略CPU测试通过，真实GPU间隔保存/恢复尚待资源与存储到位。
 
 ## 证据与边界
 

@@ -8,6 +8,7 @@ import math
 from pathlib import Path
 
 from pilot_utils import atomic_json, read_json
+from checkpoint_policy import complete_checkpoint
 
 
 def verify(run: Path) -> dict:
@@ -50,7 +51,8 @@ def verify(run: Path) -> dict:
         problems.append("No verified Solver step observed")
     if sum(row["repaired_steps"] for row in rows) == 0:
         problems.append("Repair was enabled but no actual repaired step was observed")
-    checkpoints = [str(p.parent) for p in (run / "checkpoints").glob("*/scor_complete.json")]
+    checkpoints = [str(p.parent) for p in (run / "checkpoints").glob("*/scor_complete.json")
+                   if complete_checkpoint(p.parent, manifest.get("training_signature"))]
     resume_path = run / "raw/resume_loaded.json"
     resume = read_json(resume_path) if resume_path.exists() else None
     validation = [read_json(path) for path in sorted((run / "raw").glob("validation_step_*.json"))]
