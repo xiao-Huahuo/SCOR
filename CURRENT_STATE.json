@@ -133,7 +133,7 @@
     "history": "docs/CHANGE_HISTORY.md"
   },
   "version_control": {
-    "status": "initialized_and_reviewed",
+    "status": "published",
     "remote": "git@github.com:xiao-Huahuo/SCOR.git",
     "branch": "main",
     "tracked_scope": "source, configuration, research documentation and bibliography manifests/scripts",
@@ -145,7 +145,8 @@
       "downloaded literature PDFs and caches",
       "macOS metadata"
     ],
-    "publication_status": "ready_to_push",
-    "transport": "SSH through local HTTP proxy from user-provided terminal script; local Git config only"
+    "publication_status": "initial_commit_verified_on_origin_main",
+    "transport": "SSH through local HTTP proxy from user-provided terminal script; local Git config only",
+    "initial_published_commit": "3064bf33b7281bb1f1788e3d22597f8cd819911c"
   }
 }
