@@ -66,7 +66,13 @@
           "positions": 24
         }
       },
-      "interface_smoke": "Codex open request queued; native Codex UI read prohibited by computer-use tool; published GitHub document check pending",
+      "interface_smoke": {
+        "status": "unverified",
+        "codex_open_request": "queued",
+        "codex_native_read": "prohibited by computer-use tool for safety reasons",
+        "github_browser_check": "createBrowserTab timed out after 30 seconds; getState also timed out after 30 seconds",
+        "training_or_gate_ui": "not applicable; no new training/Gate implementation in this design task"
+      },
       "preserved_source_whitespace_findings": [
         {
           "line": 96,
@@ -199,7 +205,7 @@
     "flash_attention": "2.7.4.post1 official wheel; ZIP and SHA256 verified"
   },
   "documentation": {
-    "status": "design_and_new_standard_checked; publication_pending; historical_pilot_reports_retained",
+    "status": "design_and_new_standard_checked; native_and_published_ui_smoke_unverified; historical_pilot_reports_retained",
     "report": "docs/v01/pilot_report.md",
     "review": "docs/v01/runtime_review.md",
     "history": "docs/CHANGE_HISTORY.md",
@@ -209,7 +215,7 @@
     "design_review": "docs/v01/design_review.md"
   },
   "version_control": {
-    "status": "documentation_update_pending_publication",
+    "status": "published",
     "remote": "git@github.com:xiao-Huahuo/SCOR.git",
     "branch": "main",
     "tracked_scope": "source, configuration, research documentation and bibliography manifests/scripts",
@@ -221,10 +227,10 @@
       "downloaded literature PDFs and caches",
       "macOS metadata"
     ],
-    "publication_status": "design_documents_checked; commit_and_remote_verification_pending",
+    "publication_status": "design_commit_verified_on_origin_main; latest repository HEAD verification in local publication receipt",
     "transport": "SSH through local HTTP proxy from user-provided terminal script; local Git config only",
     "initial_published_commit": "3064bf33b7281bb1f1788e3d22597f8cd819911c",
-    "last_verified_published_commit": "4901a9afcfbf10934c5caba030b77ae05b26358c",
+    "last_verified_published_commit": "d522b39fecd612fc01b9322e5471a3f84043a9a3",
     "publication_receipt_for_this_task": ".runtime/git/baseline_design_publication.json"
   },
   "design": {
