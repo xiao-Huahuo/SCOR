@@ -2,6 +2,8 @@
 
 研究方案见 [idea.md](docs/RSI-Agent/idea.md)。开发和服务器使用分别遵守 [科研开发规范.md](科研开发规范.md) 与本机私有的 `服务器.txt`。
 
+服务器统一工作目录为 `/data1/yangbin/SCOR/`，本项目创建或下载的资产均存放在其内部。此前 `/data1/yangbin/SCOR_v01` 已整体迁入，旧路径作为兼容链接保留；迁移与占用核对见 [server_migration.md](docs/v01/server_migration.md)。
+
 科研开发规范已同步用户提供的新版本，加入强制代码正确性深度审查，并保留服务器使用条款；后续开发需完成设计/实现双向核查、参数核查与独立反例验证，未闭环的P0/P1实现问题不能推进正式实验。
 
 当前版本为 `v01`，目标是建立自己的机制 baseline；后续所有训练与修复实验最多使用四张 RTX 4090，分支串行。深度设计见 [baseline_design.md](docs/v01/baseline_design.md)，六个 Gate 的协议见 [gate_protocol.md](docs/v01/gate_protocol.md)，需求与风险审查见 [design_review.md](docs/v01/design_review.md)。v01 为 baseline，v02–v07 对应 Gate1–6；原论文模型与绝对分数复现不作为前置。
@@ -12,7 +14,7 @@
 
 当前源码实现 Agent0-VL 基线与实验记录；SCOR 核心算法尚待接入。
 
-v01 已增加[间隔式检查点策略](docs/v01/checkpoint_policy.md)：默认每2步保存完整状态，末步/主动停止/关键点额外保存；可选保留数量仅在新快照完整后清理本轮旧快照。模型状态以完整快照为恢复边界，间隔内中断可能需要重算未提交段。减少份数仍不能解决当前余盘放不下一份完整快照的问题。
+v01 已增加[间隔式检查点策略](docs/v01/checkpoint_policy.md)：默认每2步保存完整状态，末步/主动停止/关键点额外保存；可选保留数量仅在新快照完整后清理本轮旧快照。模型状态以完整快照为恢复边界，间隔内中断可能需要重算未提交段。2026-10-11按用户授权清理旧3B试跑的权重和优化器分片，释放43.1GiB；旧恢复点已退役，后续baseline的关键完整状态仍需保存。[清理记录](docs/v01/checkpoint_retirement.md)
 
 - `solutions/v01/src/`：实验入口、配置、数据准备与验证代码。
 - `solutions/v01/inputs/`：输入数据，Git 忽略。
@@ -21,9 +23,9 @@ v01 已增加[间隔式检查点策略](docs/v01/checkpoint_policy.md)：默认�
 - `.runtime/`：隔离的依赖环境与上游源码，Git 忽略。
 - `CURRENT_STATE.json`：当前进度与证据状态。
 
-已有工程试跑方案见 [pilot_plan.md](docs/v01/pilot_plan.md)，下一步开发依据 [baseline_design.md](docs/v01/baseline_design.md)。运行前先执行服务器资源检查；服务器账号为共享账号，只在本项目新建的个人工作目录内写入，不改变已有任务和环境。当前约32GiB余盘不能预先认定足够新模型实验，需实测完整快照、raw增量和保护状态的共存预算。
+已有工程试跑方案见 [pilot_plan.md](docs/v01/pilot_plan.md)，下一步开发依据 [baseline_design.md](docs/v01/baseline_design.md)。运行前先执行服务器资源检查；服务器账号为共享账号，只在本项目新建的个人工作目录内写入，不改变已有任务和环境。清理后实测可用75.87GiB；新模型仍需实测完整快照、raw增量和保护状态的共存预算。
 
-结果与证据边界见 [pilot_report.md](docs/v01/pilot_report.md)，当前运行入口见 [v01 README](solutions/v01/README.md)。JSON/CSV/log 收据已同步本机；完整 checkpoint 和大型 tensor 保留在服务器 `/data1/yangbin/SCOR_v01`。第一步运行在保存 checkpoint 后因指标汇总报错，失败状态保留；修复后恢复运行正常完成。四道验证题始终为 3/4 正确，未观察到准确率提升。
+结果与证据边界见 [pilot_report.md](docs/v01/pilot_report.md)，当前运行入口见 [v01 README](solutions/v01/README.md)。JSON/CSV/log 收据已同步本机；大型轨迹tensor仍在服务器 `/data1/yangbin/SCOR/`，旧完整checkpoint的权重/优化器已退役。第一步运行在保存 checkpoint 后因指标汇总报错，失败状态保留；修复后恢复运行正常完成，这些历史结果不因后续清理而改写。四道验证题始终为 3/4 正确，未观察到准确率提升。
 
 ## Git 管理
 

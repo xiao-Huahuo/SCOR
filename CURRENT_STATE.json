@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "SCOR",
   "active_version": "v01",
-  "updated_date": "2026-10-10",
-  "objective": "在最多四张RTX4090上建立v01自有Agent0-VL类机制baseline，并按v02–v07顺序验证六个Gate；当前先完成设计与最新规范同步",
-  "status": "baseline_and_gate_design_documented; new_baseline_not_implemented_or_frozen",
+  "updated_date": "2026-10-11",
+  "objective": "在最多四张RTX4090上实施并验收v01自有Agent0-VL类机制baseline，完成后准备Gate1；服务器资产统一存入/data1/yangbin/SCOR/",
+  "status": "baseline_implementation_started; workspace_migrated; old_3b_checkpoint_retired; new_baseline_not_accepted",
   "code": {
     "status": "native_gpu_executed",
     "entry": "solutions/v01/src",
@@ -26,7 +26,8 @@
       "model_commit_unit": "Full checkpoint boundary; later updates may require rerunning on interruption",
       "native_gpu_policy_test_executed": false
     },
-    "new_baseline_implemented": false
+    "new_baseline_implemented": false,
+    "new_baseline_implementation_status": "Three initial contract modules created locally; native adapter, training entry, integration and correctness tests still pending"
   },
   "tests": {
     "local": "19 passed, 1 native module skipped; latest interval-policy and lifecycle checks included",
@@ -71,7 +72,8 @@
         "codex_open_request": "queued",
         "codex_native_read": "prohibited by computer-use tool for safety reasons",
         "github_browser_check": "createBrowserTab timed out after 30 seconds; getState also timed out after 30 seconds",
-        "training_or_gate_ui": "not applicable; no new training/Gate implementation in this design task"
+        "training_or_gate_ui": "not applicable; no new training/Gate implementation in this design task",
+        "applicability": "not applicable to this documentation/CLI task; earlier display attempts retained as historical facts"
       },
       "preserved_source_whitespace_findings": [
         {
@@ -87,6 +89,23 @@
           "origin": "blank-line whitespace preserved verbatim from user-supplied research standard"
         }
       ]
+    },
+    "server_migration": {
+      "inventory_entries_verified": 77159,
+      "protected_sha256_files_verified": 51,
+      "local_source_files_matched_to_server": 15,
+      "checkpoint_shards": 12,
+      "environment_pip_check": "passed",
+      "large_tensor_content_hashes_recomputed": false,
+      "native_gpu_restore_rerun": false
+    },
+    "checkpoint_retirement": {
+      "deleted_files": 8,
+      "deleted_bytes": 46302164640,
+      "preserved_files_sha256_verified": 49,
+      "old_complete_checkpoint_check": false,
+      "shared_base_and_environment_kept": true,
+      "receipt": "solutions/v01/outputs/retire_3b_checkpoint_20261011_01/raw/retirement.json"
     }
   },
   "data": {
@@ -111,14 +130,17 @@
       7
     ],
     "gpu_model": "RTX 4090 24 GB",
-    "workspace": "/data1/yangbin/SCOR_v01",
+    "workspace": "/data1/yangbin/SCOR",
     "initial_free_disk_gib": 95,
-    "last_free_disk_gib": 32.77,
-    "last_resource_status": "GPU4/5 occupied by another task; only GPU6/7 available",
+    "last_free_disk_gib": 75.87,
+    "last_resource_status": "GPU0–5 occupied; only GPU6/7 free; four-GPU baseline pending",
     "host_keys": "User authorized first connection; task-specific known_hosts pinned; administrator verification not claimed",
     "future_experiments_maximum_gpu_count": 4,
     "branch_scheduling": "Serial branches; same world size/topology within each comparison",
-    "resource_snapshot_note": "Historical observation only; no SSH/resource refresh during this design task; recheck before use"
+    "resource_snapshot_note": "Disk measured after authorized checkpoint cleanup on 2026-10-11; GPU observation still from prior SSH refresh; recheck before launch",
+    "legacy_workspace_alias": "/data1/yangbin/SCOR_v01",
+    "migration_receipt": "solutions/v01/outputs/server_migration_20261010/raw/migration.json",
+    "checkpoint_retirement_receipt": "solutions/v01/outputs/retire_3b_checkpoint_20261011_01/raw/retirement.json"
   },
   "upstream": {
     "repository": "https://github.com/aiming-lab/Agent0",
@@ -132,7 +154,11 @@
       "original_final_gpu_metrics_missing": true,
       "failure": "GRPO metric_utils used undefined critic values",
       "complete_checkpoint_server_path": "/data1/yangbin/SCOR_v01/solutions/v01/outputs/native_stop1_10/checkpoints/global_step_1",
-      "checkpoint_bytes": 46302239618
+      "checkpoint_bytes": 46302239618,
+      "checkpoint_asset_status": "retired_by_explicit_user_authorization",
+      "checkpoint_current_available_for_resume": false,
+      "checkpoint_retired_date": "2026-10-11",
+      "checkpoint_retirement_receipt": "solutions/v01/outputs/retire_3b_checkpoint_20261011_01/raw/retirement.json"
     },
     "native_resume2_01": {
       "status": "completed",
@@ -174,7 +200,7 @@
     "solutions/v01/outputs/checkpoint_policy_cpu_01/raw/compatibility.json",
     "solutions/v01/outputs/checkpoint_policy_cpu_02/raw/tests.log"
   ],
-  "evidence_storage": "Small JSON/CSV/log and checkpoint completion certificate copied locally; full model/optimizer shards and raw tensors retained on server only",
+  "evidence_storage": "Small JSON/CSV/log and historical completion certificate copied locally; raw generation/updater tensors remain on server. Original step1 model/optimizer shards were explicitly retired on 2026-10-11; checkpoint is no longer resumable.",
   "open_items": [
     "Measure new model native-loop capability, real GPU peaks, complete checkpoint and raw-history sizes; no model/configuration frozen yet",
     "Provision authorized personal storage for protected/rolling/new snapshots and raw records; do not delete existing recovery assets",
@@ -182,7 +208,8 @@
     "Close correctness evidence gaps using design/code/parameter review, independent counterexamples and actual GPU state/replay checks",
     "Freeze normal baseline and Gate protocols only after independent calibration; record all changes and failures",
     "vLLM sampling probability capture and bitwise recovery remain unverified",
-    "Existing step2 model was not persisted; old 3B periodic GPU snapshot policy and paired reward GPU trial still pending, not prerequisites for paper-score reproduction"
+    "Existing step2 model was not persisted; old 3B periodic GPU snapshot policy and paired reward GPU trial still pending, not prerequisites for paper-score reproduction",
+    "Old 3B checkpoint weights/optimizer are retired by user authorization; never offer that checkpoint as a current recovery asset"
   ],
   "next_research_steps": [
     "Implement and validate the new v01 own baseline under the four-GPU and storage budgets",
@@ -196,7 +223,7 @@
   },
   "environment": {
     "status": "ready; isolated venv; pip check and actual kernels passed",
-    "isolated_environment": "/data1/yangbin/SCOR_v01/.runtime/gpu-venv",
+    "isolated_environment": "/data1/yangbin/SCOR/.runtime/gpu-venv",
     "torch": "2.6.0+cu124",
     "vllm": "0.8.2",
     "transformers": "4.49.0",
@@ -205,17 +232,20 @@
     "flash_attention": "2.7.4.post1 official wheel; ZIP and SHA256 verified"
   },
   "documentation": {
-    "status": "design_and_new_standard_checked; native_and_published_ui_smoke_unverified; historical_pilot_reports_retained",
+    "status": "migration_storage_rule_and_legacy_checkpoint_retirement_documented; baseline_implementation_in_progress",
     "report": "docs/v01/pilot_report.md",
     "review": "docs/v01/runtime_review.md",
     "history": "docs/CHANGE_HISTORY.md",
     "checkpoint_policy": "docs/v01/checkpoint_policy.md",
     "baseline_design": "docs/v01/baseline_design.md",
     "gate_protocol": "docs/v01/gate_protocol.md",
-    "design_review": "docs/v01/design_review.md"
+    "design_review": "docs/v01/design_review.md",
+    "server_migration": "docs/v01/server_migration.md",
+    "implementation_plan": "docs/v01/baseline_implementation_plan.md",
+    "checkpoint_retirement": "docs/v01/checkpoint_retirement.md"
   },
   "version_control": {
-    "status": "published",
+    "status": "documentation_changes_pending_publication",
     "remote": "git@github.com:xiao-Huahuo/SCOR.git",
     "branch": "main",
     "tracked_scope": "source, configuration, research documentation and bibliography manifests/scripts",
@@ -227,7 +257,7 @@
       "downloaded literature PDFs and caches",
       "macOS metadata"
     ],
-    "publication_status": "design_commit_verified_on_origin_main; latest repository HEAD verification in local publication receipt",
+    "publication_status": "previous_design_published; migration_storage_rule_and_retirement_records_pending_publication",
     "transport": "SSH through local HTTP proxy from user-provided terminal script; local Git config only",
     "initial_published_commit": "3064bf33b7281bb1f1788e3d22597f8cd819911c",
     "last_verified_published_commit": "d522b39fecd612fc01b9322e5471a3f84043a9a3",
@@ -268,10 +298,12 @@
     "updated_from": "/Users/slumpyfufu/Desktop/Projects/MarkdownNotes/杂项/开发规范/科研开发规范.md",
     "updated_date": "2026-10-10",
     "source_sha256": "d5f010004d32ef9f32fba039c01019d5098fefa10fd73b4e90a31d8ead478749",
-    "project_sha256": "d3967b069ed0dfae812a554de3fa874cd64d400de86fcb4a5468c91a3480b006",
-    "local_addition_preserved": "Server usage rule, first-priority item 9, previously requested by user",
+    "project_sha256": "b0996b1e266f6e4005bf74c2258f132102ce443e49c762ffc5bbc49175bdd65e",
+    "local_addition_preserved": "Server usage rule 9 and user-requested unified server asset directory rule 10",
     "new_requirement": "Mandatory deep code correctness review, code-development item 5",
     "source_content_match_except_server_rule": true,
-    "agent_instructions_standard_reference": "AGENTS.md and CLAUDE.md point to 科研开发规范.md"
+    "agent_instructions_standard_reference": "AGENTS.md and CLAUDE.md point to 科研开发规范.md",
+    "server_asset_root": "/data1/yangbin/SCOR/",
+    "source_content_match_except_server_rules": true
   }
 }

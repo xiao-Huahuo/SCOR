@@ -2,6 +2,8 @@
 
 记录日期：2026-10-10（Asia/Shanghai）。工程 baseline 的核心训练链路与 checkpoint 恢复已跑通。论文数值复现、六个 Gate 和 SCOR 方法优越性均未验收。
 
+资产更新（2026-10-11）：用户已授权清理下述step1快照的权重与优化器分片；该快照当前不可恢复，原完成证书与当时的恢复试验仍是历史证据。后续清理范围和验收见 [checkpoint_retirement.md](checkpoint_retirement.md)。
+
 ## 条件与代码范围
 
 固定官方 `aiming-lab/Agent0` commit `f775b5101e62fe92976831adf4a21a38fcc0a767`，使用已有 `Qwen2.5-VL-3B-Instruct` snapshot `66285546d2b821cf421d4f5eb2576359d3770cd3`。服务器实际有八张 RTX 4090，每卡 24 GB；本任务只使用物理 GPU4–7，独立环境和工作目录为 `/data1/yangbin/SCOR_v01`。
