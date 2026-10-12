@@ -79,6 +79,6 @@ baseline raw额外保存实际角色/工具、Solver逐case显式答案、固定
 
 teacher-forced actor分数、vLLM返回分数和sampler分布不同来源分列；通用采样逐位恢复尚未证明。cal11固定Verifier正确候选接受率0是校准能力阴性，高JSON解析率不等于判断准确。v01没有实现HED/CSS/TRA/RR或执行六Gate。
 
-## 当前归档
+## 当前保留资产（2026-10-12清理后）
 
-cal05 S1本机完整lossless归档通过整包与17个member bytes/SHA核验，服务器重核源与压缩副本后才回收展开S1和staged archive。cal06 S1及cal05/06/08/09/10 S0另有六份完整验证的同服务器压缩恢复副本；原始raw/source/失败事实和cert保留，压缩副本在`.runtime/checkpoint_archives`，恢复前先核对archive与原certificate的全部成员。cal06本机下载只有96/145已验证块，完整异地备份未完成。当前cal11与三个GPUcontrols、正式保护与终态仍在服务器；本机small receipts及cert copy不等于本机拥有完整训练状态。
+三个正式seed的S32、首seed的S7/S8、E的S8，共六份完整训练状态；3B基座、运行环境、输入和全部raw/processed/source/profile/日志保留。旧校准/三个一致性对照的大权重、失败半写、三个S0和另两个S7、旧压缩恢复副本、本机完整旧备份和下载残片已按用户要求退役。旧证书/small metadata证明历史执行，不代表当前可恢复；当前本机或GitHub没有六个正式模型的完整备份。[清理与同步](../../docs/v01/storage_cleanup.md)

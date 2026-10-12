@@ -67,3 +67,7 @@ cal05 S1有本机完整lossless归档（38799427217bytes；SHA ac1e7373440898c37
 ## 交付边界
 
 此freeze只批准上述D/E，不批准六个科研Gate或SCOR模块效果主张。D必须实际完成三seed×32且原始收据/完整S32齐全；E必须完成真实配对GPU更新与逐字段审计。cal11固定Verifier全拒绝是校准阴性能力观察；mixed reward含GT outcome；native reanchor是固定历史干预，未声称on-policy或无偏。后续Gate1–6在v02–v07另做预算、冻结、审查与结果报告。
+
+## 2026-10-12用户授权清理后的资产范围
+
+本文件前述校准/controls/备份状态描述属于清理前的执行事实；实际原始证据与冻结JSON未改。用户明确清理后，仅保留三个正式S32、首seed S7/S8和E S8共六份完整训练状态；旧校准/对照/重复初始及中间状态大权重、失败半写、2B和旧压缩/本机备份与下载残片已退役，证书及small metadata保留。当前旧点不能完整恢复，cal06本机下载不再是待完成项。3B/环境/data08/所有raw与processed保留，结果与验收结论不变；详见[storage_cleanup.md](storage_cleanup.md)。新的校准/恢复复核若需要旧完整状态须另立新运行，不能用历史证书冒充现存模型。

@@ -148,3 +148,7 @@ cal11完整initial64：正确51/64（.796875）、显式58/64（.90625）、Veri
 2026-10-11 23时存储决断：cal06本机传输在96/145整块后多次网络超时，完整archive/member验收仍未完成。为继续正式任务，在获准SCOR服务器目录创建same-server lossless recovery archive：cal06 S1已有staged gzip保留；另串行完整压缩不再依赖的cal05/06/08/09/10初始S0。每份必须整源SHA、压缩包及全部member对应原证书核验、源再次核验，proof不可改写后才能退役展开副本。压缩资产始终保留，不称异地备份；本机传输继续。当前archive进程PID1202422，尚未完成，累计预算/freeze仍待实际核验。cal11及三个GPUcontrols不动。
 
 成本核验补充：cal11原始wall5462.384秒/选择四卡6.0693GPU小时，native step2467.744秒、snapshot3279.147秒、eval792.790秒有重叠，不能相加。原native成本phase_role是per-worker记录，TP2含重复requests/tokens；新增baseline_costs.py在全部TP request/response一致且rank齐全后去重，额外评测call occurrence保持独立。实际cal11所有记录通过，12个配对/成本反例CPU通过2.94秒；报告同时给出worker总量与logical请求/生成token，均不等同于sampler概率或独立wall。
+
+## 2026-10-12用户授权清理后的资产范围
+
+本文件前述校准/controls/备份状态描述属于清理前的执行事实；实际原始证据与冻结JSON未改。用户明确清理后，仅保留三个正式S32、首seed S7/S8和E S8共六份完整训练状态；旧校准/对照/重复初始及中间状态大权重、失败半写、2B和旧压缩/本机备份与下载残片已退役，证书及small metadata保留。当前旧点不能完整恢复，cal06本机下载不再是待完成项。3B/环境/data08/所有raw与processed保留，结果与验收结论不变；详见[storage_cleanup.md](storage_cleanup.md)。新的校准/恢复复核若需要旧完整状态须另立新运行，不能用历史证书冒充现存模型。

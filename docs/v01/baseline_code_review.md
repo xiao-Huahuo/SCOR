@@ -55,3 +55,7 @@ cal11固定Verifier正确和错误候选的接受率均为0，是能力阴性观
 2026-10-12最终CSV导出审查：新增`export_baseline_summary.py`和五个独立反例，只读已完成D/E及原始cost/设备CSV。按三预列seed顺序、all32和five256case、count/accuracy一致性验收；独立手算三seed百分比点均值/范围，拒绝missing/repeated seed与missing评测，不按轨迹或重复case伪增n。E需actual GPU/full state finite和序列control ID一致；物理记录必须覆盖全部选择的卡，logical/per-worker phase覆盖必须一致；wall/组件/角色/采样峰值的不同单位分列。服务器`baseline_summary_cpu_20261012_01`实际配对9+成本3+汇总5共17passed5.20秒，raw source SHA及processed/review保存；12个frozen engine SHA全matched。没有新增未解P0/P1；完整真实D/E输出仍须终态后验收。
 
 2026-10-12最终实际验收：三个预列seeds20261011/12/13各32步、五次256case及完整S32/return0通过。E从相同完整S7/Adam/RNG/cursor、读取相同U8；固定九训练tensor/全部visual-role-group metadata typed exact，唯[5,260]terminal outcome0→1、总return1→2，四mutable tensor按唯一reward和全目标组标准化变化，Python sample-std独立oracle匹配、其它三组字节不变。实际step8/LR4.432526133406842e-7、四rank模型相对正常S8均不同、全参数/optim有限、全S8/intentstop8/return0；实际paired audit passed。最终export CLI成功生成15行results/4行costs/32行roles/32行paired adv，三seed描述性n3，components重叠/GPU allocation/device sampling界限保留；case/update/cost和SHA实际复核，12引擎与原15pilot字节保持。工程A–E无未解P0/P1或必需未完成项；六科研Gate仍未执行，不推广为长期污染/能力损害/SCOR有效。
+
+## 2026-10-12用户授权清理后的资产范围
+
+本文件前述校准/controls/备份状态描述属于清理前的执行事实；实际原始证据与冻结JSON未改。用户明确清理后，仅保留三个正式S32、首seed S7/S8和E S8共六份完整训练状态；旧校准/对照/重复初始及中间状态大权重、失败半写、2B和旧压缩/本机备份与下载残片已退役，证书及small metadata保留。当前旧点不能完整恢复，cal06本机下载不再是待完成项。3B/环境/data08/所有raw与processed保留，结果与验收结论不变；详见[storage_cleanup.md](storage_cleanup.md)。新的校准/恢复复核若需要旧完整状态须另立新运行，不能用历史证书冒充现存模型。

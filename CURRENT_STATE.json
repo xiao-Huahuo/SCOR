@@ -4,7 +4,7 @@
   "active_version": "v01",
   "updated_date": "2026-10-12",
   "objective": "在最多四张RTX4090上实施并验收v01自有Agent0-VL类机制baseline，完成后准备Gate1；服务器资产统一存入/data1/yangbin/SCOR/",
-  "status": "v01_baseline_A_to_E_actual_acceptance_complete_and_published",
+  "status": "v01_A_to_E_complete; user_authorized_asset_cleanup_done; three_way_source_sync_in_progress",
   "code": {
     "status": "native_gpu_executed",
     "entry": "solutions/v01/src",
@@ -338,7 +338,8 @@
       100,
       999
     ],
-    "scope_of_unprefixed_fields": "legacy visual_pilot_v2; current baseline uses baseline_* fields and baseline_counts"
+    "scope_of_unprefixed_fields": "legacy visual_pilot_v2; current baseline uses baseline_* fields and baseline_counts",
+    "historical_models_scope": "Own2B copy retired; original3B/data08 retained. Original failed2B records and fixed revision identity kept."
   },
   "server": {
     "alias": "WHU84piYB",
@@ -353,22 +354,16 @@
     "gpu_model": "RTX 4090 24 GB",
     "workspace": "/data1/yangbin/SCOR",
     "initial_free_disk_gib": 95,
-    "last_free_disk_gib": 27.934,
+    "last_free_disk_gib": 702.4066429138184,
     "last_resource_status": "AllD/E native GPU processes completed on physical4–7; latest snapshot after fullS8 and pairaudit",
     "host_keys": "User authorized first connection; task-specific known_hosts pinned; administrator verification not claimed",
     "future_experiments_maximum_gpu_count": 4,
     "branch_scheduling": "Serial branches; same world size/topology within each comparison",
-    "resource_snapshot_note": "2026-10-12T04:17:23UTC; all3 normalS32 and EfullS8 retained; samplers/terminal receipts completed",
+    "resource_snapshot_note": "After explicitly authorized asset retirement on2026-10-12; shared filesystem free space, not a reserved quota",
     "legacy_workspace_alias": "/data1/yangbin/SCOR_v01",
     "migration_receipt": "solutions/v01/outputs/server_migration_20261010/raw/migration.json",
     "checkpoint_retirement_receipt": "solutions/v01/outputs/retire_3b_checkpoint_20261011_01/raw/retirement.json",
-    "backup_in_progress": {
-      "source": "baseline_calibration_06 S1",
-      "phase": "local_transfer_paused_with_96_of_145_verified_chunks",
-      "source_expanded_retired_after_full_server_archive_verification": true,
-      "local_complete_verified": false,
-      "server_lossless_archive_retained": ".runtime/checkpoint_archives/cal06_step1/state.tar.gz"
-    },
+    "backup_in_progress": null,
     "lossless_archives_verified": 6
   },
   "upstream": {
@@ -431,9 +426,8 @@
   ],
   "evidence_storage": "Small JSON/CSV/log and historical completion certificate copied locally; raw generation/updater tensors remain on server. Original step1 model/optimizer shards were explicitly retired on 2026-10-11; checkpoint is no longer resumable.",
   "open_items": [
-    "Future v02–v07 Gate1–6 and HED/CSS/TRA/RR are planned, require separate freezes/actual evidence, and have not been implemented here",
-    "General sampler bitwise recovery and equivalence of sampling/model probabilities remain unverified",
-    "Oldcal06 local offsite archive remains incomplete96/145; its full verified same-server compressed recovery asset is retained"
+    "Finish three-way source synchronization to one commit on server/local/GitHub",
+    "Future six Gates and SCOR modules require separate evidence; general sampler/probability equivalence unverified"
   ],
   "next_research_steps": [
     "Budget and freeze Gate1/v02 using accepted baseline; use new predeclared seed blocks and actual no-op/stochastic-floor controls",
@@ -467,7 +461,8 @@
     "implementation_plan": "docs/v01/baseline_implementation_plan.md",
     "checkpoint_retirement": "docs/v01/checkpoint_retirement.md",
     "baseline_code_review": "docs/v01/baseline_code_review.md",
-    "baseline_freeze": "docs/v01/baseline_freeze.md"
+    "baseline_freeze": "docs/v01/baseline_freeze.md",
+    "storage_cleanup": "docs/v01/storage_cleanup.md"
   },
   "version_control": {
     "status": "validated_baseline_source_and_documentation_published",
@@ -487,7 +482,8 @@
     "initial_published_commit": "3064bf33b7281bb1f1788e3d22597f8cd819911c",
     "last_verified_published_commit": "5573536d17c741612f8a13c3d1a29d8523477cdc",
     "publication_receipt_for_this_task": ".runtime/git/baseline_publication_20261012.json",
-    "last_implementation_published_commit": "5573536d17c741612f8a13c3d1a29d8523477cdc"
+    "last_implementation_published_commit": "5573536d17c741612f8a13c3d1a29d8523477cdc",
+    "three_way_source_sync_status": "in_progress; server_root_git_missing_and44_tracked_files_missing"
   },
   "design": {
     "status": "baseline_formally_frozen; Gates_proposed_only",
@@ -827,13 +823,14 @@
     "actual_natural_repairs": 22,
     "all_nonzero_groups": true,
     "next_gpu_check": null,
-    "late_replay_pid": 1014446
+    "late_replay_pid": 1014446,
+    "checkpoint_asset_scope": "Historical calibration/controls model/optim retired2026-10-12; complete current states are storage_cleanup.retained_complete_states"
   },
   "baseline_storage_current": {
-    "cal05_local_lossless_backup_verified": true,
+    "cal05_local_lossless_backup_verified": "historically_verified; archive_retired_by_latest_user_request",
     "cal05_server_S1_and_staged_tar_retired": true,
-    "actual_free_gib": 27.934,
-    "cal06_backup_full_members_verified": true,
+    "actual_free_gib": 702.4066429138184,
+    "cal06_backup_full_members_verified": "historically_verified; serverarchive_and_localpartial_retired",
     "formal_freeze_written": true,
     "formal_seeds_completed": [
       20261011,
@@ -844,9 +841,9 @@
     "alternate_recovery_strategy": {
       "scope": "same-server complete compressed recovery copies; no independent offsite claim",
       "pid": 1202422,
-      "status": "completed",
+      "status": "all_old_archives_retired_after_baseline_completion_by_user_request",
       "root_relative": ".runtime/checkpoint_archives/server_lossless_20261011",
-      "cal06_local_verified_chunks": 96,
+      "cal06_local_verified_chunks": "historically96/145; transfer retired",
       "cal06_local_complete_verified": false,
       "completed_archive_count": 6,
       "cal06_expanded_S1_retired_archive_retained": true
@@ -863,7 +860,7 @@
     },
     "actual_free_gib_after_third_archive_before_fourth_writing": 398.765811920166,
     "actual_free_observed_utc": "2026-10-12T04:17:23.329715+00:00",
-    "cal06_backup_scope": "same-server compressed archive; local complete backup remains unverified"
+    "cal06_backup_scope": "All old server compressed archives/local incomplete transfer explicitly retired; metadata and raw facts retained"
   },
   "baseline_formal": {
     "sequence": "baseline_formal_20261011",
@@ -1013,6 +1010,43 @@
       "whole_group_oracle_matches": true
     },
     "result_summary": "solutions/v01/outputs/baseline_formal_20261011/processed/result_summary.json",
-    "D_E_selected_gpu_hours": 45.733985194630094
+    "D_E_selected_gpu_hours": 45.733985194630094,
+    "current_retained_complete_states": [
+      "solutions/v01/outputs/baseline_formal_20261011_seed_20261011/checkpoints/global_step_7",
+      "solutions/v01/outputs/baseline_formal_20261011_seed_20261011/checkpoints/global_step_8",
+      "solutions/v01/outputs/baseline_formal_20261011_seed_20261011/checkpoints/global_step_32",
+      "solutions/v01/outputs/baseline_formal_20261011_seed_20261012/checkpoints/global_step_32",
+      "solutions/v01/outputs/baseline_formal_20261011_seed_20261013/checkpoints/global_step_32",
+      "solutions/v01/outputs/baseline_formal_20261011_E_delta1/checkpoints/global_step_8"
+    ]
+  },
+  "storage_cleanup": {
+    "authorization": "User explicitly requested local/server garbage cleanup and three-way source synchronization",
+    "server_before_project_bytes": 1023237214208,
+    "server_after_project_bytes": 299023089664,
+    "server_deleted_files": 155,
+    "local_before_project_bytes": 90918809600,
+    "local_after_project_bytes": 854982656,
+    "local_deleted_old_archives_and_partials": 5,
+    "retained_complete_states": [
+      "solutions/v01/outputs/baseline_formal_20261011_seed_20261011/checkpoints/global_step_7",
+      "solutions/v01/outputs/baseline_formal_20261011_seed_20261011/checkpoints/global_step_8",
+      "solutions/v01/outputs/baseline_formal_20261011_seed_20261011/checkpoints/global_step_32",
+      "solutions/v01/outputs/baseline_formal_20261011_seed_20261012/checkpoints/global_step_32",
+      "solutions/v01/outputs/baseline_formal_20261011_seed_20261013/checkpoints/global_step_32",
+      "solutions/v01/outputs/baseline_formal_20261011_E_delta1/checkpoints/global_step_8"
+    ],
+    "server_preserved_hashed_files": 22186,
+    "local_preserved_hashed_files": 864,
+    "full_retained_state_content_hash_verification": {
+      "passed": true,
+      "states": 6,
+      "seconds": 364.97670641890727,
+      "receipt": ".runtime/cleanup_20261012/retained_full_hash_validation.json"
+    },
+    "large_old_snapshots_archives_and_2B_retired": true,
+    "all_raw_processed_small_meta_and_3B_kept": true,
+    "receipt_server": ".runtime/cleanup_20261012/complete.json",
+    "receipt_local": ".runtime/cleanup_local_20261012/complete.json"
   }
 }

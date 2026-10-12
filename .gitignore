@@ -1,6 +1,7 @@
 # 本机凭据与个人运行记录
 /服务器.txt*
 /TASK_STATE.md
+/.scor_workspace
 .env
 .env.*
 !.env.example

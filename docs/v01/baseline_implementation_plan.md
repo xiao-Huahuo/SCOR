@@ -67,3 +67,7 @@ cal10候选数据独立scene为三位整数100–999，512×512图、字号24、
 服务器剩634.063GiB；累计正式/consistency/恢复资产预算必须重新核算，先为不再依赖的旧校准快照做lossless完整backup并逐member SHA验证，验证后才能退役server副本。本机可用289GiB，旧partial archives不能假称complete。所有正式冻结、GPU恢复/replay和三个32步正常baseline/E仍待完成。
 
 cal10完整initial64为56/64（.875），显式61/64（.953125），Verifier117/128（.9140625），截断0。family0 19/22与family2 18/21满足规则，family1 19/21仍超过.9上界；已自主仅停本run，certifiedS0/raw/source与partialS1保留，没有已完成unit。cal11同source、同data08、同seed/full32/四卡，只max_pixels49152→32768，所有门槛保持。backup cal05 S1的全source SHA已通过，durable gzip正在生成，尚未本机完整member验证，也未退役源。
+
+## 2026-10-12用户授权清理后的资产范围
+
+本文件前述校准/controls/备份状态描述属于清理前的执行事实；实际原始证据与冻结JSON未改。用户明确清理后，仅保留三个正式S32、首seed S7/S8和E S8共六份完整训练状态；旧校准/对照/重复初始及中间状态大权重、失败半写、2B和旧压缩/本机备份与下载残片已退役，证书及small metadata保留。当前旧点不能完整恢复，cal06本机下载不再是待完成项。3B/环境/data08/所有raw与processed保留，结果与验收结论不变；详见[storage_cleanup.md](storage_cleanup.md)。新的校准/恢复复核若需要旧完整状态须另立新运行，不能用历史证书冒充现存模型。
