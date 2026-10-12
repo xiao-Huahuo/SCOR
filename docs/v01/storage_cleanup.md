@@ -31,3 +31,5 @@
 本地和GitHub清理前main均为`b9cb0766bc9a852c55f60aceb1a7ebeba62b3d35`。服务器原先是文件副本，无项目根Git仓库；104个tracked文件里44个文献/规范/Git配置等缺失，所有已有tracked文件内容与本地相同。同步以新提交的本地/GitHub同一快照为准，完整补齐tracked文件；通过Gitbundle建立服务器main索引与提交身份，不覆盖输入/输出/runtime，不传输凭据/模型/实验数据。最终核对三处HEAD一致、全部tracked文件SHA一致、工作区干净和Git忽略规则有效；最终SHA与过程记录保存在`.runtime/git/storage_cleanup_sync_20261012.json`。
 
 来源记录：本地`.runtime/cleanup_local_20261012/plan.json`、`complete.json`；服务器`.runtime/cleanup_20261012/plan.json`、`deletion_events.jsonl`、`complete.json`、`retained_full_hash_validation.json`。历史冻结JSON与六witness的原字节不改；当前退役范围由本记录和CURRENT_STATE更新。学习引擎、profile、data08、3B模型与环境没有改动。
+
+最终三处源码同步已实际通过：服务器、本地、GitHub实施提交均为`cdb86b3873a2575dfa3356d94cc40cc5dc7d7b71`，105tracked文件SHA全部一致，服务器Git工作区干净、inputs/outputs/runtime/凭据/marker忽略规则有效。发现一份旧TSV本机CRLF与仓库LF不同，按仓库字节统一后通过；Windows批处理按已有Git属性保留CRLF。服务器旧Git不支持init --initial-branch，改用标准init+设置main索引后实际成功。所有失败都在严格SHA/命令前置检查处停止，完整数据与六状态未覆盖。后续只补发布状态记录，最终三处HEAD记录在同步收据，学习引擎/profile/data/3B环境无改动。

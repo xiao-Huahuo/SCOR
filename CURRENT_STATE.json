@@ -4,7 +4,7 @@
   "active_version": "v01",
   "updated_date": "2026-10-12",
   "objective": "在最多四张RTX4090上实施并验收v01自有Agent0-VL类机制baseline，完成后准备Gate1；服务器资产统一存入/data1/yangbin/SCOR/",
-  "status": "v01_A_to_E_complete; user_authorized_asset_cleanup_done; three_way_source_sync_in_progress",
+  "status": "v01_A_to_E_complete; local_server_obsolete_assets_cleaned; three_way_source_sync_verified",
   "code": {
     "status": "native_gpu_executed",
     "entry": "solutions/v01/src",
@@ -426,8 +426,7 @@
   ],
   "evidence_storage": "Small JSON/CSV/log and historical completion certificate copied locally; raw generation/updater tensors remain on server. Original step1 model/optimizer shards were explicitly retired on 2026-10-11; checkpoint is no longer resumable.",
   "open_items": [
-    "Finish three-way source synchronization to one commit on server/local/GitHub",
-    "Future six Gates and SCOR modules require separate evidence; general sampler/probability equivalence unverified"
+    "Future six Gates/SCOR modules require separate evidence; general sampler/probability equivalence remains unverified"
   ],
   "next_research_steps": [
     "Budget and freeze Gate1/v02 using accepted baseline; use new predeclared seed blocks and actual no-op/stochastic-floor controls",
@@ -449,7 +448,7 @@
     "flash_attention": "2.7.4.post1 official wheel; ZIP and SHA256 verified"
   },
   "documentation": {
-    "status": "A_to_E_results_costs_scope_requirement_mapping_published",
+    "status": "baseline_results_and_latest_cleanup_retention_source_sync_completed",
     "report": "docs/v01/baseline_report.md",
     "review": "docs/v01/runtime_review.md",
     "history": "docs/CHANGE_HISTORY.md",
@@ -480,10 +479,12 @@
     "publication_status": "implementation/results commit pushed and remote SHA verified; final status commit recorded in runtime publication receipt",
     "transport": "SSH through local HTTP proxy from user-provided terminal script; local Git config only",
     "initial_published_commit": "3064bf33b7281bb1f1788e3d22597f8cd819911c",
-    "last_verified_published_commit": "5573536d17c741612f8a13c3d1a29d8523477cdc",
+    "last_verified_published_commit": "cdb86b3873a2575dfa3356d94cc40cc5dc7d7b71",
     "publication_receipt_for_this_task": ".runtime/git/baseline_publication_20261012.json",
     "last_implementation_published_commit": "5573536d17c741612f8a13c3d1a29d8523477cdc",
-    "three_way_source_sync_status": "in_progress; server_root_git_missing_and44_tracked_files_missing"
+    "three_way_source_sync_status": "passed; server/local/GitHub same commit and105 tracked file SHA",
+    "three_way_source_sync_verified_commit": "cdb86b3873a2575dfa3356d94cc40cc5dc7d7b71",
+    "three_way_source_sync_receipt": ".runtime/git/storage_cleanup_sync_20261012.json"
   },
   "design": {
     "status": "baseline_formally_frozen; Gates_proposed_only",
@@ -1047,6 +1048,7 @@
     "large_old_snapshots_archives_and_2B_retired": true,
     "all_raw_processed_small_meta_and_3B_kept": true,
     "receipt_server": ".runtime/cleanup_20261012/complete.json",
-    "receipt_local": ".runtime/cleanup_local_20261012/complete.json"
+    "receipt_local": ".runtime/cleanup_local_20261012/complete.json",
+    "source_sync_passed": true
   }
 }
