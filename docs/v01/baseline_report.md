@@ -2,6 +2,16 @@
 
 更新：2026-10-12。六项冻结证据和累计预算已通过，正式D三seed各32步、五次256case评测和认证完整S32均正常完成，正常baseline已验收。E同S7/U8实际GPU配对与独立审计也通过，A–E均已验收。最终CSV已导出并逐SHA同步；源码与报告已发布，实施提交为`5573536d17c741612f8a13c3d1a29d8523477cdc`，远端SHA已核对。[冻结记录](baseline_freeze.md)固定训练条件与判定；下面正式held-out结果只用于报告，不用于继续选配置。
 
+当前恢复资产已经按2026-10-12用户要求清理，只保留六份正式训练状态；旧校准/对照大权重、压缩备份和本机下载残片已退役。完整权重在服务器，本机与GitHub没有这六份模型的完整副本，具体路径和用途见[清理与同步记录](storage_cleanup.md)。
+
+## 当前数据与选型范围
+
+正式数据为自制`visual_baseline_08`：512×512的固定柱状图显示红、蓝、绿三个100–999的整数，题目分别要求三数求和、三数相乘、最大数减另外两数之和。train1024、calibration64、probe128、evaluation256按scene隔离；calibration与probe另有128/256条固定正确/错误候选诊断，不增加独立场景数。
+
+选型目的为验证读图、真实Python工具、共享Verifier/自然Repair、原生更新及错误奖励干预。答案可精确计算，便于区分语义错误、计算错误和格式失败；图中数值不抄入Solver问题，GT仅供奖励/checker使用。早期任务过易，三位数和像素预算在校准阶段修订并记录，正式held-out未用于选配置。
+
+固定图样和三类算术题的覆盖有限；本版没有公开benchmark或真实复杂任务上的验证，不能据此推断泛化提升或SCOR有效。实际生成与校验入口为`solutions/v01/src/prepare_baseline_data.py`，固定身份见[baseline_freeze.md](baseline_freeze.md)。
+
 ## 正式正常训练D
 
 | seed | 初始0 | 步8 | 步16 | 步24 | 步32 | 相对初始 |
@@ -61,7 +71,7 @@ E的64题calibration诊断50/64→53/64，显式格式57/64→60/64，截断均0
 
 最终模型为固定官方3B revision66285546d2b821cf421d4f5eb2576359d3770cd3；自有14文件逐SHA与只读原基座一致，本次未冒称新的HF LFS fetch验证。data08 signature8b38d437b78fe97caa74a47ba3584eebcd0c89e3b55d5ea9a09f1963d46cb8a1。slow processor min3136/max32768，实际grid[1,12,12]、144patch/36merged；四轮×256/总buffer1536/context6144、batch4×n4/micro1、full32 cosine/warmup0/lr5e-7、FSDP4/TP2、原生mixed reward alpha_out1。12个engine/profile/model/data/ENV与freeze一致，原15pilot文件未改。
 
-六份不再依赖的旧state已在同服务器完整lossless压缩、整包/全部member及源再次核验后退役展开副本；压缩恢复资产继续保留。cal05 S1另有本机整包和17member完整验证备份。cal06本机下载仍只有96/145已验证整块，完整异地备份未完成。同服务器副本不能称独立异地备份，恢复时需解压并按原cert重核全部成员。
+冻结前，六份不再依赖的旧state曾在同服务器完整lossless压缩、整包/全部member及源再次核验后退役展开副本；cal05 S1曾有本机整包和17member完整验证备份，cal06本机传输当时只有96/145已验证整块。2026-10-12授权清理已删除这些压缩包、本机旧备份和下载残片；历史验收收据保留，但旧校准状态当前不能完整恢复，同服务器副本也不能称独立异地备份。
 
 解释边界：cal11固定Verifier正确/错误候选接受率均0，是校准能力阴性观察；正式probe256的初始正确接受2/128、错误接受0/128，三seed终局正确接受3/128、1/128、0/128，错误接受均0/128。高JSON解析率不能当有效判断能力；mixed reward含GT outcome；native reanchor是固定历史干预，未声称on-policy/无偏。特定U1/U8精确控制不能推广为任意sampler逐位恢复。人工terminal误判不直接代表自然Verifier错误。六Gate及HED/CSS/TRA/RR尚未执行。
 
@@ -75,9 +85,9 @@ E的64题calibration诊断50/64→53/64，显式格式57/64→60/64，截断均0
 - [paired_advantages.csv](../../solutions/v01/outputs/baseline_formal_20261011/processed/paired_advantages.csv)：正常/错误两branch×16trajectory，32行，含目标组标记及独立oracle数值。
 - [result_summary.json](../../solutions/v01/outputs/baseline_formal_20261011/processed/result_summary.json)：三seed描述性均值/范围、输入device CSV SHA、导出源SHA与成本解释范围。
 
-所有实验原始响应/tensor/source/profile和保护/终态仍在服务器SCOR目录；本机完整模型/optimizer只对明确归档资产成立，small cert复制不冒充完整checkpoint。产品UI不适用于用户已豁免的CLI/GPU任务；真实训练、恢复、无操作、重放、配对更新及最终导出CLI冒烟已完成。
+所有实验原始响应/tensor/source/profile仍在服务器SCOR目录；当前完整模型/optimizer仅保留三个正式S32、首seed S7/S8及E S8共六份。其余旧状态仅有历史证书和小元数据，本机small cert复制不冒充完整checkpoint。产品UI不适用于用户已豁免的CLI/GPU任务；真实训练、恢复、无操作、重放、配对更新及最终导出CLI冒烟已完成。
 
-v01 A–E没有未完成的必需验收项。后续v02–v07六Gate、HED/CSS/TRA/RR、自然Verifier误判与通用sampler逐位恢复/采样概率等价均未实现或验证，不能称SCOR有效。旧cal06完整本机异地备份仍只有96/145已验证整块，完整同服务器lossless恢复副本已验证并保留；这是存储范围限制，不能称异地备份完成。
+v01 A–E没有未完成的必需验收项。后续v02–v07六Gate、HED/CSS/TRA/RR、自然Verifier误判与通用sampler逐位恢复/采样概率等价均未实现或验证，不能称SCOR有效。旧cal06传输已按用户要求退役，不再是待完成任务；当前六份正式状态没有本机或云端完整备份。
 
 ## 原始校准与实现修订时序（历史事实，下面的“当前/最新/待执行”只对应当时）
 

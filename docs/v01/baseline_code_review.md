@@ -1,6 +1,6 @@
 # v01 baseline代码一致性与反例审查
 
-审查日期：2026-10-11。审查范围为独立 baseline 引擎及其原生调用链，依据《科研开发规范》代码开发第5条执行设计→代码和代码→设计核查。当前12个引擎文件的SHA与已完成的cal11及三个真实GPU对照完全相同；旧15个pilot源码保持原貌。未发现阻止此引擎正式运行的未解决P0/P1。累计存储预算已真实通过并写six-witness freeze；三次正常32步和E实际配对均已完成并验收，不能称baseline已经验收。
+审查日期：2026-10-11；最终验收与文档核对更新于2026-10-12。审查范围为独立 baseline 引擎及其原生调用链，依据《科研开发规范》代码开发第5条执行设计→代码和代码→设计核查。当前12个引擎文件的SHA与已完成的cal11及三个真实GPU对照完全相同；旧15个pilot源码保持原貌。未发现阻止此引擎正式运行的未解决P0/P1。累计存储预算已真实通过并写six-witness freeze；三次正常32步和E实际配对均已完成，v01 baseline A–E已验收，六个科研Gate尚未执行。
 
 ## 逐句需求、代码与实际验收
 
@@ -39,11 +39,11 @@
 - `same_unit_replay.json`：S0/U1与S7/U8真实固定输入、完整更新状态精确一致。
 - `evaluation_rng_isolation.json`：两次initial评测、delta0与未来真实native U1/fullS1精确一致。
 
-已闭环P1包括显式答案误解析、完整证书遗漏worker、重复chat framing、lazy loader随机流顺序、历史counter原生cast、dtype同值漏洞、delta0负零变化、fast/slow像素不一致、vision deterministic参数未实传、环境身份缺失、空/失效freeze。所有失败校准run与raw/source/partial/full状态保留；归档只能在lossless备份全部member SHA验证后回收已不依赖的服务器副本。
+已闭环P1包括显式答案误解析、完整证书遗漏worker、重复chat framing、lazy loader随机流顺序、历史counter原生cast、dtype同值漏洞、delta0负零变化、fast/slow像素不一致、vision deterministic参数未实传、环境身份缺失、空/失效freeze。所有失败校准run的raw/source、日志、证书及小元数据保留。冻结前归档曾在lossless备份全部member SHA验证后回收展开副本；2026-10-12用户授权清理后，旧大权重、失败半写和旧备份已退役，当前六份完整状态见[storage_cleanup.md](storage_cleanup.md)。
 
 ## 未验收项与解释边界
 
-D三seed×32及E同S7/U8真实delta1配对全部通过，最终CSV/成本/报告已重建，Git实施提交5573536已发布并核对远端。它们是后续实际执行事项，不用CPU通过或calibration替代。产品UI不适用于此CLI/GPU任务；用户已允许使用真实CLI/原生/恢复冒烟验收。
+D三seed×32及E同S7/U8真实delta1配对全部通过，最终CSV/成本/报告已重建，Git实施提交5573536已发布并核对远端。这些结论依据实际GPU运行和原始收据，不以CPU通过或calibration替代。产品UI不适用于此CLI/GPU任务；用户已允许使用真实CLI/原生/恢复冒烟验收。
 
 cal11固定Verifier正确和错误候选的接受率均为0，是能力阴性观察；高JSON解析率不代表判断有效。native mixed reward包含outcome，不能称纯自奖励；历史native reanchor不是on-policy或无偏估计。teacher-forced actor score、vLLM返回分数和sampler分布不同来源分列，通用采样逐位恢复未验证。题型和pixel修订是校准期决断，不能冒充原始预注册或用户逐项确认。当前工程健康和可比较性成立不代表科研Gate、长期污染、泛化提升或SCOR算法有效。
 

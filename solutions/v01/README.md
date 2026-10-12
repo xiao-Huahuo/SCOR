@@ -54,7 +54,7 @@ python solutions/v01/src/compare_rewards.py solutions/v01/outputs/native_stop1_1
 
 vLLM 采样器的逐位随机状态恢复尚未验证，不能据此宣称两次重新 rollout 完全相同。`.pt` 文件只加载本项目自身生成的可信收据。
 
-本机有经完整SHA验证的2B cal01 S0压缩归档；cal01 S1/S2的传输中断，完整服务器副本保留。本机另同步JSON/CSV/log和历史checkpoint完成证明；大型轨迹 `.pt` 仍在服务器，旧训练后的模型/优化器分片已清理。需要加载tensor的命令应在服务器工作目录执行；历史完成证明不能代替当前完整模型分片，旧快照不能再作为恢复输入。
+本机曾有经完整SHA验证的2B cal01 S0压缩归档；该归档、cal01 S1/S2下载残片及旧服务器状态均已在2026-10-12授权清理。本机保留JSON/CSV/log和历史checkpoint完成证明；大型轨迹 `.pt` 及当前六份完整训练状态仍在服务器。需要加载tensor的命令应在服务器工作目录执行；历史完成证明不能代替当前完整模型分片，旧快照不能再作为恢复输入。
 
 ## 独立baseline入口
 

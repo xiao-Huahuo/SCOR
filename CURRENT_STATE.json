@@ -251,7 +251,7 @@
       "step": 7,
       "all_parameters_buffers_optimizer_scheduler_rng_match": true,
       "driver_rng_cursor_hash_match": true,
-      "late_U8_equal": "pending"
+      "late_U8_equal": "passed; see baseline_actual_S7_U8_replay"
     },
     "baseline_actual_S7_U8_replay": {
       "run": "baseline_consistency_s7_replay_01",
@@ -364,7 +364,8 @@
     "migration_receipt": "solutions/v01/outputs/server_migration_20261010/raw/migration.json",
     "checkpoint_retirement_receipt": "solutions/v01/outputs/retire_3b_checkpoint_20261011_01/raw/retirement.json",
     "backup_in_progress": null,
-    "lossless_archives_verified": 6
+    "lossless_archives_verified": 6,
+    "lossless_archives_scope": "Historical verification before freeze; all old compressed archives retired by user request on2026-10-12"
   },
   "upstream": {
     "repository": "https://github.com/aiming-lab/Agent0",
@@ -448,7 +449,7 @@
     "flash_attention": "2.7.4.post1 official wheel; ZIP and SHA256 verified"
   },
   "documentation": {
-    "status": "baseline_results_and_latest_cleanup_retention_source_sync_completed",
+    "status": "baseline_results_cleanup_and_current_documentation_audit_completed",
     "report": "docs/v01/baseline_report.md",
     "review": "docs/v01/runtime_review.md",
     "history": "docs/CHANGE_HISTORY.md",
@@ -461,7 +462,18 @@
     "checkpoint_retirement": "docs/v01/checkpoint_retirement.md",
     "baseline_code_review": "docs/v01/baseline_code_review.md",
     "baseline_freeze": "docs/v01/baseline_freeze.md",
-    "storage_cleanup": "docs/v01/storage_cleanup.md"
+    "storage_cleanup": "docs/v01/storage_cleanup.md",
+    "audit": {
+      "date": "2026-10-12",
+      "passed": true,
+      "tracked_utf8_files": 105,
+      "tracked_markdown_files": 54,
+      "local_links_resolved": 70,
+      "missing_links": 0,
+      "frozen_engine_files_unchanged": 12,
+      "frozen_json_unchanged": true,
+      "receipt": ".runtime/git/documentation_audit_20261012.json"
+    }
   },
   "version_control": {
     "status": "validated_baseline_source_and_documentation_published",
@@ -479,11 +491,11 @@
     "publication_status": "implementation/results commit pushed and remote SHA verified; final status commit recorded in runtime publication receipt",
     "transport": "SSH through local HTTP proxy from user-provided terminal script; local Git config only",
     "initial_published_commit": "3064bf33b7281bb1f1788e3d22597f8cd819911c",
-    "last_verified_published_commit": "cdb86b3873a2575dfa3356d94cc40cc5dc7d7b71",
+    "last_verified_published_commit": "72d5681df8e1c82b3ff384ff973685b30c567d50",
     "publication_receipt_for_this_task": ".runtime/git/baseline_publication_20261012.json",
     "last_implementation_published_commit": "5573536d17c741612f8a13c3d1a29d8523477cdc",
     "three_way_source_sync_status": "passed; server/local/GitHub same commit and105 tracked file SHA",
-    "three_way_source_sync_verified_commit": "cdb86b3873a2575dfa3356d94cc40cc5dc7d7b71",
+    "three_way_source_sync_verified_commit": "72d5681df8e1c82b3ff384ff973685b30c567d50",
     "three_way_source_sync_receipt": ".runtime/git/storage_cleanup_sync_20261012.json"
   },
   "design": {
@@ -847,7 +859,8 @@
       "cal06_local_verified_chunks": "historically96/145; transfer retired",
       "cal06_local_complete_verified": false,
       "completed_archive_count": 6,
-      "cal06_expanded_S1_retired_archive_retained": true
+      "cal06_expanded_S1_retired_archive_retained": false,
+      "completed_archive_count_scope": "Historical count; all six compressed archives now retired"
     },
     "actual_free_gib_after_cal06_S1_before_S0_writing": 384.2437286376953,
     "cal06_local_transfer_active": false,

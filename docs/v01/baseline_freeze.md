@@ -58,11 +58,13 @@
 
 ## 累计磁盘预算与恢复资产
 
+本节记录冻结时的预算与归档事实。2026-10-12用户授权清理后，旧校准/对照权重及压缩、本机备份已退役；当前可恢复状态以[storage_cleanup.md](storage_cleanup.md)的六份清单为准，权威冻结JSON与原始收据保持原字节。
+
 全部既有模型、失败现场、校准、三个consistency分支及压缩资产均已包含在实测余盘中。预算使用实际完整S0/Adam状态大小，向上按MiB取整，并给每state16MiB元数据余量；另保留四个未来run各7GiB的raw与安全余量。冻结时实测余盘 **420.549374GiB**，累计未来写入峰值需求 **418.601562GiB**，预算后余量 **1.947811GiB**。这不是文件系统空间预留；每次启动/保存仍实查空间。
 
-cal05 S1有本机完整lossless归档（38799427217bytes；SHA ac1e7373440898c378dd3b26eb34b474f708473ff9d846aed4767c7ac343831d），整包及17个member逐字节SHA全部通过，服务器复核后才退役展开副本。cal06 S1及cal05/06/08/09/10 S0另有六份**同一服务器的压缩恢复副本**，整包/所有member及源再次核验通过后才退役展开副本。cal06 S1 archive保留于`.runtime/checkpoint_archives/cal06_step1/state.tar.gz`；五份S0保留于`.runtime/checkpoint_archives/server_lossless_20261011/<run>_S0/state.tar.gz`，verification/retirement收据保持。
+冻结时cal05 S1曾有本机完整lossless归档（38799427217bytes；SHA ac1e7373440898c378dd3b26eb34b474f708473ff9d846aed4767c7ac343831d），整包及17个member逐字节SHA全部通过，服务器复核后才退役展开副本。cal06 S1及cal05/06/08/09/10 S0曾有六份**同一服务器的压缩恢复副本**，整包/所有member及源再次核验通过后才退役展开副本。cal06 S1 archive原路径为`.runtime/checkpoint_archives/cal06_step1/state.tar.gz`；五份S0原路径为`.runtime/checkpoint_archives/server_lossless_20261011/<run>_S0/state.tar.gz`。这些压缩包现已清理，verification/retirement收据仍保留。
 
-这六份服务器副本不能称独立异地备份；cal06本机下载仍只有96/145已验证整块，完整本机归档未完成。旧校准结果/raw/source和完整证书不变；恢复压缩state时须先验证archive、解压，并按原certificate重新核验全部成员。当前cal11及三个实际GPUcontrols未退役。
+上述六份服务器压缩副本不能称独立异地备份；冻结时cal06本机下载只有96/145已验证整块，完整本机归档未完成，该传输及残片现已退役。旧校准结果/raw/source和历史证书不变；cal11及三个实际GPUcontrols的大权重已清理，不能用证书冒充当前仍可恢复的状态。
 
 ## 交付边界
 

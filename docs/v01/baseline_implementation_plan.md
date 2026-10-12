@@ -10,10 +10,10 @@
 | B完整初始与晚期状态/恢复 | checkpoint_store/adapter | 真实S0两次与非零Adam S7一次全worker/driver/cursor精确恢复；fullS1/S8正常提交 |
 | C独立数据/完整记录/同unit replay | prepare_baseline_data/records/replay | train/cal/probe/eval scene隔离；U1/U8全部13typed tensor及视觉/nonTensor输入、完整updated state精确 |
 | C随机流/无操作 | adapter/evaluation/false_positive delta0 | 两次initial评测、delta0之后未来native U1/fullS1与原对照精确相同；通用sampler bitwise未知 |
-| 累计state/raw/写入峰值预算 | launcher/checkpoint_store/storage witness | cal05 S1本机完整备份及六份同server压缩恢复副本完整验证；freeze累计预算420.5494≥418.6016GiB通过 |
+| 累计state/raw/写入峰值预算 | launcher/checkpoint_store/storage witness | 冻结前cal05 S1本机备份及六份同server压缩副本完整验证；freeze累计预算420.5494≥418.6016GiB通过；旧备份已在2026-10-12授权清理，当前保留六份正式状态 |
 | D正常baseline | run_baseline_sequence/run_baseline/baseline_acceptance | 六witness真实freeze通过；三预列seed各32步/五次评测/fullS32正常return0，D已验收 |
 | E同S7/U8单reward真实配对 | interventions/replay/analyze_baseline | 9配对+3成本原生反例审计通过；D之后真实GPU delta1、同S7/U8、唯一terminal+1、全目标组adv/其它组和全S8审计passed，不要求科研阳性 |
-| 原始输出、终态、成本、Git和报告 | summarize/costs/CSV/README/state/history | 校准/controls及前两正常run原始完整；D/E与全部CSV/最终成本报告已验收；源码与报告main提交5573536已push且远端SHA核对 |
+| 原始输出、终态、成本、Git和报告 | summarize/costs/CSV/README/state/history | 校准/controls及三个正常run原始记录完整；D/E与全部CSV/最终成本报告已验收；实施提交5573536已发布，后续清理和三处同步见storage_cleanup |
 
 产品UI不适用于此次CLI/GPU任务，已获用户豁免；实际CLI、GPU闭环及恢复冒烟已执行。不能以校准8步、CPU通过或只启动任务代替D/E验收。冻结后保持12个原生引擎源、profile/data/model/ENV不变；新增分析及串行入口不改训练算法或这些身份。
 
