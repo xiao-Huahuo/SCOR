@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "project": "SCOR",
-  "active_version": "v01",
-  "updated_date": "2026-10-12",
-  "objective": "在最多四张RTX4090上实施并验收v01自有Agent0-VL类机制baseline，完成后准备Gate1；服务器资产统一存入/data1/yangbin/SCOR/",
-  "status": "v01_A_to_E_complete; local_server_obsolete_assets_cleaned; three_way_source_sync_verified",
+  "active_version": "v02",
+  "updated_date": "2026-10-13",
+  "objective": "Gate1: evaluate persistence of a single terminal false-positive at k=8 under identical fixed U9:32, five paired seed blocks, at most four RTX4090 GPUs",
+  "status": "v02_gate1_formal_sequence_launched_after_complete_engineering_and_freeze_acceptance",
   "code": {
     "status": "native_gpu_executed",
     "entry": "solutions/v01/src",
@@ -354,8 +354,8 @@
     "gpu_model": "RTX 4090 24 GB",
     "workspace": "/data1/yangbin/SCOR",
     "initial_free_disk_gib": 95,
-    "last_free_disk_gib": 702.4066429138184,
-    "last_resource_status": "AllD/E native GPU processes completed on physical4–7; latest snapshot after fullS8 and pairaudit",
+    "last_free_disk_gib": 630.6142730712891,
+    "last_resource_status": "Latest read: Gate1 engineering GPU queue complete; physical4-7 each11MiB/0%; early-clean revision CPU only, no formal launch",
     "host_keys": "User authorized first connection; task-specific known_hosts pinned; administrator verification not claimed",
     "future_experiments_maximum_gpu_count": 4,
     "branch_scheduling": "Serial branches; same world size/topology within each comparison",
@@ -1063,5 +1063,618 @@
     "receipt_server": ".runtime/cleanup_20261012/complete.json",
     "receipt_local": ".runtime/cleanup_local_20261012/complete.json",
     "source_sync_passed": true
+  },
+  "gate1": {
+    "status": "engineering_GPU_queue_completed_final_input_hash_deployment_and_budget_acceptance_in_progress",
+    "seeds": [
+      20261011,
+      20261012,
+      20261013,
+      20261014,
+      20261015
+    ],
+    "horizon": 32,
+    "injection_step": 8,
+    "evaluation_steps": [
+      0,
+      8,
+      16,
+      24,
+      32
+    ],
+    "preexisting_history_seeds": [
+      20261011,
+      20261012,
+      20261013
+    ],
+    "preexisting_complete_prefix_seeds": [
+      20261011
+    ],
+    "gpu_executed": true,
+    "freeze_accepted": false,
+    "scientific_result": null,
+    "source_version_preserved": "v01",
+    "remaining": [
+      "complete accepted temporary-control retirement and measure cumulative storage budget",
+      "all eight real acceptance witnesses and pre-formal freeze review",
+      "all five fixed T32 paired seed blocks",
+      "audited CSV/figures/report and local/server/GitHub sync"
+    ],
+    "local_cpu_tests": {
+      "passed": 93,
+      "native_module_skipped": 2,
+      "source": "solutions/v02/src/tests",
+      "status": "passed_local_native_verified_separately"
+    },
+    "asset_import": {
+      "status": "verified",
+      "server_pid": 1888118,
+      "path": "solutions/v02/inputs/import_v01_20261012",
+      "log": ".runtime/gate1_jobs/import_20261012_01.log",
+      "gpu_count": 0,
+      "files": 646
+    },
+    "native_cpu_tests": {
+      "passed": 33,
+      "seconds": 5.38,
+      "receipt": ".runtime/gate1_jobs/native_cpu_20261012_02.log",
+      "scope": "includes variable-length boxed GT/GT+1 padding/masks; GPU pending"
+    },
+    "engineering_control": {
+      "run_id": "gate1_control_s7_stop8_20261012_01",
+      "server_pid": 1931754,
+      "source_variant": "preliminary short-candidate input protocol; not formal scoring",
+      "old_S7_actual_full_restore_passed": true,
+      "fixed_U8_tensors_checked": 12,
+      "fixed_U8_tensors_and_metadata_passed": true,
+      "updated_U8_all_model_buffers_Adam_groups_scheduler_worker_rng_exact": true,
+      "full_S8_committed": true,
+      "completed_U8_receipt": true,
+      "terminal_returncode_verified": true,
+      "scope": "engineering consistency; no formal Gate1 conclusion",
+      "returncode": 0,
+      "terminal_status": "intentionally_stopped"
+    },
+    "probe_review": {
+      "status": "boxed_inputs_and_actual_current_source_clean_scores_verified_initial_P256_control_pending",
+      "reason": "Use actual boxed output format and per-case fixed GT/GT+1; mask variable-length padding",
+      "formal_effects_generated": false,
+      "old_input_caches_retained_as_engineering_history": true,
+      "calibration_signature": "98819370a11487139a254c74baef1dcf960e12aa46d35299531ac5a537b8eefe",
+      "formal_signature": "e731dda9265d2658b05cabba6a67ccc3b16107e14402aae9c03e09a5685a892c"
+    },
+    "formal_gpu_executed": false,
+    "boxed_control": {
+      "run_id": "gate1_control_s7_stop8_20261012_02",
+      "pid": 2143041,
+      "status": "intentionally_stopped",
+      "scope": "engineering; no formal effect",
+      "returncode": 0,
+      "completed_step": 8,
+      "full_S8_committed": true,
+      "U8_matches_legacy_worker_state": true,
+      "learning_signature": "639eb90ba622f55ebe397bbbfb2987c33ab8858eb3c59cf96ae61914495ac0c9"
+    },
+    "independent_workflow_review": {
+      "user_authorized": true,
+      "status": "current_workflow_candidate_and_full_recovery_review_passed_input_schema_context_followup_in_progress",
+      "local_passed": 93,
+      "local_native_modules_skipped": 2,
+      "new_native_counterexamples_pending": 0,
+      "review": "docs/v02/gate1_workflow_review.md",
+      "engine15_locked": true
+    },
+    "engineering_queue_superseded": {
+      "pid": 2158238,
+      "reason": "Replace old-source followups with reviewed-source actual corrupt recovery controls",
+      "current_boxed_control_preserved": 2143041,
+      "receipt": ".runtime/gate1_jobs/engineering_boxed_20261012_01.superseded.json"
+    },
+    "clean_numerical_calibration": {
+      "D_score": 0.0,
+      "cases": 64,
+      "probe_signature": "98819370a11487139a254c74baef1dcf960e12aa46d35299531ac5a537b8eefe",
+      "scope": "Two actual isolated evaluations at same legacy full S7; not formal effect"
+    },
+    "source_lock": "Queue04 complete;39 sources/docs synchronized; final sequencef97 and all35 code/profile/test files verified by new independent_code_review witness",
+    "resource_budget_revision": {
+      "status": "proposal_before_formal_freeze",
+      "peak_additional_full_states": 14,
+      "planned_new_updates": 453,
+      "evaluation_points": 89,
+      "raw_cache_margin_GiB": 48,
+      "measured_full_state_GiB": 43.122407332994044,
+      "deliberately_interrupted_engineering_S8": "preserve complete failure scene; count as existing used disk",
+      "reason": "Measured raw/direct unit sizes and serial peak; initial64GiB reserve was AI proposal, not user-approved constraint",
+      "prefix_S0_extra_states": "Existing keep1+protected7 leaves S0 at end7; actual small-file reproduction passed. Final workflow must explicitly retire accepted prefix12/13 unprotectedS0 with rawmetadata retained, or add both to budget",
+      "independent_plan_review": "passed_exact_sequence_lifecycle_peak14_final11_units453_evaluations89; not actual free passed",
+      "success_path_only": true,
+      "new_formal_failure_requires_fresh_cumulative_budget_before_resume": true
+    },
+    "process_interruption_helper": {
+      "status": "actual_CPU_owner_filter_and_GPU_interruption_recovery_passed",
+      "python": "3.11.15 frozen GPU runtime lacks os.pidfd_open/libc pidfd_open symbol",
+      "kernel": "5.15.0-139-generic",
+      "method": "C syscall(SYS_pidfd_open) from system headers, bound PIDfd signals plus UID/env/start-time ownership",
+      "source": "solutions/v02/src/gate1_pidfd.c",
+      "source_sha256": "51b89556f1f0d0caea1b7b28bbed72fc6620a4d9e0cfd61c1e2ac1dd86c3ed7f",
+      "receipt": ".runtime/gate1_jobs/pidfd_actual_probe_20261012_01.json",
+      "environment_packages_modified": false
+    },
+    "native_cpu_reviewed": {
+      "passed": 107,
+      "seconds": 36.06,
+      "status": "passed",
+      "receipt": ".runtime/gate1_jobs/native_cpu_reviewed_20261012_03.json",
+      "log": ".runtime/gate1_jobs/native_cpu_reviewed_20261012_03.log",
+      "scope": "all current contract/native/recovery/provenance/metadata raw counterexamples"
+    },
+    "reviewed_launcher_sha256": "c0c79a795201aff878a56bbab51a1ee16341149d68e94e19e3f7c0ce4fb9e85b",
+    "reviewed_engineering_queue": {
+      "status": "superseded_by_queue04_after_controller_import_fix",
+      "pid": 2255551,
+      "script": ".runtime/gate1_jobs/engineering_reviewed_20261012_03.py",
+      "source_sha256": "2000811d852eae43e2ab1ead1aee4251e39b0e98ec6042595626d1b34bcdafed",
+      "selected_gpus": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "formal": false,
+      "last_observed": "2026-10-12 13:41:56 UTC: clean8 actualscore8 committed; fullS8/completed8 still awaited"
+    },
+    "initial_evaluation_import": {
+      "status": "passed",
+      "path": "solutions/v02/inputs/initial_evaluations_20261012_01/manifest.json",
+      "manifest_signature": "69fd34e7e4da3f52e8ded609b2e96495e88d6897f7fd73e588b3b9d637f21203",
+      "seeds": [
+        20261011,
+        20261012,
+        20261013
+      ],
+      "cases_each": 256,
+      "source": "historical actual S0 evaluations; raw bytes hardlinked/verified into v02; not recovered models"
+    },
+    "threshold_calibration": {
+      "status": "passed_independent_clean_current_source",
+      "epsilon_D": 0.01,
+      "D_score": 0.0,
+      "cases": 64,
+      "created_utc": "2026-10-12T13:29:50.954234+00:00",
+      "path": "solutions/v02/inputs/acceptance_20261012_03/threshold_calibration.json",
+      "limits": "Two same-S7 repeated evaluations; not95% quantile; no formal corrupt future generated"
+    },
+    "legacy_engineering_validation": {
+      "status": "passed_actual_source_tensors_scores_and_full_state",
+      "runs": [
+        "gate1_control_s7_stop8_20261012_01",
+        "gate1_control_s7_stop8_20261012_02"
+      ],
+      "receipt": ".runtime/gate1_jobs/legacy_engineering_validation_20261012_04.json",
+      "source": "isolated final state/validation/evidence/ref helpers; live GPU source unchanged",
+      "weights_deleted": false
+    },
+    "final_native_cpu": {
+      "status": "passed",
+      "passed": 117,
+      "seconds": 32.81,
+      "receipt": ".runtime/gate1_jobs/native_cpu_final_workflow_20261012_06.json",
+      "log": ".runtime/gate1_jobs/native_cpu_final_workflow_20261012_06.log",
+      "previous_harness_failure": ".runtime/gate1_jobs/native_cpu_final_workflow_20261012_05.log:8 missing frozen reference files;109 passed; actual12 references copied without code changes"
+    },
+    "reviewed_engineering_queue_03": {
+      "status": "failed_after_native_clean_success",
+      "pid": 2255551,
+      "script": ".runtime/gate1_jobs/engineering_reviewed_20261012_03.py",
+      "source_sha256": "2000811d852eae43e2ab1ead1aee4251e39b0e98ec6042595626d1b34bcdafed",
+      "selected_gpus": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "formal": false,
+      "last_observed": "2026-10-12 13:41:56 UTC: clean8 actualscore8 committed; fullS8/completed8 still awaited",
+      "failure": "Controller omitted upstream Agent0-VL from its own sys.path; actual native clean8 rc0/fullS8 complete. No corrupt stages launched."
+    },
+    "new_clean_control": {
+      "run_id": "gate1_control_clean8_20261012_03",
+      "status": "intentionally_stopped",
+      "returncode": 0,
+      "completed_step": 8,
+      "U8_exact_legacy_worker_state": true,
+      "source_sha256": "c0c79a795201aff878a56bbab51a1ee16341149d68e94e19e3f7c0ce4fb9e85b",
+      "whole_controller_validation": "passed: engineering_reviewed_20261012_04.reused_clean_validation.json; all45 evidence entries verified"
+    },
+    "independent_code_review_witness": {
+      "status": "passed_implementation_review_and117_native_actual_checks",
+      "path": "solutions/v02/inputs/acceptance_20261012_03/independent_code_review.json",
+      "sha256": "09e17b026726484dc613fcacb34589fec9b80233995b5bf06b58b3c49621a790",
+      "GPU_recovery_scope": "separate witness pending"
+    },
+    "reviewed_engineering_queue_04": {
+      "status": "completed",
+      "pid": 2366886,
+      "script": ".runtime/gate1_jobs/engineering_reviewed_20261012_04.py",
+      "sha256": "8e89fe4afe342acbdbfa8a61b2ababa3a3130545851a1001487b0a82ca4a6eb3",
+      "reused_clean": "gate1_control_clean8_20261012_03",
+      "scope": "Correct native import path in CPU controller; all remaining GPU attempts use new04 IDs and unchanged engine15; original03 failure preserved",
+      "current": "gate1_control_initial1_20261012_04",
+      "child_pid": 2585931,
+      "last_observed_utc": "2026-10-12T19:09:40.256970+00:00",
+      "reused_clean_validation": "passed; units1; full parent/end validation; no repeated GPU work"
+    },
+    "production_native_import": {
+      "status": "deployed_final_f97_matches_native07_and_actual_fresh_CLI_proof",
+      "sequence_sha256": "f97edc43c34b4b1cdca7bdef49acad42b56477b3c5e296ba0ea4a62ec2ad7cfa",
+      "receipt": ".runtime/gate1_jobs/cli_native_import_20261012_01/receipt.json",
+      "negative_control": "fresh GPU Python3.11.15 without PYTHONPATH: original real U8 unpickle failed No module named verl",
+      "positive_control": "same fresh environment: exact patched package,16row real U8, native unit audit and shared export bootstrap passed",
+      "local_tests": "93 passed,2 skipped in3.39s",
+      "independent_review": "same user-authorized agent verified receipts and SHA; live old sequence still untouched"
+    },
+    "actual_interruption": {
+      "run_id": "gate1_control_corrupt_interrupt9_20261012_04",
+      "utc": "2026-10-12T15:25:59.216754+00:00",
+      "returncode": -9,
+      "owned_worker_pids_count": 91,
+      "committed_full_step": 8,
+      "partial_unit": 9,
+      "actual_completed9": false,
+      "receipt": "solutions/v02/outputs/gate1_control_corrupt_interrupt9_20261012_04/raw/workflow_interruption.json",
+      "scope": "Actual interrupted U9 and full S8-to9 recovery/continuous engineering equivalence passed; original failed fullS8 and partial9 remain preserved",
+      "independent_review": "Actual91 pids gone and exactUID/run-marker scan clear; U8/partial9 SHA stable; real native GRPO/first target/E8worker equality and restoredS8 audited; no new P0/P1. UID/starttime not separately persisted perPID is disclosed P2.",
+      "recovered_S8_actual_restore": "Full worker/model/Adam/scheduler/workerRNG and driverRNG/cursor exact; recovered9 and continuous9 terminal validations and comparison passed"
+    },
+    "materialized_acceptance_witnesses": {
+      "status": "three_new_actual_checks_passed",
+      "keys": [
+        "source_asset_import",
+        "actual_parent_restore",
+        "fixed_unit_replay"
+      ],
+      "directory": "solutions/v02/inputs/acceptance_20261012_03",
+      "job": ".runtime/gate1_jobs/ready_witnesses_20261012_02.status.json",
+      "cpu_pid": 2398612,
+      "gpu_count": 0,
+      "count_basis": "645 imported members plus import_manifest =646;96 actual native source units",
+      "first_attempt": ".runtime/gate1_jobs/ready_witnesses_20261012_01.status.json: count guard failed before any witness; original logs/source retained"
+    },
+    "final_native_cpu_candidate": {
+      "status": "passed_isolated_new_sequence_candidate",
+      "passed": 117,
+      "seconds": 8.42,
+      "receipt": ".runtime/gate1_jobs/native_cpu_final_workflow_20261012_07.json",
+      "sequence_sha256": "f97edc43c34b4b1cdca7bdef49acad42b56477b3c5e296ba0ea4a62ec2ad7cfa",
+      "live_source_updated": false
+    },
+    "local_evidence_capture": {
+      "files": 1850,
+      "archive_bytes": 93470720,
+      "receipt": ".runtime/receipts/gate1_download_20261012_01.json",
+      "verified_all_sha256": true,
+      "scope": "Three terminal engineering controls, fixed manifests and immutable review checks; large tensors/checkpoints remain server-side"
+    },
+    "freeze_assembly_plan": {
+      "status": "all8_actual_witnesses_passed_new_freeze_pending_review",
+      "path": "solutions/v02/inputs/acceptance_plan_20261012_01/draft.json",
+      "passed_unchanged_keys": [
+        "source_asset_import",
+        "actual_parent_restore",
+        "fixed_unit_replay",
+        "threshold_calibration",
+        "actual_interruption_recovery",
+        "probe_inputs"
+      ],
+      "pending_keys": [],
+      "actual_draft_rejected_by_formal_validator": true,
+      "new_passed_keys": [
+        "independent_code_review",
+        "storage_budget"
+      ]
+    },
+    "recovered_control": {
+      "run_id": "gate1_control_corrupt_recovered9_20261012_04",
+      "status": "intentionally_stopped",
+      "returncode": 0,
+      "completed_step": 9,
+      "full_S9_certificate": true,
+      "score9_complete": true,
+      "completed9_receipt": true,
+      "controller_validation": "passed: gate1_control_corrupt_recovered9_20261012_04.validation.json, units2, original8 plus new9",
+      "continuous_comparison": "passed_actual_full_state_and_cal64_scores"
+    },
+    "actual_interruption_recovery_comparison": {
+      "status": "passed_actual_full_state_and_scores",
+      "receipt": ".runtime/gate1_jobs/engineering_reviewed_20261012_04.restore_comparison.json",
+      "checks": {
+        "step": true,
+        "workers": true,
+        "driver_rng": true,
+        "data_cursor": true,
+        "position": true
+      },
+      "D_score": 0.0,
+      "roles": {
+        "solver": 0.0,
+        "verifier": 0.0
+      },
+      "calibration_cases": 64,
+      "scope": "Actual full-state recovery engineering equivalence at9; no formal Gate1T32 effect",
+      "failed_S8_retained": true
+    },
+    "continuous_control": {
+      "status": "intentionally_stopped",
+      "returncode": 0,
+      "validation_passed": true,
+      "units": 2,
+      "run_id": "gate1_control_corrupt_continuous9_20261012_04"
+    },
+    "actual_interruption_recovery_witness": {
+      "status": "passed_actual_materialized_and_independently_reviewed",
+      "path": "solutions/v02/inputs/acceptance_20261012_04/actual_interruption_recovery.json",
+      "sha256": "77039edf52c3ced469a312605348dd1201e8651187cfa0f9022d4c29c29e38cd",
+      "evidence_files": 139,
+      "scope": "Seed20261011 S7-to9/cal64 native engineering control; not formalT32 effect"
+    },
+    "historical_reference_schema": {
+      "old": "solutions/v02/inputs/reference_metadata_20261012",
+      "old_limitation": "Existing early entries lack run_id; current validate_reference raises KeyError. Old immutable directory preserved.",
+      "current": "solutions/v02/inputs/reference_metadata_20261013_01",
+      "manifest_sha256": "8ac84e1e6eacb9816c1f3b2780b24835c9b45b67cbae09a7b25a36303dc10b70",
+      "manifest_signature": "4d041e1a1aa36b947c5d95ad93b7399ac93c96abfde69e9f7681f8c3b7bb8f88",
+      "references_validated": 9,
+      "receipt": ".runtime/gate1_jobs/reference_metadata_20261013_01.json",
+      "metadata_only": true
+    },
+    "initial_control": {
+      "run_id": "gate1_control_initial1_20261012_04",
+      "status": "intentionally_stopped",
+      "observed_utc": "2026-10-12T19:09:40.256970+00:00",
+      "full_S0": true,
+      "full_S1": true,
+      "S0_probe128": true,
+      "S0_evaluation256": true,
+      "S1_scores_evaluation_and_completion": "all_committed",
+      "probe_inputs_witness": "passed_actual_terminal_fullS0_and_signed_contexts",
+      "returncode": 0,
+      "controller_validation": "passed_units1_44_evidence"
+    },
+    "independent_input_review": {
+      "status": "passed_input_layer_only",
+      "path": ".runtime/gate1_jobs/initial_inputs_independent_20261013_01.json",
+      "sha256": "96d92aca524da15f2d191d07659082f62e68836332fece6d3fe43aa592de60c5",
+      "base_cases": 128,
+      "candidate_rows": 768,
+      "resigned_semantic_counterexamples_rejected": 5,
+      "S0_large_member_hashes_recomputed_by_reviewer": false,
+      "terminal_control_verified_by_this_review": false
+    },
+    "local_evidence_capture_20261013": {
+      "files": 1604,
+      "bytes": 71961463,
+      "receipt": ".runtime/receipts/gate1_download_20261013_01.json",
+      "all_sha_verified": true
+    },
+    "final_probe_inputs_witness": {
+      "status": "passed",
+      "path": "solutions/v02/inputs/acceptance_20261012_04/probe_inputs.json",
+      "sha256": "9ca33ac22bf0b00e6631a02665e6ea93eac4df428f8642ef407ea66ac7e2af9a",
+      "S0_physical_full_member_hashes": true,
+      "base_cases": 128,
+      "candidate_rows": 768
+    },
+    "final_code_review_witness": {
+      "status": "passed_deployed_f97_historical_for_new_local448_candidate",
+      "path": "solutions/v02/inputs/acceptance_20261012_04/independent_code_review.json",
+      "sha256": "b803cf7cc0cad84d89c535de863d1d5ccb1538f91bb661f4b25fe11f70648825",
+      "native_tests": 117,
+      "source_files_matched": 35
+    },
+    "engineering_weight_retirement": {
+      "status": "failed_safe_before_initial_weight_deletion",
+      "job": ".runtime/gate1_jobs/control_retirement_20261013_01.py",
+      "source_sha256": "e298976063f58d491dc54eb4fc7f8c1eaa030d5d326cf3ab5f95b98bc9186f66",
+      "scope": "six accepted successful controls only; failedfullS8 and old6 preserved",
+      "pid": 2679891,
+      "completed": [
+        "gate1_control_corrupt_recovered9_20261012_04",
+        "gate1_control_corrupt_continuous9_20261012_04"
+      ],
+      "current": "gate1_control_initial1_20261012_04",
+      "last_observed_utc": "2026-10-12T19:53:46.336919+00:00",
+      "error": "Proof omits captured native checkpoint0 receipt required by validate_run",
+      "failure_receipt": ".runtime/gate1_jobs/engineering_retirement_20261013_01.failure.json",
+      "returncode_verified": false
+    },
+    "storage_witness_operation": {
+      "status": "independently_reviewed_deployed_not_executed",
+      "source_sha256": "463aca6973fa4f0efeb0f42c86e681a219971f6792263500be2b492226b04c18",
+      "calculator_sha256": "81a85d5c82e2a97cd95d7fd1171cea270d5225fce74fe269b646378080309e5a",
+      "guards": "Require six actual completed retirements and all7 full protected states; exact reviewed calculator/retirement source, import/cert/member sets, actual absence of retired large shards, preservation of all small metadata, post-retirement free>=complete success-path budget"
+    },
+    "local_evidence_capture_20261013_02": {
+      "files": 1434,
+      "bytes": 66884790,
+      "receipt": ".runtime/receipts/gate1_download_20261013_02.json",
+      "all_sha_verified": true
+    },
+    "retirement_fix_candidate": {
+      "status": "independently_reviewed_deployed_launched",
+      "controller_sha256": "ece334b41b15e79fdb31d3015b3a6052f599c600d2d7737e349d604e2c357cb5",
+      "storage_sha256": "8d54b62a8346ab5c6c6cc903437e0ae00ff0b271029fe8cea1466c895900bee1",
+      "scope": "Reuse2 actual completed retirements with original proofs; new pending proof IDs include all capture/checkpoint0 evidence; new status/launch02, unchanged engine15/workflow6",
+      "formal_same_omission": "not_found; actual execute captures before terminal validation, prefix/paired proofs include complete validation evidence"
+    },
+    "engineering_weight_retirement_02": {
+      "status": "completed",
+      "pid": 2738221,
+      "source_sha256": "ece334b41b15e79fdb31d3015b3a6052f599c600d2d7737e349d604e2c357cb5",
+      "launch_utc": "2026-10-12T20:13:12.798848+00:00",
+      "previous_two_actual_completed_retirements_reused": true,
+      "remaining_controls": 4,
+      "gpu_count": 0,
+      "failure01_preserved": true,
+      "completed": [
+        "gate1_control_corrupt_recovered9_20261012_04",
+        "gate1_control_corrupt_continuous9_20261012_04",
+        "gate1_control_initial1_20261012_04",
+        "gate1_control_clean8_20261012_03",
+        "gate1_control_s7_stop8_20261012_02",
+        "gate1_control_s7_stop8_20261012_01"
+      ],
+      "current": "gate1_control_clean8_20261012_03",
+      "last_observed_utc": "2026-10-12T20:45:36.995900+00:00"
+    },
+    "actual_storage_check_02": {
+      "status": "failed_actual_capacity_guard",
+      "receipt": ".runtime/gate1_jobs/budget_final_20261013_02.json",
+      "log": ".runtime/gate1_jobs/storage_witness_20261013_02.log",
+      "free_bytes": 677116964864,
+      "required_additional_bytes": 700711746398,
+      "storage_witness_created": false,
+      "formal_launched": false
+    },
+    "storage_occupancy_audit": {
+      "owned_ROOT_disk_bytes": 348705304576,
+      "runtime_disk_bytes": 18410942464,
+      "no_extra_large_temporary_checkpoint_shards": true,
+      "remaining_large_control_state": "original failed S8 only, protected",
+      "largest_evaluation_JSON_bytes": 647677,
+      "evaluation_JSONs_observed": 54,
+      "scope": "Read-only directory sizes; shared filesystem available capacity varies independently of this project occupancy"
+    },
+    "storage_full_artifact_audit": {
+      "P256_max_allocated_bytes": 34287616,
+      "fixed_replay_max_allocated_bytes": 12279808,
+      "online_max_allocated_bytes": 15462400,
+      "ray_session_max_allocated_bytes": 135208960,
+      "lower_raw_allowance_proposal_accepted": false,
+      "scope": "Full artifacts and native launcher guard prevent replacing evaluation allowance by JSON size alone"
+    },
+    "early_clean_retirement_proposal": {
+      "status": "implemented_local_native133_passed_independent_final_witness_pending",
+      "peak_full_slots_proposal": 13,
+      "preserve_order": [
+        "clean",
+        "corrupt",
+        "repeat"
+      ],
+      "full_clean_source_equality_required_before_retirement": true,
+      "raw_and_margin_bytes": 51539607552,
+      "training_protocol_changed": false,
+      "workflow_sha256": "44802f39d163f978acfaab2d1689f7a52697102b90b72f0820605643d32adf29",
+      "scope": "Independent clean weight-dedup acceptance before corrupt; paired remains pending; no training/probe/threshold changes"
+    },
+    "early_clean_retirement_native09": {
+      "passed": true,
+      "native_tests": 133,
+      "seconds": 75.88,
+      "log_sha256": "0430da827168dff24a6cb1c2bff0d37dd3f7b1084372e3364934c42d4491feb1",
+      "receipt": ".runtime/gate1_jobs/native_cpu_final_workflow_20261013_09.json",
+      "new_cases": 16,
+      "new_case_scope": "Tiny actual torch/certificate/IO/retirement/first-unlink interruption guards; training validation and S0 selection are explicit fixtures; no new GPU claim",
+      "source_deployed": true
+    },
+    "early_clean_retirement_native08_failure": {
+      "passed": false,
+      "returncode": 1,
+      "passed_tests": 130,
+      "failed_tests": 1,
+      "cause": "Tiny fixture patched validation.validate_run but missed separately imported workflow.validate_run alias; fixture fixed in09; implementation not relaxed",
+      "receipt": ".runtime/gate1_jobs/native_cpu_final_workflow_20261013_08.json",
+      "preserved": true
+    },
+    "production_native_import_current": {
+      "status": "deployed35_match_native09_and_freshCLI02_passed",
+      "sequence_sha256": "44802f39d163f978acfaab2d1689f7a52697102b90b72f0820605643d32adf29",
+      "deployment": ".runtime/gate1_jobs/source_deployment_20261013_01.json",
+      "cli_receipt": ".runtime/gate1_jobs/cli_native_import_20261013_02/receipt.json",
+      "cli_sha256": "3ad9a25117911a256db9caed6bd1d49eaff818c53e5f94b2486e76b4cdbac8bd",
+      "unit_evidence_files": 6,
+      "CLI_evidence_files": 16,
+      "selected_gpus": []
+    },
+    "current_witness_materialization": {
+      "status": "completed",
+      "pid": 2856270,
+      "launch_utc": "2026-10-12T22:04:15.397652+00:00",
+      "target": "solutions/v02/inputs/acceptance_20261013_05",
+      "order": [
+        "independent_code_review",
+        "storage_budget"
+      ],
+      "required_additional_bytes_candidate": 666741017387,
+      "actual_space_passed": true,
+      "source15_unchanged": true,
+      "free_bytes": 677054451712,
+      "required_additional_bytes": 666741017387,
+      "code_review_sha256": "611a596d38ca7a9b1e916a96e3a91e35dc52b5290c9d7494b79e1c3767b6acff",
+      "storage_sha256": "baa5a621cce949b4dafa8529479ac71671d2fe839e306d4c65566f38f2215f19"
+    },
+    "final_code_review_witness_current": {
+      "status": "passed_deployed448_current_native133_freshCLI02",
+      "path": "solutions/v02/inputs/acceptance_20261013_05/independent_code_review.json",
+      "sha256": "611a596d38ca7a9b1e916a96e3a91e35dc52b5290c9d7494b79e1c3767b6acff",
+      "evidence_files": 179,
+      "unresolved_P0_P1": []
+    },
+    "actual_storage_check_03": {
+      "status": "passed_actual_capacity_and_all_original_native_launch_guards",
+      "path": "solutions/v02/inputs/acceptance_20261013_05/storage_budget.json",
+      "sha256": "baa5a621cce949b4dafa8529479ac71671d2fe839e306d4c65566f38f2215f19",
+      "free_bytes": 677054451712,
+      "required_additional_bytes": 666741017387,
+      "peak_additional_full_slots": 13,
+      "final_additional_full_slots": 11,
+      "raw_and_margin_bytes": 51539607552,
+      "old_failed02_preserved": true,
+      "formal_launched": false
+    },
+    "freeze_materialization": {
+      "status": "passed_actual1021_unique_nested_evidence_SHA_and_validate_freeze",
+      "pid": 2873328,
+      "launch_utc": "2026-10-12T22:19:32.965430+00:00",
+      "operational_source_sha256": "e8dfb4304e090d95cff1e14ffc1828562b289566c980c60ac7487e042e82971d",
+      "actual_S0_preflight_fp_equal": true,
+      "code_independent_P0_P1": [],
+      "formal_launched": false,
+      "final_actual_freeze_review_pending": false,
+      "freeze": "solutions/v02/inputs/gate1_freeze_20261013_01/freeze.json",
+      "freeze_sha256": "b36195b5129d8fe33fb26d808434bfd7db8e9b8e0de21f69c139af19fd164d3a",
+      "created_utc": "2026-10-12T22:27:53.865209+00:00",
+      "nested_evidence_files_rehashed": 1021,
+      "formal_runs_observed_before_freeze": 0,
+      "independent_actual_review": "passed; freeze b36195...;995 small rehashed by independent reviewer,26 large referenced root actual1021 complete hash validation; no unresolvedP0/P1"
+    },
+    "formal_launch_plan": {
+      "status": "launched_parent_initial_import_SHA_phase",
+      "sequence_id": "gate1_20261013_01",
+      "seeds": [
+        20261011,
+        20261012,
+        20261013,
+        20261014,
+        20261015
+      ],
+      "horizon": 32,
+      "k": 8,
+      "maximum_gpu_count": 4,
+      "selected_gpus": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "plan": ".runtime/gate1_formal_launch_plan.json",
+      "pid": 2886355,
+      "launch_utc": "2026-10-12T22:32:30.807780+00:00",
+      "launch_receipt": ".runtime/gate1_jobs/gate1_20261013_01.launch.json",
+      "freeze_sha256": "b36195b5129d8fe33fb26d808434bfd7db8e9b8e0de21f69c139af19fd164d3a",
+      "plan_sha256": "eb2a66706003cbb68678b221dcff207c8571ddec41c72a6ff45705caa365cc03",
+      "completed_seed_blocks": 0,
+      "formal_T32_results_accepted": false
+    }
   }
 }

@@ -6,7 +6,7 @@
 
 科研开发规范已同步用户提供的新版本，加入强制代码正确性深度审查，并保留服务器使用条款；后续开发需完成设计/实现双向核查、参数核查与独立反例验证，未闭环的P0/P1实现问题不能推进正式实验。
 
-当前版本为 `v01`，目标是建立自己的机制 baseline；后续所有训练与修复实验最多使用四张 RTX 4090，分支串行。深度设计见 [baseline_design.md](docs/v01/baseline_design.md)，六个 Gate 的协议见 [gate_protocol.md](docs/v01/gate_protocol.md)，需求与风险审查见 [design_review.md](docs/v01/design_review.md)。v01 为 baseline，v02–v07 对应 Gate1–6；原论文模型与绝对分数复现不作为前置。
+v01 机制 baseline 已完成，当前推进 `v02 / Gate1` 的实现与验收，方案见 [Gate1 协议](docs/v02/gate1_protocol.md)，真实工程状态见 [实施验收记录](docs/v02/implementation.md)；后续所有训练与修复实验最多使用四张 RTX 4090，分支串行。深度设计见 [baseline_design.md](docs/v01/baseline_design.md)，六个 Gate 的协议见 [gate_protocol.md](docs/v01/gate_protocol.md)，需求与风险审查见 [design_review.md](docs/v01/design_review.md)。v01 为 baseline，v02–v07 对应 Gate1–6；原论文模型与绝对分数复现不作为前置。
 
 固定Qwen2.5-VL-3B-Instruct/data08已通过cal11的14项健康规则、三个真实GPU恢复/重放/重复评测对照，以及六项冻结证据和累计磁盘预算。[正式冻结记录](docs/v01/baseline_freeze.md)固定源码、模型、数据、环境与三个seed各32步。三个seed的全部32步、五次评测和完整S32均正常完成，D已验收；同S7/U8的E单奖励实际更新与独立配对审计也通过。当前结果见 [baseline_report.md](docs/v01/baseline_report.md)，逐句实现与反例审查见 [baseline_code_review.md](docs/v01/baseline_code_review.md)。全部D完成才称正常baseline验收，六个Gate另行检验科研现象。
 
@@ -14,14 +14,16 @@
 
 当前源码实现 Agent0-VL 基线与实验记录；SCOR 核心算法尚待接入。
 
-本轮文档核对已补明[数据选型与覆盖范围](docs/v01/baseline_report.md#当前数据与选型范围)、[六份训练状态的各自用途](docs/v01/storage_cleanup.md#实际清理与保留)，并修正验收状态及清理后的旧备份表述。设计、冻结、实施验收、报告、审查、清理同步和变更记录均已具备；后续Gate文档仍是实验提案。
+本轮文档核对已补明[数据选型与覆盖范围](docs/v01/baseline_report.md#当前数据与选型范围)、[六份训练状态的各自用途](docs/v01/storage_cleanup.md#实际清理与保留)，并修正验收状态及清理后的旧备份表述。设计、冻结、实施验收、报告、审查、清理同步和变更记录均已具备；v02 已开始实现固定数据持续性实验；当前117项原生检查、新源码clean U8及真实GPU中断恢复至S9的完整状态/评分等价已通过，初始S0/S1、probe128/P256控制亦已验收通过，正在部署最终代码并核验冻结预算；尚未冻结或获得Gate1科研结果，后续Gate保持实验提案。
 
 历史pilot入口的[间隔式检查点策略](docs/v01/checkpoint_policy.md)默认每2步保存；当前独立baseline按冻结条件每8步及保护/末步保存，三次完整32步已实际执行滚动替换。只有新完整状态提交后才清理本run非保护旧快照，原始单元收据保留；模型恢复以完整快照为边界，间隔内中断可能需要重算未提交段。2026-10-11按用户授权清理旧3B试跑的权重和优化器分片，释放43.1GiB；旧恢复点已退役，后续baseline的关键完整状态仍需保存。[清理记录](docs/v01/checkpoint_retirement.md)
 
 - `solutions/v01/src/`：实验入口、配置、数据准备与验证代码。
 - `solutions/v01/inputs/`：输入数据，Git 忽略。
 - `solutions/v01/outputs/`：按运行编号保存原始收据、checkpoint 和分析结果，Git 忽略。
-- `docs/v01/`：本版方案与审查记录。
+- `docs/v01/`：baseline 方案与审查记录。
+- `solutions/v02/`：Gate1 源码、版本内输入和运行结果，入口见 [v02 README](solutions/v02/README.md)。
+- `docs/v02/`：Gate1 协议、验收与结果文档。
 - `.runtime/`：隔离的依赖环境与上游源码，Git 忽略。
 - `CURRENT_STATE.json`：当前进度与证据状态。
 
@@ -46,3 +48,9 @@ git push origin main
 ```
 
 论文下载来源保存在各文献目录的 `papers_manifest.tsv`；SCOR 分算法文献可用 `docs/RSI-Agent/SCOR_related_papers_by_algorithm/download_papers.py` 重新下载。服务器配置由使用者在本机单独准备，使用前遵守开发规范中的服务器规则。
+
+Gate1最新进展（2026-10-13）：原实际空间预算未通过。已实现提前认证clean/source完整末态后退役重复clean权重的工作流，保持五种子/T32/原评测及clean→corrupt→repeat顺序；服务器隔离native09共133项检查通过。新codeReview、生产CLI及累计13槽实际预算仍待验收，尚无正式Gate1结果。
+
+2026-10-13最新验收：新05独立代码审查（611a596d）与存储证据（baa5a621）已实际通过，八项证据齐备；预算实际free677054451712bytes高于严格累计需求666741017387bytes。CPU正在完整重核所有唯一证据SHA（包括探针及24大分片），随后写入新冻结文件并进行独立实际复核；正式五组T32尚未启动。冻结预审还闭合了历史P0混配漏洞：三组映射严格绑定原草案27d811，引用项和导入SHA同源，重签反例拒绝。早期草案由本机原字节补齐部署，不伪装成既有服务器freeze或用户预注册。
+
+2026-10-13正式启动：冻结文件b36195b5129d8fe33fb26d808434bfd7db8e9b8e0de21f69c139af19fd164d3a经实际1021份唯一证据全SHA与validator通过，独立实际复核无P0/P1（独审另核995small，26large引用主代理全核验）。fresh GPU4–7/累计空间预检通过。五种子T32序列gate1_20261013_01的父进程2886355于2026-10-12T22:32:30.807780UTC启动，先完整核验导入资产，再串行GPU分支；启动不代表T32验收或科研结论。源码15+6锁定，失败保留现场并重新核查资源后才恢复。
