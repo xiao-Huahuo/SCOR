@@ -13,7 +13,7 @@
 | 累计state/raw/写入峰值预算 | launcher/checkpoint_store/storage witness | cal05 S1本机完整备份及六份同server压缩恢复副本完整验证；freeze累计预算420.5494≥418.6016GiB通过 |
 | D正常baseline | run_baseline_sequence/run_baseline/baseline_acceptance | 六witness真实freeze通过；三预列seed各32步/五次评测/fullS32正常return0，D已验收 |
 | E同S7/U8单reward真实配对 | interventions/replay/analyze_baseline | 9配对+3成本原生反例审计通过；D之后真实GPU delta1、同S7/U8、唯一terminal+1、全目标组adv/其它组和全S8审计passed，不要求科研阳性 |
-| 原始输出、终态、成本、Git和报告 | summarize/costs/CSV/README/state/history | 校准/controls及前两正常run原始完整；D/E与全部CSV/最终成本报告已验收；提交/push正在完成 |
+| 原始输出、终态、成本、Git和报告 | summarize/costs/CSV/README/state/history | 校准/controls及前两正常run原始完整；D/E与全部CSV/最终成本报告已验收；源码与报告main提交5573536已push且远端SHA核对 |
 
 产品UI不适用于此次CLI/GPU任务，已获用户豁免；实际CLI、GPU闭环及恢复冒烟已执行。不能以校准8步、CPU通过或只启动任务代替D/E验收。冻结后保持12个原生引擎源、profile/data/model/ENV不变；新增分析及串行入口不改训练算法或这些身份。
 

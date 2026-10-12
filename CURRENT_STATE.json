@@ -4,7 +4,7 @@
   "active_version": "v01",
   "updated_date": "2026-10-12",
   "objective": "在最多四张RTX4090上实施并验收v01自有Agent0-VL类机制baseline，完成后准备Gate1；服务器资产统一存入/data1/yangbin/SCOR/",
-  "status": "v01_baseline_A_to_E_actual_acceptance_complete; Git_publication_in_progress",
+  "status": "v01_baseline_A_to_E_actual_acceptance_complete_and_published",
   "code": {
     "status": "native_gpu_executed",
     "entry": "solutions/v01/src",
@@ -304,6 +304,16 @@
       "CSV_export_actual_CLI_passed": true,
       "source12_frozen_unchanged": true,
       "legacy15_unchanged": true
+    },
+    "baseline_publication": {
+      "validated_text_files": 39,
+      "utf8_no_bom_LF_secret_links": true,
+      "old15_unchanged_before_implementation_commit": true,
+      "frozen12_unchanged": true,
+      "same_case_image_truth_mapping_all15_tables": true,
+      "staged_blobs_match_local_bytes": true,
+      "implementation_remote_SHA_verified": "5573536d17c741612f8a13c3d1a29d8523477cdc",
+      "receipt": ".runtime/git/baseline_publication_20261012.json"
     }
   },
   "data": {
@@ -421,9 +431,9 @@
   ],
   "evidence_storage": "Small JSON/CSV/log and historical completion certificate copied locally; raw generation/updater tensors remain on server. Original step1 model/optimizer shards were explicitly retired on 2026-10-11; checkpoint is no longer resumable.",
   "open_items": [
-    "Finish authorized main source/documentation commit and push verification",
-    "Future v02–v07 Gates/HED/CSS/TRA/RR and general sampler/probability equivalence require separate acceptance; not claimed here",
-    "Oldcal06 complete local offsite archive pending; fully verified same-server compressed recovery asset retained"
+    "Future v02–v07 Gate1–6 and HED/CSS/TRA/RR are planned, require separate freezes/actual evidence, and have not been implemented here",
+    "General sampler bitwise recovery and equivalence of sampling/model probabilities remain unverified",
+    "Oldcal06 local offsite archive remains incomplete96/145; its full verified same-server compressed recovery asset is retained"
   ],
   "next_research_steps": [
     "Budget and freeze Gate1/v02 using accepted baseline; use new predeclared seed blocks and actual no-op/stochastic-floor controls",
@@ -445,7 +455,7 @@
     "flash_attention": "2.7.4.post1 official wheel; ZIP and SHA256 verified"
   },
   "documentation": {
-    "status": "A_to_E_results_costs_limits_and_requirement_mapping_complete; Git_publication_in_progress",
+    "status": "A_to_E_results_costs_scope_requirement_mapping_published",
     "report": "docs/v01/baseline_report.md",
     "review": "docs/v01/runtime_review.md",
     "history": "docs/CHANGE_HISTORY.md",
@@ -460,7 +470,7 @@
     "baseline_freeze": "docs/v01/baseline_freeze.md"
   },
   "version_control": {
-    "status": "baseline_source_and_documentation_pending_publication",
+    "status": "validated_baseline_source_and_documentation_published",
     "remote": "git@github.com:xiao-Huahuo/SCOR.git",
     "branch": "main",
     "tracked_scope": "source, configuration, research documentation and bibliography manifests/scripts",
@@ -472,11 +482,12 @@
       "downloaded literature PDFs and caches",
       "macOS metadata"
     ],
-    "publication_status": "previous_design_published; migration_storage_rule_and_retirement_records_pending_publication",
+    "publication_status": "implementation/results commit pushed and remote SHA verified; final status commit recorded in runtime publication receipt",
     "transport": "SSH through local HTTP proxy from user-provided terminal script; local Git config only",
     "initial_published_commit": "3064bf33b7281bb1f1788e3d22597f8cd819911c",
-    "last_verified_published_commit": "70e5121d1071e59d873bc0cbcb07dd5dcccb8293",
-    "publication_receipt_for_this_task": ".runtime/git/baseline_publication_20261012.json"
+    "last_verified_published_commit": "5573536d17c741612f8a13c3d1a29d8523477cdc",
+    "publication_receipt_for_this_task": ".runtime/git/baseline_publication_20261012.json",
+    "last_implementation_published_commit": "5573536d17c741612f8a13c3d1a29d8523477cdc"
   },
   "design": {
     "status": "baseline_formally_frozen; Gates_proposed_only",

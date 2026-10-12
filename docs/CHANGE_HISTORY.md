@@ -253,3 +253,17 @@ cal11和三个真实GPU恢复/重放/隔离控制已经通过，旧cal06本机�
 ### 完成与未完成状态
 
 A–E全部实际验收，无未解实现P0/P1。三final178/181/185，各initial179；均值70.8333%、delta均+.911458个百分点，n3描述性、不宣称显著或泛化。D43.5450加E2.1890共45.7340分配GPU小时，components/worker时间重叠，设备采样峰值是2秒下界；此前校准/controls/归档/CPU/Git另属成本。12frozen engine/原15pilot不改，UTF8/source/报告/需求对应保持。Git发布在完成最终文本/ignore/secret/旧源/freeze/diff检查后执行。六Gate/SCOR模块及general sampler/probability equivalence未验收；cal06本机完整异地备份未完成，同服务器完整验证lossless恢复资产继续保留。
+
+# 2026-10-12：baseline源码与实测报告发布核验
+
+### 现状
+
+A–E完整实测及原始/CSV/成本/限制报告已验收。
+
+### 实施方案
+
+39份源码/配置/文档与状态文件明确stage，index bytes与UTF8本机文件一致；BOM/CR/乱码/私钥内容/链接/JSON/ignore检查通过，原15pilot和12frozen引擎字节不改，15份256case表映射与96个updates复核。main实施提交`5573536d17c741612f8a13c3d1a29d8523477cdc`已push，git ls-remote实际核对远端同SHA；凭据/runtime/数据/模型/输出/TASK_STATE未进入提交。发布后只更新状态与发布说明，最终HEAD与检查保存在本机.runtime/git/baseline_publication_20261012.json。
+
+### 完成与未完成状态
+
+v01 baseline A–E、最终CSV/报告/规范与发布核验全部完成。六Gate/SCOR模块、通用sampler逐位恢复/采样概率等价和旧cal06完整本机异地备份未完成，均保留明确范围；服务器完整验证lossless恢复资产保留。

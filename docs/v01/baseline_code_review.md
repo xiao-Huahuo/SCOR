@@ -43,7 +43,7 @@
 
 ## 未验收项与解释边界
 
-D三seed×32及E同S7/U8真实delta1配对全部通过，最终CSV/成本/报告已重建，Git发布正在完成。它们是后续实际执行事项，不用CPU通过或calibration替代。产品UI不适用于此CLI/GPU任务；用户已允许使用真实CLI/原生/恢复冒烟验收。
+D三seed×32及E同S7/U8真实delta1配对全部通过，最终CSV/成本/报告已重建，Git实施提交5573536已发布并核对远端。它们是后续实际执行事项，不用CPU通过或calibration替代。产品UI不适用于此CLI/GPU任务；用户已允许使用真实CLI/原生/恢复冒烟验收。
 
 cal11固定Verifier正确和错误候选的接受率均为0，是能力阴性观察；高JSON解析率不代表判断有效。native mixed reward包含outcome，不能称纯自奖励；历史native reanchor不是on-policy或无偏估计。teacher-forced actor score、vLLM返回分数和sampler分布不同来源分列，通用采样逐位恢复未验证。题型和pixel修订是校准期决断，不能冒充原始预注册或用户逐项确认。当前工程健康和可比较性成立不代表科研Gate、长期污染、泛化提升或SCOR算法有效。
 
