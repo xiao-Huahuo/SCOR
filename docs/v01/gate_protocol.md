@@ -13,7 +13,7 @@
 | 5 | 有意义污染集中于可选择的非连续/少量单元 | 简单连续窗口已覆盖；局部gradient不同但末态无影响；多个弱影响累积 |
 | 6 | 理想选择性修复接近Full Rollback且省成本 | 预先生成oracle数据未计费；混合路径失配；漏算全部重训/存档/审计成本 |
 
-初始主条件建议：同一2B候选最终冻结模型、原生混合奖励、四卡同拓扑、每轮4题×4轨迹、T=32、k=8、d=T、固定题目schedule。32轮只是有限horizon；另做长程实验才扩大解释。主错误类型先用一次终局false-positive，不同时扫模型、优化器、多错误率和多delay。
+初始主条件建议：同一baseline最终冻结模型（初始2B已拒绝，当前3B候选经过校准）、原生混合奖励、四卡同拓扑、每轮4题×4轨迹、T=32、k=8、d=T、固定题目schedule。32轮只是有限horizon；另做长程实验才扩大解释。主错误类型先用一次终局false-positive，不同时扫模型、优化器、多错误率和多delay。
 
 跨方法共享初始模型、S[k-1]、U[k]、reference、optimizer/scheduler、task schedule、seed配对规则、held-out/probes和可见修订证据。常规训练到同一个T，发现错误后的各方法恢复到同一个逻辑T。Continue Training就是此前照常训练得到的S[T]，不是给它额外未来题来与别的修复终态比较。
 
@@ -203,3 +203,7 @@ oracle集合构造本身可能跑过完整回滚甚至大量替换试验。其�
 | 六Gate支持 | 再把oracle换成实际HED/CSS/TRA/RR；重新验收false revision/false reuse/漏检与全部成本 |
 
 正式模块阶段继续保留Continue Training、Direct Correction、Reward Relabel + Replay、Historical Advantage Recompute、合理的Influence/Unlearning、Fixed/Adaptive-W和Full Rollback。自然Verifier错误、frozen Verifier、frozen Solver、参数分离、其它模型/任务/优化器用于检验机制边界；它们不全塞进当前v01，也不由人工终局错误结果直接替代。
+
+## 2026-10-12实施同步
+
+2026-10-12实际状态：六项同身份冻结证据和累计存储预算已通过；[正式冻结记录](baseline_freeze.md)及原始JSON SHA固定。三个正常seed均已完成32步、五次256case held-out评测和完整S32，全部return0；E从第一seed同S7/U8执行一次真实更新，固定输入/唯一terminal+1/全组adv/其它组/完整S8审计全部通过。六个Gate仍未执行。

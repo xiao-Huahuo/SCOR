@@ -1,6 +1,6 @@
 # v01 深度设计审查
 
-日期：2026-10-10（Asia/Shanghai）。审查对象为 [baseline_design.md](baseline_design.md) 与 [gate_protocol.md](gate_protocol.md)。本次完成的是设计与文档一致性，未执行新的模型下载、GPU训练或Gate。
+日期：2026-10-10（Asia/Shanghai）。审查对象为 [baseline_design.md](baseline_design.md) 与 [gate_protocol.md](gate_protocol.md)。以下第1–6节保留2026-10-10设计审查的原始状态；最新真实实施进度见文末及baseline_report，不能把历史“尚未实现”当当前结论。
 
 ## 1. 用户要求逐条对应
 
@@ -87,3 +87,7 @@ P0表示可能破坏核心结论/评测；P1表示实施前必须补齐；P2表�
 seed审查覆盖driver、data sampler、各rank actor/reference初始化与vLLM每角色请求；仅设置driver的random/torch seed不算全部生效。人工主错误须有有效显式错误答案，格式缺失不替代语义错误；把这一反例加进目标筛选与证书检查。
 
 审查由独立判据完成，不等于必须增加代理。本次未改训练代码，不重新宣称旧测试通过了新协议。正式baseline和Gate依赖的实现若仍有未闭环P0/P1正确性问题，不启动依赖实验；科学假设本身的未知由Gate验证，不混同为代码缺陷。
+
+## 2026-10-12实施同步
+
+2026-10-12实际状态：六项同身份冻结证据和累计存储预算已通过；[正式冻结记录](baseline_freeze.md)及原始JSON SHA固定。三个正常seed均已完成32步、五次256case held-out评测和完整S32，全部return0；E从第一seed同S7/U8执行一次真实更新，固定输入/唯一terminal+1/全组adv/其它组/完整S8审计全部通过。六个Gate仍未执行。

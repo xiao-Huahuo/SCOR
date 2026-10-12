@@ -8,13 +8,13 @@
 
 当前版本为 `v01`，目标是建立自己的机制 baseline；后续所有训练与修复实验最多使用四张 RTX 4090，分支串行。深度设计见 [baseline_design.md](docs/v01/baseline_design.md)，六个 Gate 的协议见 [gate_protocol.md](docs/v01/gate_protocol.md)，需求与风险审查见 [design_review.md](docs/v01/design_review.md)。v01 为 baseline，v02–v07 对应 Gate1–6；原论文模型与绝对分数复现不作为前置。
 
-设计建议优先验证 Qwen2-VL-2B-Instruct，保留共享 Solver/Verifier、工具、inner Repair、原生奖励与 GRPO。候选模型、规模和阈值尚未冻结；新的 baseline 入口与数据尚未实现。正常对照、完整恢复和评测通过才算 baseline 立起来，六个 Gate 另行检验研究现象。续接审查已修正 Gate5 双分支替换试验的更新预算；文档验收、当前发布状态和下一步按监管记录维护。
+固定Qwen2.5-VL-3B-Instruct/data08已通过cal11的14项健康规则、三个真实GPU恢复/重放/重复评测对照，以及六项冻结证据和累计磁盘预算。[正式冻结记录](docs/v01/baseline_freeze.md)固定源码、模型、数据、环境与三个seed各32步。三个seed的全部32步、五次评测和完整S32均正常完成，D已验收；同S7/U8的E单奖励实际更新与独立配对审计也通过。当前结果见 [baseline_report.md](docs/v01/baseline_report.md)，逐句实现与反例审查见 [baseline_code_review.md](docs/v01/baseline_code_review.md)。全部D完成才称正常baseline验收，六个Gate另行检验科研现象。
 
-已有工程证据：Agent0-VL 的 3B 核心链路已在四张 RTX 4090 上完成两次真实 GRPO 更新，并从第一步的完整 checkpoint 恢复继续训练。已观察到真实工具、Verifier、Repair 和参数变化。真实 batch 的离线 reward 修改影响了同组四条轨迹的 advantage；配对 GPU 更新对照因空闲卡不足尚未执行。这些结果属于小规模工程验证，未完成新的机制 baseline、论文 benchmark 复现或六个验证 Gate。
+以下为2026-10-10历史pilot证据：Agent0-VL 的 3B 核心链路已在四张 RTX 4090 上执行两次原生 GRPO update，并从第一步的完整 checkpoint 恢复继续训练。已观察到真实工具、Verifier、Repair，恢复后的第二次update观察到参数抽样变化。2026-10-11复核原生constant scheduler：warmup=0时首轮使用LR=0，两次update不能表述为两次权重变化。真实 batch 的离线 reward 修改影响了同组四条轨迹的 advantage；配对 GPU 更新对照因空闲卡不足尚未执行。这些结果属于小规模工程验证，未完成新的机制 baseline、论文 benchmark 复现或六个验证 Gate。
 
 当前源码实现 Agent0-VL 基线与实验记录；SCOR 核心算法尚待接入。
 
-v01 已增加[间隔式检查点策略](docs/v01/checkpoint_policy.md)：默认每2步保存完整状态，末步/主动停止/关键点额外保存；可选保留数量仅在新快照完整后清理本轮旧快照。模型状态以完整快照为恢复边界，间隔内中断可能需要重算未提交段。2026-10-11按用户授权清理旧3B试跑的权重和优化器分片，释放43.1GiB；旧恢复点已退役，后续baseline的关键完整状态仍需保存。[清理记录](docs/v01/checkpoint_retirement.md)
+历史pilot入口的[间隔式检查点策略](docs/v01/checkpoint_policy.md)默认每2步保存；当前独立baseline按冻结条件每8步及保护/末步保存，前两完整32步已实际执行滚动替换。只有新完整状态提交后才清理本run非保护旧快照，原始单元收据保留；模型恢复以完整快照为边界，间隔内中断可能需要重算未提交段。2026-10-11按用户授权清理旧3B试跑的权重和优化器分片，释放43.1GiB；旧恢复点已退役，后续baseline的关键完整状态仍需保存。[清理记录](docs/v01/checkpoint_retirement.md)
 
 - `solutions/v01/src/`：实验入口、配置、数据准备与验证代码。
 - `solutions/v01/inputs/`：输入数据，Git 忽略。
@@ -23,7 +23,7 @@ v01 已增加[间隔式检查点策略](docs/v01/checkpoint_policy.md)：默认�
 - `.runtime/`：隔离的依赖环境与上游源码，Git 忽略。
 - `CURRENT_STATE.json`：当前进度与证据状态。
 
-已有工程试跑方案见 [pilot_plan.md](docs/v01/pilot_plan.md)，下一步开发依据 [baseline_design.md](docs/v01/baseline_design.md)。运行前先执行服务器资源检查；服务器账号为共享账号，只在本项目新建的个人工作目录内写入，不改变已有任务和环境。清理后实测可用75.87GiB；新模型仍需实测完整快照、raw增量和保护状态的共存预算。
+已有工程试跑方案见 [pilot_plan.md](docs/v01/pilot_plan.md)。运行前重查物理4–7的GPU空闲状况及累计存储，只在本项目目录写入。3B完整初始状态约15.15GiB、含Adam状态约43.12GiB；当前引擎S0/S7完整恢复、U1/U8更新等价已验收。冻结时余盘420.5494GiB，累计新资产写入峰值与raw/安全预算418.6016GiB；这是实测预算，运行期间仍有空间检查。cal05 S1有本机完整验证备份；cal06 S1及五个旧S0有同服务器完整验证压缩恢复副本，完整源核验后才退役展开目录；它们不是独立异地备份。cal06本机下载仍未完整，96/145已验证整块保留。
 
 结果与证据边界见 [pilot_report.md](docs/v01/pilot_report.md)，当前运行入口见 [v01 README](solutions/v01/README.md)。JSON/CSV/log 收据已同步本机；大型轨迹tensor仍在服务器 `/data1/yangbin/SCOR/`，旧完整checkpoint的权重/优化器已退役。第一步运行在保存 checkpoint 后因指标汇总报错，失败状态保留；修复后恢复运行正常完成，这些历史结果不因后续清理而改写。四道验证题始终为 3/4 正确，未观察到准确率提升。
 

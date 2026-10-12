@@ -131,3 +131,125 @@
 ### 完成与未完成状态
 
 已实际删除8分片，释放46,302,164,640 bytes（43.122GiB）；余盘从32.751增至75.873GiB。49个保留文件SHA未变，共享基座和隔离环境保留。已确认目标文件不存在且complete_checkpoint实际返回false。原始轨迹/日志/配置/报告和历史保存/恢复事实保留；清理小收据已同步本机，旧快照不可再恢复。尚未执行小模型训练或新的GPU恢复验收；开始的3个baseline契约模块未连接原生链路、未验收，本次仅提交迁移、存放规范和清理记录。
+
+# 2026-10-11续接2B baseline实施和实际校准
+### 现状
+上个对话在完整快照归档与cal02启动前中断；用户已授权自主写跑baseline及同步文档。cal01执行两步但首轮LR0和显式答案格式失败，未通过健康验收。
+### 实施方案
+重新读取完整用户授权、规范和服务器规则；实际资源检查926.804GiB/八卡空闲，只用4–7；17新baseline测试与全部40测试通过，21份源/profile与server hash一致；detached启动cal02。独立反例修复非整数/空boxed解析、worker指纹必需项，并补验收/成本/冻结检查。同步README和版本文档，澄清旧3B首轮LR0，不改原始实验收据。
+### 完成与未完成状态
+新的原生入口及契约已实现，cal02真实运行中；新增修复本机回归，尚待server回归及新身份GPU运行。恢复、晚期fork、同unit重放、正式freeze和3seed32步仍待实证，不称baseline已完成；六Gate及四SCOR模块未执行。旧S0已校验归档，S1/S2未完整备份，server原件保留。CLI/GPU任务的产品界面冒烟不适用。
+
+# 2026-10-11校准独立审查与反例闭环
+### 现状
+cal02的额外Qwen包装重复原生chat template；cal03修复包装后仍在成功Tool后重复程序。两次均自主中止，保留完整S0、原始角色/工具日志及精确source，没有完整评测数字，不称通过。
+### 实施方案
+直接复用原生Verifier/Repair模板；根据实际Tool成功/未执行Repair明确Solver后续终局请求，所有新cue作为非训练token同时进入真实采样context和buffer。补重放typed tensor/role/member/实际committed unit一致性检查；不以同prompt证明历史数据正确。
+### 完成与未完成状态
+server修复模板后的完整58测试通过；隔离新guard的10原生见证通过10.42s，首次测试移位路径失败保留并修复SRC定位。新cue本机全部48passed/2native模块skipped。当前server新回归与data04准备中，cal04未提前宣称启动或健康；正式freeze/恢复/重放/3seed32步和Gate准备待真实验收。
+
+# 2026-10-11实际2B拒绝及3B容量校准
+### 现状
+cal04初始64显式答案0、Verifier128解析39；真实完成更新1–3、S0/S1保存，step4 backward申请2.01GiB时OOM，失败收据与未提交段保留。
+### 实施方案
+不降终局门槛，不以tool/bare数字替代Solver答案；依据用户允许模型/配置变更的授权使用既有固定3B基座只读复制（14文件SHA），从零完整状态起步。对entropy启用原生compile并独立解析GPU对照；统一原生Torch/vLLM图像预算与记录实际值，作用条件加入身份。新data05仅校准，4GPU/full32 horizon不变。
+### 完成与未完成状态
+70服务器测试/1显式GPU诊断skip通过，原生entropy GPU1passed6.88s；3B cal05实际启动，真训练健康、完整恢复、重放与三seed正常baseline未验收。旧2B和3B历史状态不覆盖，完整server资产保留，不删未备份。物理GPU采样用于辨别原生allocator计数，尚未宣称完整容量通过。
+
+# 2026-10-11：续接cal06监督与cal07校准难度修订
+
+### 现状
+cal05已真实stop1结束，完整S0/S1与Tool17/自然Repair4/正LR有限更新成立，但格式/Verifier门槛拒绝，final准确率下降如实保留。cal06完整S0/S1保存，initial64正确54/64、显式61/64、Verifier解析127/128；求和20/22和range19/21超过.9上界，正式验收仍未通过。
+
+### 实施方案
+依据未冻结校准权限，cal07统一三值之和/三值乘积/最大减其余两值之和，问题、checker、case身份、收据全部同步，新dataset目录；不看held-out，不放宽工程门槛。同步当前状态文档并保留所有旧阴性结果。
+
+### 完成与未完成状态
+本机49passed/3native模块skipped，server运行中engine未覆写；cal06 final评测与完整实际GPU恢复/重放、六项证据冻结、三seed32正常baseline和E对照仍待完成。
+
+# 2026-10-11：重放counter与懒游标恢复闭环
+
+### 现状
+cal06正常完成但headroom拒绝；真实counter类型转换与懒恢复游标随机流反例揭示实现P1。
+
+### 实施方案
+只兼容两counter确定的同值int32→int64转换；恢复先物化游标再最后restore RNG，并核实持久buffer和driver/data内容。加入已设计的delta0与重复初始评测consistency控制，原生loss/AdamW不改。cal07自主中止且全部现场保留，新engine以cal08运行data07。SCP生成的非代码AppleDouble元数据移至本项目.runtime并留SHA收据，源码文本与历史raw不变，后续传输禁资源叉。
+
+### 完成与未完成状态
+CPU18实际78passed/1GPUskip11.68s；CPU16重放21passed11.12s；本机49passed/3native skip。GPU校准/完整恢复/重放、六证据freeze、三seed32和E仍未完成，继续监督。
+
+# 2026-10-11：cal09统一实际像素与严格状态身份
+
+### 现状
+cal08因sum22/22和diff20/21的真实headroom拒绝而中止，S0完整、S1部分保留。
+
+### 实施方案
+校准降低max_pixels至32768，统一原生slow processor使Torch/vLLM像素全字节一致；明确视觉原生FlashAttention deterministic参数，完整依赖hash加入learning/freeze；修delta0 signed-zero和dtype比较反例。正确E分支复用已完成normal U8，保留S8以实际核对。
+
+### 完成与未完成状态
+实际CPU81passed/1skip；32text源码配置SHA一致，native pixels/grid完全相同、GPU小vision kernel与独立float64参照及重复反向通过。cal09已启动，完整GPU健康/恢复/重放、六证据冻结、三seed32和E错误分支尚未完成。
+
+# 2026-10-11：三位数scene独立校准候选
+
+### 现状
+cal09真实更新1–3及完整S0/S1，但题型headroom仍拒绝，已保留所有现场后中止。
+
+### 实施方案
+baseline自有renderer生成100–999的三位数标签及成比例可见柱，保持三种任务/GT关系，新的data08身份；原生slow max49152，处理No output须print/result与纯十进制终局。Legacy源码不动，阈值不降，held-out效果未用。
+
+### 完成与未完成状态
+CPU82passed/1skip14.15s，local50passed/3skip0.69s；cal10实际GPU尚未启动，完整健康/恢复/replay/冻结/三seed32/E继续执行。存储完整backup及累计预算尚待闭环。
+
+# 2026-10-11：cal10 headroom监督与cal11单参数候选
+
+### 现状
+三位数initial64整体.875且解析/截断过门槛，乘积19/21仍超过题型上限；只S0完整，无completedunit，现场保存。
+
+### 实施方案
+cal11只降低统一max_pixels49152至32768，其它source/data08/seed/方法/阈值不变，新run与learning身份。旧S1 backup先source fullhash再durable gzip，再local完整验证，验证前不retire源。
+
+### 完成与未完成状态
+cal11实际CPU图像一致性复核进行中，未启动GPU；cal05S1 source已验证、compression进行中；完整恢复/replay/freeze/三seed32/E仍未完成。
+
+
+# 2026-10-11 续接：五项真实验收闭环与完整归档
+
+### 现状
+
+cal11已完成8实际原生更新及14健康规则；S0重复评测/delta0/nativeU1、S0历史U1、非零AdamS7历史U8三个完整GPU对照均normal return0/full认证终态/全typed输入与完整updated state精确相同。五项freeze witness通过，累计存储预算尚缺。
+
+### 实施方案
+
+锁定12个训练engine字节、最终3B/data08/profile/ENV，完成双向独立审查。cal05 S1整gzipSHA及每个17member SHA本机验证后，服务器重核源及staged tar才回收这两个旧副本，余盘261.9995→341.2568GiB；原失败事实/raw/source/cert/index保留。cal06同等完整backup正在传输；分块重连只写SHA已核验边界，未完整备份前不删源。新增仅D/E后处理审计与串行CLI入口，9原生反例/CLI通过，不改原生更新。同步当前README/报告/实施清单/设计/Gate衔接与状态，并明确历史记录。
+
+### 完成与未完成状态
+
+完成校准/恢复/重放/重复评测真实闭环、代码审查和cal05完整归档；cal06归档及累计预算/六freeze、全部三正常seed×32、真实E单reward配对、最终成本/report/commit/push尚未完成。通用sampler bitwise未知，固定Verifier正确接受0是阴性；六Gate与SCOR模块未执行。
+
+# 2026-10-12：六项正式冻结与正常baseline执行
+
+### 现状
+
+cal11和三个真实GPU恢复/重放/隔离控制已经通过，旧cal06本机传输连续超时；前述仅本机备份方案不再作为每个旧state的必需条件。
+
+### 实施方案
+
+对cal06 S1及cal05/06/08/09/10 S0创建并保留同服务器lossless压缩恢复资产，整包/所有member及源再次SHA核验后才退役展开副本，全部6/6通过；明确不称独立异地备份。cal05 S1本机完整备份保持，cal06本机96/145已验证块保持。实测余盘420.549374GiB，累计未来writepeak/raw/安全418.601563GiB通过，六项同身份freeze不可改写，SHA7208b1b1821ff3eb1b5fd238de4abda016f3770f964f56a885ec5dd510e11d12。一次性序列按照预列20261011/12/13各32步，再执行同S7/U8单terminal+1的E，训练engine12/model/data/profile/ENV没有修改。
+
+### 完成与未完成状态
+
+前两正常seed各32步、5次256case评测、fullS32正常完成，终局178/256及181/256，初始均179/256，暂未观察一致提升。第三seed运行中，真实E、完整最终成本/文档及Git提交推送仍待完成。冻结记录与当前状态已同步，本机421小收据/10.9MB逐SHA验证；大型状态和tensor仍在服务器。六个Gate及SCOR模块尚未执行。
+
+# 2026-10-12：v01 baseline A–E实际验收完成
+
+### 现状
+
+用户继续此前任务，目标保留三预列seed全32及同S7/U8单reward真实配对，不能以校准、CPU或仅启动代替验收。
+
+### 实施方案
+
+六witness freeze后固定同3B/data08/profile/ENV/12engine，物理4–7串行完成D三个32步、每run五次256case和全S32；E复用首正常U8/S8为正确分支，同完整S7/Adam/RNG/cursor重放同U8，第一合格row5/显式956 vsGT-158/native0/nontrunc的唯一[5,260]terminal+1。完整父/终态SHA、九固定tensor/nonTensor、唯一reward、whole-group Python sample-std/epsilon及其它组字节独立审计passed；实际step8/同LR、有限全参数/optim、四rank模型不同、全S8/intentstop8/return0。服务器最终export CLI写15结果/4成本/32角色成本/32配对adv行，原始case/tensor/角色/source/profile、保护及终态保留，small artifacts逐SHA本机同步。
+
+### 完成与未完成状态
+
+A–E全部实际验收，无未解实现P0/P1。三final178/181/185，各initial179；均值70.8333%、delta均+.911458个百分点，n3描述性、不宣称显著或泛化。D43.5450加E2.1890共45.7340分配GPU小时，components/worker时间重叠，设备采样峰值是2秒下界；此前校准/controls/归档/CPU/Git另属成本。12frozen engine/原15pilot不改，UTF8/source/报告/需求对应保持。Git发布在完成最终文本/ignore/secret/旧源/freeze/diff检查后执行。六Gate/SCOR模块及general sampler/probability equivalence未验收；cal06本机完整异地备份未完成，同服务器完整验证lossless恢复资产继续保留。

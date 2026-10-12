@@ -4,6 +4,8 @@
 
 资产更新（2026-10-11）：用户已授权清理下述step1快照的权重与优化器分片；该快照当前不可恢复，原完成证书与当时的恢复试验仍是历史证据。后续清理范围和验收见 [checkpoint_retirement.md](checkpoint_retirement.md)。
 
+学习率复核（2026-10-11）：固定上游的get_constant_schedule_with_warmup在warmup_steps=0时仍以step/max(1,0)初始化LambdaLR，因此第一轮实际LR=0，日志actor/lr是scheduler.step后的下一轮值。表中step1证明原生update/保存执行，不能证明step1权重改变；step2参数抽样变化证据保留。缺失的step1 GPU指标没有补造。新2B候选改用原生cosine并记录baseline/lr_used。
+
 ## 条件与代码范围
 
 固定官方 `aiming-lab/Agent0` commit `f775b5101e62fe92976831adf4a21a38fcc0a767`，使用已有 `Qwen2.5-VL-3B-Instruct` snapshot `66285546d2b821cf421d4f5eb2576359d3770cd3`。服务器实际有八张 RTX 4090，每卡 24 GB；本任务只使用物理 GPU4–7，独立环境和工作目录为 `/data1/yangbin/SCOR_v01`。

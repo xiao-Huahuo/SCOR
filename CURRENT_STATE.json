@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "SCOR",
   "active_version": "v01",
-  "updated_date": "2026-10-11",
+  "updated_date": "2026-10-12",
   "objective": "在最多四张RTX4090上实施并验收v01自有Agent0-VL类机制baseline，完成后准备Gate1；服务器资产统一存入/data1/yangbin/SCOR/",
-  "status": "baseline_implementation_started; workspace_migrated; old_3b_checkpoint_retired; new_baseline_not_accepted",
+  "status": "v01_baseline_A_to_E_actual_acceptance_complete; Git_publication_in_progress",
   "code": {
     "status": "native_gpu_executed",
     "entry": "solutions/v01/src",
@@ -24,13 +24,15 @@
       "retirement": "Only owned complete same-signature snapshots after a new certified/fsynced replacement; other runs untouched",
       "old_training_signature_preserved": true,
       "model_commit_unit": "Full checkpoint boundary; later updates may require rerunning on interruption",
-      "native_gpu_policy_test_executed": false
+      "native_gpu_policy_test_executed": false,
+      "scope": "legacy pilot entry only; current baseline interval8/rolling keep1 and protected0/7/first8 is frozen separately"
     },
-    "new_baseline_implemented": false,
-    "new_baseline_implementation_status": "Three initial contract modules created locally; native adapter, training entry, integration and correctness tests still pending"
+    "new_baseline_implemented": true,
+    "new_baseline_implementation_status": "A–E actual native GPU acceptance complete; 3 full32 seeds and sameS7/U8 single-reward paired audit passed; no unresolved implementation P0/P1",
+    "training_signature_scope": "legacy pilot only; current baseline identity recorded in baseline_actual_controls"
   },
   "tests": {
-    "local": "19 passed, 1 native module skipped; latest interval-policy and lifecycle checks included",
+    "local": "50 passed,4 native modules skipped in0.71s",
     "native_cpu": "23 passed on server after policy addition; includes previous 10 tests and 13 policy tests",
     "gpu": "Actual CUDA matmul and BF16 FlashAttention kernels passed; native GRPO ran on four GPUs",
     "checkpoint_resume": "Actual model/optimizer/scheduler/worker RNG/dataloader and driver RNG restored; next batch 4–7 used for step2",
@@ -106,10 +108,206 @@
       "old_complete_checkpoint_check": false,
       "shared_base_and_environment_kept": true,
       "receipt": "solutions/v01/outputs/retire_3b_checkpoint_20261011_01/raw/retirement.json"
+    },
+    "baseline_cpu": {
+      "new_contract_and_native_tests": 17,
+      "all_version_tests": 40,
+      "status": "passed",
+      "receipt": "solutions/v01/outputs/baseline_cpu_20261011_06/raw/all_tests.log",
+      "source_files_compared_with_server": 21,
+      "source_differences": 0
+    },
+    "baseline_local": "50 passed,3 native modules skipped in0.69s",
+    "baseline_cpu_latest": {
+      "passed": 82,
+      "skipped": 1,
+      "seconds": 14.15,
+      "receipt": "solutions/v01/outputs/baseline_cpu_20261011_21/raw/all_tests.log",
+      "source_text_files_compared_with_server": 32,
+      "source_differences": 0
+    },
+    "baseline_draft_replay": {
+      "passed": 10,
+      "seconds": 10.42,
+      "receipt": "solutions/v01/outputs/baseline_cpu_20261011_09/raw/replay_tests.log",
+      "isolated_original_engine_unchanged": true,
+      "previous_harness_failure": "CPU08 old child subprocess path lacked native_adapter after relocating tests; preserved failed log, corrected SRC-based location"
+    },
+    "compiled_native_entropy_gpu": {
+      "passed": 1,
+      "seconds": 6.88,
+      "gpu": 4,
+      "receipt": "solutions/v01/outputs/baseline_entropy_gpu_20261011_01/raw/tests.log",
+      "criterion": "Native compiled entropy values and derivatives match independent float64 numpy analytic reference; does not prove full training fits"
+    },
+    "native_processor_registry": {
+      "vllm_actual_grid": [
+        1,
+        18,
+        18
+      ],
+      "pixel_values_shape": [
+        324,
+        1176
+      ],
+      "merged_image_tokens": 81,
+      "matches_hf_fast": true,
+      "constructor_keywords_warnings": "call-level min/max ignored; actual processor constructor budget and actual grid verified",
+      "receipt": "solutions/v01/outputs/baseline_processor_probe_20261011/raw/vllm_grid.json"
+    },
+    "restored_cursor_diagnostic": {
+      "receipt": "solutions/v01/outputs/baseline_cursor_probe_20261011/raw/diagnostic.json",
+      "original_problem": "StatefulDataLoader.state_dict materializes restored iterator and consumes driver RNG",
+      "fixed_CPU_witness": "Actual lazy loader at S0/S7: same cursor, next batch0–3/28–31, exact next RNG draws; included in78tests",
+      "actual_GPU_restore": "passed on actual S0/S7 controls"
+    },
+    "macos_transfer_metadata": {
+      "files": 6,
+      "action": "Non-code AppleDouble sidecars in own server src reversibly moved, source text unchanged; original captures preserved",
+      "receipt": ".runtime/imported_macos_metadata_20261011_01/receipt.json",
+      "future_transfer": "COPYFILE_DISABLE=1",
+      "CPU_receipt_indexed_py_sidecars": 6,
+      "reversibly_moved_files": 9
+    },
+    "native_processor_values": {
+      "receipt": "solutions/v01/outputs/baseline_processor_probe_20261011_02/raw/same_pixels.json",
+      "max_pixels": 32768,
+      "use_fast": false,
+      "grid": [
+        1,
+        12,
+        12
+      ],
+      "pixel_shape": [
+        144,
+        1176
+      ],
+      "pixel_values_typed_exact": true,
+      "grid_typed_exact": true,
+      "max_abs_difference": 0.0,
+      "previous_fast_slow_max_abs_difference": 0.015007972717285156
+    },
+    "native_vision_kernel": {
+      "receipt": "solutions/v01/outputs/baseline_vision_gpu_20261011_01/raw/diagnostic.json",
+      "passed": true,
+      "dtype": "bfloat16",
+      "shape": [
+        144,
+        16,
+        80
+      ],
+      "same_forward_deterministic_mode": true,
+      "same_repeat_gradients": true,
+      "independent_float64_reference": true,
+      "scope": "small independent kernel plus separate actual U1/U8 complete-state equivalence; no general sampler bitwise claim"
+    },
+    "native_processor_values_latest": {
+      "receipt": "solutions/v01/outputs/baseline_processor_probe_20261011_04/raw/same_pixels.json",
+      "max_pixels": 32768,
+      "use_fast": false,
+      "grid": [
+        1,
+        12,
+        12
+      ],
+      "pixel_shape": [
+        144,
+        1176
+      ],
+      "pixel_values_typed_exact": true,
+      "grid_typed_exact": true,
+      "max_abs_difference": 0.0,
+      "previous_fast_slow_max_abs_difference": 0.015007972717285156
+    },
+    "baseline_actual_S0_restore": {
+      "run": "baseline_consistency_s0_native_01",
+      "receipt": "solutions/v01/outputs/baseline_consistency_s0_native_01/raw/resume_loaded.json",
+      "parameters_buffers_optimizer_scheduler_worker_rng_match": true,
+      "driver_rng_dataloader_hashes_match": true,
+      "sampler_bitwise_recovery": false,
+      "same_next_unit_updated_state": "passed; all training inputs and full model/buffers/Adam/groups/scheduler exact"
+    },
+    "baseline_actual_S0_native_control": {
+      "receipt": "solutions/v01/outputs/baseline_consistency_s0_native_01/processed/source_U1_comparison.json",
+      "passed": true,
+      "all13_training_tensors_typed_exact": true,
+      "all_visual_group_metadata_exact": true,
+      "all_model_buffers_optimizer_groups_scheduler_exact": true,
+      "worker_rng_after_update_exact": true,
+      "repeat_evaluation_actual_checks": true,
+      "status": "completed_intentionally_stopped_return0_and_fullS1_verified"
+    },
+    "baseline_actual_S0_replay": {
+      "run": "baseline_consistency_s0_replay_01",
+      "receipt": "solutions/v01/outputs/baseline_consistency_s0_replay_01/processed/source_U1_replay_comparison.json",
+      "passed": true,
+      "normal_stop_returncode": 0,
+      "all_input_typed_exact": true,
+      "all_updated_state_exact": true
+    },
+    "baseline_actual_S7_restore": {
+      "run": "baseline_consistency_s7_replay_01",
+      "receipt": "solutions/v01/outputs/baseline_consistency_s7_replay_01/raw/resume_loaded.json",
+      "step": 7,
+      "all_parameters_buffers_optimizer_scheduler_rng_match": true,
+      "driver_rng_cursor_hash_match": true,
+      "late_U8_equal": "pending"
+    },
+    "baseline_actual_S7_U8_replay": {
+      "run": "baseline_consistency_s7_replay_01",
+      "receipt": "solutions/v01/outputs/baseline_consistency_s7_replay_01/processed/source_U8_replay_comparison.json",
+      "passed": true,
+      "normal_returncode": 0,
+      "nonzeroAdam_restoration_full_match": true,
+      "all13typed_inputs_and_metadata_exact": true,
+      "all_updated_model_buffers_optimizer_groups_scheduler_exact": true,
+      "worker_rng_after_update_exact": true
+    },
+    "baseline_actual_controls": {
+      "cal11_health14": true,
+      "S0_native_repeat_eval_delta0_U1_exact": true,
+      "S0_replay_U1_exact": true,
+      "S7_nonzero_Adam_replay_U8_exact": true,
+      "engine_learning_signature": "aceb5549ad018d19b3d7482f9ff58a64341c08171919fffb62f799f25a46d4b0",
+      "general_sampler_bitwise_verified": false
+    },
+    "baseline_native_cpu": "82 passed,1 GPU diagnostic skipped in14.15s; source/tests unchanged; final32k processor actually verified",
+    "baseline_analysis_native_cpu": "12 pair/cost counterexamples passed in2.94s; actual all-cal11 TP request consistency and logical cost counts passed",
+    "baseline_analysis_latest": {
+      "passed": 12,
+      "seconds": 3.17,
+      "receipt": "solutions/v01/outputs/baseline_analysis_cpu_20261011_04/raw/tests.log",
+      "supplemental_review": "solutions/v01/outputs/baseline_calibration_11/processed/analysis_sequence_review_20261011_03.json",
+      "engine12_unchanged": true
+    },
+    "baseline_summary_counterexamples": {
+      "local_passed": 5,
+      "seconds": 0.3,
+      "native_server_result": "17 passed in5.20s for9 pair+3 cost+5 summary counterexamples",
+      "scope": "Additional CSV exporter; no frozen-engine modification",
+      "receipt": "solutions/v01/outputs/baseline_summary_cpu_20261012_01/raw/tests.log",
+      "review": "solutions/v01/outputs/baseline_summary_cpu_20261012_01/processed/review.json"
+    },
+    "baseline_formal_actual": {
+      "D_complete": true,
+      "normal_seeds": 3,
+      "updates": 96,
+      "heldout_evaluation_receipts": 15,
+      "cases_per_evaluation": 256,
+      "final_complete_state_steps": [
+        32,
+        32,
+        32
+      ],
+      "E_real_updates": 1,
+      "E_audit_passed": true,
+      "CSV_export_actual_CLI_passed": true,
+      "source12_frozen_unchanged": true,
+      "legacy15_unchanged": true
     }
   },
   "data": {
-    "status": "generated_and_frozen_on_server",
+    "status": "legacy_pilot_frozen; baseline_data_and_protocol_frozen",
     "kind": "synthetic visual engineering pilot; not paper benchmark",
     "train_rows": 16,
     "evaluation_rows": 4,
@@ -117,7 +315,20 @@
     "training_trajectories": 32,
     "dataset_directory": "solutions/v01/inputs/visual_pilot_v2",
     "data_signature": "6732fb48dcf873739dbbf6c1504d568536870126bc26b4b89509ef7b6b94327a",
-    "new_baseline_data_prepared": false
+    "new_baseline_data_prepared": true,
+    "baseline_dataset_directory": "solutions/v01/inputs/visual_baseline_08",
+    "baseline_data_signature": "8b38d437b78fe97caa74a47ba3584eebcd0c89e3b55d5ea9a09f1963d46cb8a1",
+    "baseline_counts": {
+      "train": 1024,
+      "calibration": 64,
+      "probe": 128,
+      "evaluation": 256
+    },
+    "baseline_scene_range": [
+      100,
+      999
+    ],
+    "scope_of_unprefixed_fields": "legacy visual_pilot_v2; current baseline uses baseline_* fields and baseline_counts"
   },
   "server": {
     "alias": "WHU84piYB",
@@ -132,15 +343,23 @@
     "gpu_model": "RTX 4090 24 GB",
     "workspace": "/data1/yangbin/SCOR",
     "initial_free_disk_gib": 95,
-    "last_free_disk_gib": 75.87,
-    "last_resource_status": "GPU0–5 occupied; only GPU6/7 free; four-GPU baseline pending",
+    "last_free_disk_gib": 27.934,
+    "last_resource_status": "AllD/E native GPU processes completed on physical4–7; latest snapshot after fullS8 and pairaudit",
     "host_keys": "User authorized first connection; task-specific known_hosts pinned; administrator verification not claimed",
     "future_experiments_maximum_gpu_count": 4,
     "branch_scheduling": "Serial branches; same world size/topology within each comparison",
-    "resource_snapshot_note": "Disk measured after authorized checkpoint cleanup on 2026-10-11; GPU observation still from prior SSH refresh; recheck before launch",
+    "resource_snapshot_note": "2026-10-12T04:17:23UTC; all3 normalS32 and EfullS8 retained; samplers/terminal receipts completed",
     "legacy_workspace_alias": "/data1/yangbin/SCOR_v01",
     "migration_receipt": "solutions/v01/outputs/server_migration_20261010/raw/migration.json",
-    "checkpoint_retirement_receipt": "solutions/v01/outputs/retire_3b_checkpoint_20261011_01/raw/retirement.json"
+    "checkpoint_retirement_receipt": "solutions/v01/outputs/retire_3b_checkpoint_20261011_01/raw/retirement.json",
+    "backup_in_progress": {
+      "source": "baseline_calibration_06 S1",
+      "phase": "local_transfer_paused_with_96_of_145_verified_chunks",
+      "source_expanded_retired_after_full_server_archive_verification": true,
+      "local_complete_verified": false,
+      "server_lossless_archive_retained": ".runtime/checkpoint_archives/cal06_step1/state.tar.gz"
+    },
+    "lossless_archives_verified": 6
   },
   "upstream": {
     "repository": "https://github.com/aiming-lab/Agent0",
@@ -202,19 +421,13 @@
   ],
   "evidence_storage": "Small JSON/CSV/log and historical completion certificate copied locally; raw generation/updater tensors remain on server. Original step1 model/optimizer shards were explicitly retired on 2026-10-11; checkpoint is no longer resumable.",
   "open_items": [
-    "Measure new model native-loop capability, real GPU peaks, complete checkpoint and raw-history sizes; no model/configuration frozen yet",
-    "Provision authorized personal storage for protected/rolling/new snapshots and raw records; do not delete existing recovery assets",
-    "Implement version-local baseline entry, full state signatures, step0/late fork, native replay and case-level evaluation",
-    "Close correctness evidence gaps using design/code/parameter review, independent counterexamples and actual GPU state/replay checks",
-    "Freeze normal baseline and Gate protocols only after independent calibration; record all changes and failures",
-    "vLLM sampling probability capture and bitwise recovery remain unverified",
-    "Existing step2 model was not persisted; old 3B periodic GPU snapshot policy and paired reward GPU trial still pending, not prerequisites for paper-score reproduction",
-    "Old 3B checkpoint weights/optimizer are retired by user authorization; never offer that checkpoint as a current recovery asset"
+    "Finish authorized main source/documentation commit and push verification",
+    "Future v02–v07 Gates/HED/CSS/TRA/RR and general sampler/probability equivalence require separate acceptance; not claimed here",
+    "Oldcal06 complete local offsite archive pending; fully verified same-server compressed recovery asset retained"
   ],
   "next_research_steps": [
-    "Implement and validate the new v01 own baseline under the four-GPU and storage budgets",
-    "Accept normal training, evaluation and complete recovery; prepare same-state reward interventions",
-    "Execute Gate1–6 in v02–v07 with independent freezes/reviews/reports; actual HED/CSS/TRA/RR follow feasibility evidence"
+    "Budget and freeze Gate1/v02 using accepted baseline; use new predeclared seed blocks and actual no-op/stochastic-floor controls",
+    "Proceed through Gate1–6 according to their explicit evidence/stopping rules; SCOR modules follow feasibility evidence"
   ],
   "research_claims": {
     "six_gates_passed": false,
@@ -232,8 +445,8 @@
     "flash_attention": "2.7.4.post1 official wheel; ZIP and SHA256 verified"
   },
   "documentation": {
-    "status": "migration_storage_rule_and_legacy_checkpoint_retirement_documented; baseline_implementation_in_progress",
-    "report": "docs/v01/pilot_report.md",
+    "status": "A_to_E_results_costs_limits_and_requirement_mapping_complete; Git_publication_in_progress",
+    "report": "docs/v01/baseline_report.md",
     "review": "docs/v01/runtime_review.md",
     "history": "docs/CHANGE_HISTORY.md",
     "checkpoint_policy": "docs/v01/checkpoint_policy.md",
@@ -242,10 +455,12 @@
     "design_review": "docs/v01/design_review.md",
     "server_migration": "docs/v01/server_migration.md",
     "implementation_plan": "docs/v01/baseline_implementation_plan.md",
-    "checkpoint_retirement": "docs/v01/checkpoint_retirement.md"
+    "checkpoint_retirement": "docs/v01/checkpoint_retirement.md",
+    "baseline_code_review": "docs/v01/baseline_code_review.md",
+    "baseline_freeze": "docs/v01/baseline_freeze.md"
   },
   "version_control": {
-    "status": "documentation_changes_pending_publication",
+    "status": "baseline_source_and_documentation_pending_publication",
     "remote": "git@github.com:xiao-Huahuo/SCOR.git",
     "branch": "main",
     "tracked_scope": "source, configuration, research documentation and bibliography manifests/scripts",
@@ -260,11 +475,11 @@
     "publication_status": "previous_design_published; migration_storage_rule_and_retirement_records_pending_publication",
     "transport": "SSH through local HTTP proxy from user-provided terminal script; local Git config only",
     "initial_published_commit": "3064bf33b7281bb1f1788e3d22597f8cd819911c",
-    "last_verified_published_commit": "d522b39fecd612fc01b9322e5471a3f84043a9a3",
-    "publication_receipt_for_this_task": ".runtime/git/baseline_design_publication.json"
+    "last_verified_published_commit": "70e5121d1071e59d873bc0cbcb07dd5dcccb8293",
+    "publication_receipt_for_this_task": ".runtime/git/baseline_publication_20261012.json"
   },
   "design": {
-    "status": "proposal_not_frozen",
+    "status": "baseline_formally_frozen; Gates_proposed_only",
     "baseline": "docs/v01/baseline_design.md",
     "gate_protocol": "docs/v01/gate_protocol.md",
     "review": "docs/v01/design_review.md",
@@ -283,14 +498,14 @@
       "v06": "Gate5",
       "v07": "Gate6"
     },
-    "model_candidate": "Qwen/Qwen2-VL-2B-Instruct",
-    "model_candidate_verified_in_native_training": false,
+    "model_candidate": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "model_candidate_verified_in_native_training": true,
     "paper_setting_reproduction_is_prerequisite": false,
     "reward_proposal": "native mixed reward, alpha_out=1; artificial terminal false-positive; not pure self-reward or natural Verifier error",
     "replay_proposal": "native reanchor forced-history intervention; not claimed on-policy/unbiased; denominator/support sensitivity required",
     "oracle_gate6": "cached counterfactual-data upper bound and actual current-policy regeneration measured separately",
-    "proposed_numbers_frozen": false,
-    "formal_run_started": false,
+    "proposed_numbers_frozen": true,
+    "formal_run_started": true,
     "correctness_acceptance": "Independent design/code and parameter review with counterexamples and actual evidence; unresolved implementation P0/P1 blocks dependent formal experiments"
   },
   "governance": {
@@ -305,5 +520,488 @@
     "agent_instructions_standard_reference": "AGENTS.md and CLAUDE.md point to 科研开发规范.md",
     "server_asset_root": "/data1/yangbin/SCOR/",
     "source_content_match_except_server_rules": true
+  },
+  "baseline_execution": {
+    "latest_calibration": "baseline_calibration_11",
+    "status": "calibration_intentionally_stopped_return0",
+    "gpu_ids": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "horizon": 32,
+    "stop_after": 8,
+    "seed": 20262001,
+    "dataset": "visual_baseline_08",
+    "previous_calibration": "baseline_calibration_10",
+    "previous_health": "cal10 rejected; initial product19/21 exceeded frozen calibration headroom .9",
+    "archive_status": "Historical cal01 S0 independently verified locally; its server replica retired. cal01 S1/S2 local backups incomplete; full server states retained. Later cal05S1 and six archived states have separately scoped verified recovery copies.",
+    "formal_freeze": true,
+    "normal_baseline_completed": true,
+    "required_acceptance": [
+      "native_loop_health",
+      "actual_state_restore",
+      "same_unit_replay",
+      "evaluation_rng_isolation",
+      "checkpoint_storage_budget",
+      "independent_code_review"
+    ],
+    "corrected_source_modules": [
+      "native_adapter.py",
+      "run_baseline.py",
+      "checkpoint_store.py",
+      "evaluate.py"
+    ],
+    "source_capture": "New run launch saves exact source/profile under raw/source; cal02 old engine source captured before server sync",
+    "data_signature": "8b38d437b78fe97caa74a47ba3584eebcd0c89e3b55d5ea9a09f1963d46cb8a1",
+    "protected_steps": [
+      0,
+      1,
+      7
+    ],
+    "next_dataset": null,
+    "flash_attention_deterministic": "Actual explicit deterministic=True passed into the same native vision kernel;8 worker configs and full U1/U8 controls verified",
+    "next_model": null,
+    "next_profile": null,
+    "new_3b_snapshot_own_copy_verified": true,
+    "model": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+    "profile": "solutions/v01/src/configs/baseline_3b_candidate.json",
+    "processor_options": {
+      "min_pixels": 3136,
+      "max_pixels": 32768
+    },
+    "native_torch_compile_entropy": true,
+    "response_buffer": 1536,
+    "max_reasoning_steps": 4,
+    "model_context": 6144,
+    "initial_calibration_05": {
+      "accuracy": 0.765625,
+      "explicit_answer_rate": 0.78125,
+      "native_accuracy": 0.796875,
+      "verifier_parse_rate": 0.4765625,
+      "health": "not_accepted; format and probe parser below .9, product20/21 exceeds headroom upper .9",
+      "training_and_state": "Actual S1 save in progress at last inspection; no capacity acceptance inferred"
+    },
+    "local_revision_pending": null,
+    "checkpoint_S0_bytes": 16265099131,
+    "checkpoint_S1_bytes": 46302323603,
+    "checkpoint_S0_seconds": 229.9348572799936,
+    "checkpoint_S1_seconds": 803.3492405298166,
+    "next_calibration": null,
+    "initial_calibration_06": {
+      "accuracy": 0.84375,
+      "explicit_answer_rate": 0.953125,
+      "verifier_parse_rate": 0.9921875,
+      "family_correct": {
+        "0": "20/22",
+        "1": "15/21",
+        "2": "19/21"
+      },
+      "correct_verifier_acceptance": "0/64",
+      "incorrect_verifier_acceptance": "0/64",
+      "health": "not accepted; families0/2 exceed .9 headroom ceiling"
+    },
+    "legacy_mixed_status_fields_superseded": {
+      "failure": "Observed successful tool calculation followed by identical Solver code instead of final answer; first-response System phrasing ambiguous across role switches. Revised observable tool-feedback phase instructions, keeping native Verifier/Repair templates and GRPO",
+      "completed_updates": [
+        1
+      ],
+      "failed_update": 4,
+      "reason": "Explicit answers0/64, Verifier parse0.3046875; actual step4 CUDA OOM",
+      "final_calibration_accuracy": 0.625,
+      "final_explicit_rate": 0.640625,
+      "final_verifier_parse_rate": 0.4609375,
+      "natural_repaired_steps": 4,
+      "actual_tool_steps": 17,
+      "nonzero_advantage_tokens": 3835,
+      "actual_role_mask_alignment": true,
+      "used_lr": 5e-07,
+      "optimizer_step": 1,
+      "grad_norm": 2.534241199493408,
+      "parameter_probe_changed": true,
+      "parameter_and_optimizer_finite": true
+    },
+    "calibration_05_outcome": {
+      "status": "intentionally_stopped",
+      "returncode": 0,
+      "completed_updates": [
+        1
+      ],
+      "initial_accuracy": 0.765625,
+      "final_accuracy": 0.625,
+      "final_explicit_rate": 0.640625,
+      "final_verifier_parse_rate": 0.4609375,
+      "natural_repairs": 4,
+      "tool_steps": 17,
+      "health": "rejected; format and Verifier parsing below .9"
+    },
+    "calibration_04_outcome": {
+      "status": "failed",
+      "completed_updates": [
+        1,
+        2,
+        3
+      ],
+      "failed_update": 4,
+      "reason": "2B format/Verifier health rejected; native CUDA OOM during step4 backward"
+    },
+    "pid": 800081,
+    "resource_pid": 800082,
+    "completed_updates": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "calibration_06_outcome": {
+      "status": "intentionally_stopped",
+      "returncode": 0,
+      "completed_updates": [
+        1
+      ],
+      "health": false,
+      "failed_check": "task_headroom",
+      "initial_accuracy": 0.84375,
+      "initial_explicit_rate": 0.953125,
+      "initial_verifier_parse_rate": 0.9921875,
+      "final_accuracy": 0.84375,
+      "final_explicit_rate": 0.96875,
+      "final_verifier_parse_rate": 1.0,
+      "tools": 13,
+      "natural_repairs": 1,
+      "nonzero_group_fraction": 1.0,
+      "training_truncation": 0.0,
+      "grad_norm": 2.471236228942871,
+      "used_lr": 5e-07,
+      "optimizer_step": 1,
+      "all_full_parameter_shards_changed": true,
+      "full_parameters_optimizer_finite": true,
+      "physical_gpu_peak_sampled_mib": 22479,
+      "run_wall_seconds": 2086.5554218292236,
+      "selected_gpu_hours": 2.3183949131435817
+    },
+    "calibration_07_outcome": {
+      "status": "failed",
+      "reason": "Independent actual lazy-cursor inspection consumes driver RNG; abort before calibration continuation, preserve raw/source and16265099208 partial snapshot bytes, no certificate or evaluation",
+      "receipt": "solutions/v01/outputs/baseline_calibration_07/raw/abort_request.json",
+      "owned_runtime_processes_terminated": true
+    },
+    "checkpoint_size_scope": "Historical cal06 measured sizes/times retained; formal aggregate budget uses maximum complete cal11/control state sizes plus per-state metadata margin",
+    "formal_checkpoint_plan_before_freeze": {
+      "20261011": [
+        0,
+        7,
+        8
+      ],
+      "20261012": [
+        0,
+        7
+      ],
+      "20261013": [
+        0,
+        7
+      ],
+      "reason": "Protect first-seed S8 for D-to-E original native update comparison; other seeds protect S0/S7 and rolling final state. Complete aggregate storage budget witness required before freeze."
+    },
+    "processor_implementation": "native slow Torch/vLLM; actual image values equal",
+    "calibration_08_outcome": {
+      "status": "failed",
+      "reason": "actual initial family0=22/22 and family2=20/21 exceed .9 headroom",
+      "initial_accuracy": 0.875,
+      "explicit_rate": 0.96875,
+      "verifier_parse_rate": 0.9921875,
+      "family_correct": {
+        "0": "22/22",
+        "1": "14/21",
+        "2": "20/21"
+      },
+      "full_certified_checkpoints": [
+        0
+      ],
+      "checkpoint_bytes_retained_including_partial_S1": 45172999971,
+      "receipt": "solutions/v01/outputs/baseline_calibration_08/raw/abort_request.json"
+    },
+    "environment_identity": "Full Python version and pip freeze hash in learning and formal freeze; source changes invalidate prior checkpoints",
+    "D_to_E_clean_control": "Reuse first normal run original native U8 update and protectedS8 as the correct-reward GPU control, from the same protectedS7; E corrupt branch reads exactly that U8 and performs one actual native update. Check all other tensors/groups unchanged; do not recompute an already completed clean unit.",
+    "created_utc": "2026-10-11T09:50:47.444398+00:00",
+    "calibration_09_outcome": {
+      "status": "failed",
+      "completed_updates": [
+        1,
+        2,
+        3
+      ],
+      "certified_states": [
+        0,
+        1
+      ],
+      "initial_correct": 57,
+      "initial_cases": 64,
+      "initial_explicit_rate": 0.953125,
+      "initial_verifier_parse_rate": 0.9921875,
+      "initial_truncation": 0.015625,
+      "family_correct": {
+        "0": "22/22",
+        "1": "16/21",
+        "2": "19/21"
+      },
+      "used_lr_step1": 5e-07,
+      "grad_norm_step1": 2.441516160964966,
+      "parameter_probe_changed_step1": true,
+      "finite_step1": true,
+      "reason": "headroom rules exceeded; retain source/raw/fullS0S1 and later uncommitted interval"
+    },
+    "calibration_10_outcome": {
+      "status": "failed",
+      "initial_accuracy": 0.875,
+      "explicit_rate": 0.953125,
+      "verifier_parse_rate": 0.9140625,
+      "truncation": 0,
+      "family_correct": {
+        "0": "19/22",
+        "1": "19/21",
+        "2": "18/21"
+      },
+      "completed_units": [],
+      "certified_states": [
+        0
+      ],
+      "reason": "initial product19/21 above.9; preserve completeS0, generation/group and anypartialS1"
+    },
+    "initial_calibration_11": {
+      "accuracy": 0.796875,
+      "explicit_answer_rate": 0.90625,
+      "verifier_parse_rate": 0.953125,
+      "truncation": 0,
+      "family_correct": {
+        "0": "18/22",
+        "1": "18/21",
+        "2": "15/21"
+      },
+      "initial_rules_passed": true,
+      "full_native_loop_health": "passed;14 actual checks true"
+    },
+    "learning_signature": "aceb5549ad018d19b3d7482f9ff58a64341c08171919fffb62f799f25a46d4b0",
+    "certified_states_current": [
+      0,
+      1,
+      7,
+      8
+    ],
+    "step1": {
+      "optimizer_step": 1,
+      "lr_used": 5e-07,
+      "grad_norm": 2.791473865509033,
+      "parameter_probe_changed": true
+    },
+    "step2": {
+      "optimizer_step": 2,
+      "lr_used": 4.987961816680492e-07,
+      "grad_norm": 2.662938356399536,
+      "parameter_probe_changed": true
+    },
+    "native_loop_health": true,
+    "health_receipt": "solutions/v01/outputs/baseline_calibration_11/processed/native_health_20261011.json",
+    "final_accuracy": 0.828125,
+    "final_explicit_rate": 0.9375,
+    "final_verifier_parse_rate": 0.96875,
+    "training_truncation": 0.046875,
+    "actual_tools": 201,
+    "actual_natural_repairs": 22,
+    "all_nonzero_groups": true,
+    "next_gpu_check": null,
+    "late_replay_pid": 1014446
+  },
+  "baseline_storage_current": {
+    "cal05_local_lossless_backup_verified": true,
+    "cal05_server_S1_and_staged_tar_retired": true,
+    "actual_free_gib": 27.934,
+    "cal06_backup_full_members_verified": true,
+    "formal_freeze_written": true,
+    "formal_seeds_completed": [
+      20261011,
+      20261012,
+      20261013
+    ],
+    "E_completed": true,
+    "alternate_recovery_strategy": {
+      "scope": "same-server complete compressed recovery copies; no independent offsite claim",
+      "pid": 1202422,
+      "status": "completed",
+      "root_relative": ".runtime/checkpoint_archives/server_lossless_20261011",
+      "cal06_local_verified_chunks": 96,
+      "cal06_local_complete_verified": false,
+      "completed_archive_count": 6,
+      "cal06_expanded_S1_retired_archive_retained": true
+    },
+    "actual_free_gib_after_cal06_S1_before_S0_writing": 384.2437286376953,
+    "cal06_local_transfer_active": false,
+    "one_time_storage_then_formal_chain": {
+      "pid": 1246417,
+      "status": "formal_sequence_started",
+      "sequence_started": true,
+      "root_relative_status": ".runtime/baseline_jobs/formal_storage_chain_20261011_status.json",
+      "archives_verified": 6,
+      "sequence_pid": 1277707
+    },
+    "actual_free_gib_after_third_archive_before_fourth_writing": 398.765811920166,
+    "actual_free_observed_utc": "2026-10-12T04:17:23.329715+00:00",
+    "cal06_backup_scope": "same-server compressed archive; local complete backup remains unverified"
+  },
+  "baseline_formal": {
+    "sequence": "baseline_formal_20261011",
+    "sequence_pid": 1277707,
+    "freeze": "solutions/v01/outputs/baseline_calibration_11/processed/baseline_freeze_20261011.json",
+    "freeze_sha256": "7208b1b1821ff3eb1b5fd238de4abda016f3770f964f56a885ec5dd510e11d12",
+    "seeds": [
+      20261011,
+      20261012,
+      20261013
+    ],
+    "horizon": 32,
+    "normal_completed_seeds": [
+      20261011,
+      20261012,
+      20261013
+    ],
+    "active_seed": null,
+    "active_completed_updates": 32,
+    "E_status": "intentionally_stopped_step8_return0; paired_audit_passed",
+    "D_complete": true,
+    "E_passed": true,
+    "selected_gpus": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "freeze_free_gib": 420.549373626709,
+    "aggregate_budget_gib": 418.6015625,
+    "normal_results": {
+      "20261011": {
+        "report": "solutions/v01/outputs/baseline_formal_20261011_seed_20261011/processed/normal_baseline_report.json",
+        "complete_units": 32,
+        "final_state_signature": "03795888994e7d746d648945441e6c670a38983bf85228d2a61e6fcc6a4a34b5",
+        "initial_correct": 179,
+        "final_correct": 178,
+        "cases": 256,
+        "recorded_run_wall_seconds": 13347.90504527092,
+        "recorded_run_selected_gpu_hours": 14.831005605856577
+      },
+      "20261012": {
+        "report": "solutions/v01/outputs/baseline_formal_20261011_seed_20261012/processed/normal_baseline_report.json",
+        "complete_units": 32,
+        "final_state_signature": "bba52104c31174953cd32da4c62cc7c310e473e548c7361078d5034d6628f34c",
+        "initial_correct": 179,
+        "final_correct": 181,
+        "cases": 256,
+        "recorded_run_wall_seconds": 13169.148490905762,
+        "recorded_run_selected_gpu_hours": 14.632387212117512
+      },
+      "20261013": {
+        "report": "solutions/v01/outputs/baseline_formal_20261011_seed_20261013/processed/normal_baseline_report.json",
+        "complete_units": 32,
+        "final_state_signature": "0522fb69ee48e7725c9455c450a395c1845b2b71cd55dfdc47de9d7d340cb4f2",
+        "initial_correct": 179,
+        "final_correct": 185,
+        "cases": 256,
+        "recorded_run_wall_seconds": 12673.425103902817,
+        "recorded_run_selected_gpu_hours": 14.081583448780908
+      }
+    },
+    "E_fixed_target_precheck": {
+      "GPU_update_executed": false,
+      "unit_sha256": "8863ac3581452c8909bce744d86597dbed12464a35c852eb9c6076a61e82ab13",
+      "row": 5,
+      "explicit_answer": 956,
+      "checker_answer": -158,
+      "native_outcome": 0.0,
+      "scope": "Read-only sourceU8; actual sameS7 GPU pair remains pending",
+      "actual_reward_revision_applied": true
+    },
+    "third_final_evaluation_before_state_commit": null,
+    "E_pid": 1634573,
+    "E_restore": {
+      "dataloader_loaded": true,
+      "dataloader_sha256": "175667adbb90af5bdf7ba28347791f7711e665a589c6dd0ae3cf9440c689c3c7",
+      "driver_rng_restored": true,
+      "driver_rng_sha256": "c4f7626663cdc70b68923871efbe25ee3b65bbddc6678726e3aad5aa7c86af70",
+      "full_worker_state_fingerprints_match": true,
+      "model_optimizer_scheduler_worker_rng_loaded": true,
+      "parent_state": "ddcfa9fe1fe944ac77e04ceb746efc63a49f059c154415a1f0006a8f711d3bf4",
+      "sampling_rng_bitwise_verified": false,
+      "step": 7
+    },
+    "E_completed": true,
+    "E_audit": {
+      "actual_unit_evidence": [
+        {
+          "path": "solutions/v01/outputs/baseline_formal_20261011_seed_20261011/raw/training_group_step_000008.pt",
+          "sha256": "8863ac3581452c8909bce744d86597dbed12464a35c852eb9c6076a61e82ab13"
+        },
+        {
+          "path": "solutions/v01/outputs/baseline_formal_20261011_E_delta1/raw/training_group_step_000008.pt",
+          "sha256": "fdd45e8f5ccf2183b83e81151389b70811b7a32a8f5966ab4ab4f8c6642d5863"
+        }
+      ],
+      "changed": "baseline_formal_20261011_E_delta1",
+      "changed_reward_position": [
+        5,
+        260
+      ],
+      "clean": "baseline_formal_20261011_seed_20261011",
+      "finite_updated_states": true,
+      "fixed_inputs_exact": {
+        "attention_mask": true,
+        "input_ids": true,
+        "multiturn_mask": true,
+        "old_log_probs": true,
+        "position_ids": true,
+        "prompts": true,
+        "ref_log_prob": true,
+        "response_mask": true,
+        "responses": true
+      },
+      "full_GPU_update_completed": true,
+      "learning_signature": "b474a12d5ce4844cc2494782beff5db70ade96924413dd89bc8ecd6b12214047",
+      "oracle_tolerance": {
+        "atol": 1e-06,
+        "rtol": 1e-05
+      },
+      "other_groups_exact": true,
+      "parent_state": "ddcfa9fe1fe944ac77e04ceb746efc63a49f059c154415a1f0006a8f711d3bf4",
+      "passed": true,
+      "revision": {
+        "certificate_signature": "08553a5bd8bac439f4fd01ba03f1ecec1745ac1ac2919a3b383a3e7d052134cf",
+        "component": "terminal_outcome",
+        "delta_return": 1.0,
+        "new_outcome": 1,
+        "old_outcome": 0,
+        "row": 5,
+        "selection": "first stable semantic-error identity; no future performance used",
+        "status": "applied",
+        "step": 8,
+        "trajectory_id": "8:3567ae8c08af029089d1dad0fb5bc6ffb93f4572bbf24af0eb2b43d7e79fc21b:1",
+        "visible_at": "after final unit fixed, before GRPO"
+      },
+      "six_gates_passed": false,
+      "source_sha256": "7141cb91d0f8e8c41275a226c3f267a57bf43346ae4c3080a53010ee799f80e5",
+      "status": "applied",
+      "step": 8,
+      "updated_model_differs": true,
+      "updated_state_signatures": [
+        "57a71716a580de78507e1d59c30795a8f107d6b73414e372a90e8f2d636387f2",
+        "7de8b5bb8a1409d77241f57663889cb9a049d3785f5b9d0a5123cd617a989592"
+      ],
+      "whole_group_oracle_matches": true
+    },
+    "result_summary": "solutions/v01/outputs/baseline_formal_20261011/processed/result_summary.json",
+    "D_E_selected_gpu_hours": 45.733985194630094
   }
 }
