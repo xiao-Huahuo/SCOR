@@ -2365,7 +2365,7 @@
         "run_id": "gate1_20261013_01_clean_20261012_a001",
         "launcher_pid": 3557545,
         "stage_start_utc": "2026-10-13T11:51:47.323692+00:00",
-        "status": "running",
+        "status": "actual_U8_fullS8_and_units9_15_passed_point16_running",
         "learning_signature": "5c48419ef561a82f47c8642a659ea7297f23656ffb5b2d0a9eb9641b1f24f6ba",
         "common_full_S7": "solutions/v02/outputs/gate1_20261013_01_prefix_20261012_a001/checkpoints/global_step_7",
         "replay": "8:32",
@@ -2378,7 +2378,66 @@
           "evidence_rows": 11,
           "parent_state_signature": "3115e43cc1ec69ed5915c862f9149dd46e1256d92082a5b128b2793b9cfe9c26",
           "sampler_bitwise_claim": false
-        }
+        },
+        "initial7_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean12_probe7_validation.json",
+          "sha256": "1d305a437d5eb00e64c5dcdcfcd66cd3c9677ec907da59cc4c264e7a33be699a",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "D_score_to_prefix7": 0.0,
+          "wall_seconds": 1578.2131657188293
+        },
+        "probe8_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean12_probe8_validation.json",
+          "sha256": "331a67f181704971dc0bc44224362498b831393e8439d844c23ae2768a34aaae",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "wall_seconds": 1618.207300181035,
+          "scope": "Actual formal point8 P256/fixed128768/RNGcursor only; completed U8/fullS8 separately pending"
+        },
+        "observed_raw_completed_steps": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "latest_full_restore_boundary": 8,
+        "U8_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean12_U8_validation.json",
+          "sha256": "9262dd3aa59b4afd763dd623fe4213a54ce93f7bcbdd6a3bb83412ec275d0727",
+          "passed": true,
+          "injected": false,
+          "evidence_rows": 23,
+          "scope": "Actual native U8 and durable certified small metadata; full physical authentication referenced native launcher, no source8/fullstate equality claim"
+        },
+        "U8_durable_capture": {
+          "marker_sha256": "8ea1ea624597b4a7dc6b7adbc025e476af0318041bc3706f32fb4fca1f8e630b",
+          "members": 9,
+          "metadata_only": true,
+          "directly_restorable": false
+        },
+        "S8_checkpoint": {
+          "certificate_sha256": "50064b3d17bdf3c7a86feb80b288d605db88418128c8e5dbc4c7c3df408e30f6",
+          "state_signature": "041c9e89a59697134c4590123f007f005ad8e3cd1eb64edf49a7a1a0c124ab96",
+          "bytes": 46302326608,
+          "wall_seconds": 666.9227607930079
+        },
+        "units9_15_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean12_units9_15_validation.json",
+          "sha256": "79763f11d2d68abbed9b0fc3f8d38c97902e71178f4c5da1010c15c7c9608bb0",
+          "passed": true,
+          "native_units": 7,
+          "evidence_rows": 77
+        },
+        "U8_independent_review": "Final passed: actual restore7/probe7and8/P256/fixed128768, fresh U8 12tensors19metadata/revisionnone,39unique small SHA,9capture mapping and fullrestore rejection; durable23 evidence excludes transient S8; post-S16 check pending; no extra model/cache hash or T32 claim"
       }
     },
     "publication_implementation": {
@@ -2456,6 +2515,40 @@
       "all_sha_verified": true,
       "initial_directly_restorable": false,
       "full_S7_retained_on_server": true
+    },
+    "local_clean12_initial_capture": {
+      "receipt": ".runtime/receipts/gate1_formal_clean12_initial_download_20261013_01.json",
+      "files": 5,
+      "bytes": 29682,
+      "all_sha_verified": true
+    },
+    "postprocessing_singleton_plot": {
+      "status": "isolated_candidate_independently_approved_separate_entry_deployment_pending",
+      "issue_severity": "P1_for_complete_five_planned_but_only_one_eligible_plotting",
+      "original_counterexample": ".runtime/gate1_jobs/export_plot_n_boundary_20261013_01/receipt.json",
+      "original_plot_sha256": "a8d0a93b17d6eafd54a3d9b605378fd283bb93f85f81c549a4c5f8118cc02165",
+      "candidate": ".runtime/gate1_jobs/plot_singleton_candidate_20261013_01/plot_gate1.py",
+      "candidate_sha256": "8aae1b3e3391f6cca595931162f51e354cd935215e5e37963cb952ae8a20b605",
+      "regression_sha256": "003b5845e3af81ec5b828eb9857b906e27aa718c0b742bf89d84a448292bc56f",
+      "actual_CPU_CLI_cases": 8,
+      "synthetic_only": true,
+      "GPU_or_model_calls": 0,
+      "training_or_freeze21_sources_modified": false,
+      "deployment": "After complete formal training add new plot_gate1_reviewed.py; preserve original35 and frozen original plot path because codeReview05 nested evidence also pins it.",
+      "fix": "Recover missing n1 epsilon from audited corrected_D_T minus Q_s, verify finite positive and all pairs consistent, record source in figure manifest; no statistical changes.",
+      "independent_actual_CLI_cases": 16,
+      "independent_CLI_receipt_sha256": "f0ec6816cdbde442c47291094d489d9ee63bb0abd4ca3a3af1527e3348af9bc0",
+      "independent_visual_QA_sha256": "b1658066f06ad00500f97d359c9c8e70f016668b1f8aa21ee4a4e93f8d31c37f",
+      "candidate_unresolved_P0_P1": 0,
+      "planned_entry": "solutions/v02/src/plot_gate1_reviewed.py",
+      "new_entry_deployed": false
+    },
+    "local_clean12_U8_capture": {
+      "receipt": ".runtime/receipts/gate1_formal_clean12_U8_download_20261013_01.json",
+      "files": 81,
+      "bytes": 4052244,
+      "all_sha_verified": true,
+      "metadata_only_capture": true
     }
   }
 }

@@ -123,3 +123,18 @@ accepted0a80371b、rebuild7c37b5b8与同字节retirement plan/complete96b39d62�
 只退役自身S0目录，fullnewS7保留。142条证据覆盖accepted/checkpoint0/历史比较/capture，128条去重small SHA通过；初始9小成员仍在，capture及旧reference实际拒绝完整恢复。旧六状态、失败S8、source32及首corrupt32保持。大物理认证引用实际wrapper/parent，未二次哈希大权重。范围内无未闭P0/P1。clean12只确认启动身份，未扩大到T32、paired或五seed科研结论。
 
 根代理另核实际clean12 resume_loaded a601d0c8与共同S7 certificate/smallfingerprints，11条证据的d35c1bce确认四rank状态、driverRNG/cursor/learning/freeze一致；不声称通用sampler bitwise。交接文件一次误覆盖已从成功历史操作的文本恢复并对照事前12500字符完全一致，实验源码和raw未受影响；恢复凭证保存在私有runtime。
+
+
+## 2026-10-13：完整五计划种子仅一有效时的绘图P1与隔离候选
+
+原CLI实际n=0/1/2分别return0/1/0：paired_interval(n1)省略epsilon_D，原export统计尾段保持省略，plot_gate1.py:42产生float−None TypeError。真实原反例仅执行原统计AST与实际绘图CLI，合成夹具不替代模型/原始结果验收。
+
+原绘图a8d0a93b与全部学习15/工作流6/旧35保持。隔离候选8aae1b3e在n1缺字段时从已审核CSV的corrected_D_T−Q_s恢复原ε，检查finite/positive及pair一致，figure_manifest记录ε和来源。独审16个实际CLI条件全部符合预期，f0ec6816收据覆盖6正例和10拒例；n1/n5实际PNG视觉QA b1658066通过。负校正/负Q保留，n1均值有效但CI不可用且uncertain，n2有CI仍uncertain，n0无估计。均值、CI、阈值与判定未调整。本候选范围无未闭P0/P1，尚未部署。
+
+codeReview05的nested evidence还绑定原live plot a8和stage9旧副本，因此最终保留原路径和35文件历史身份；等全部正式训练完成后新增plot_gate1_reviewed.py作为独立后处理入口，另列新SHA并做实际位置CLI验收。原冻结export与全部nested证据继续可重建。当前GPU学习不依赖绘图入口，继续原冻结实验；最终真实结果导出、绘图和报告另行验收。
+
+## 2026-10-13：第二种子clean实际U8、起点评测与持久小证据
+
+真实op539f3d50与前审597d2550仅差移除unused import。独审fresh U8的11条原生证据、12固定张量和19元数据通过，revision none。restore7的flags/driver/cursor以及probe7/8的128/768/P256保护通过。U8 receipt9262dd3a、durable marker8ea1ea62正确，39条去重small SHA有效；9capture/mapping和完整恢复拒绝实际通过。
+
+U8 receipt的23条evidence全部使用持久捕获路径，后续S16滚退后的实际复核仍待。S8大物理认证引用实际native launcher，未重新模型/910MB cache哈希；未声称source8全状态相等、T32或paired验收。范围内无未闭P0/P1。操作入口一次错误手填SHA常量在capture前被守卫拒绝，改用真实部署SHA539f后成功，未改实验raw或训练状态。
