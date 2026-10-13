@@ -101,3 +101,9 @@ fresh validate_unit8:32共25个原生单位（275条evidence），validate_probe
 实际early proof bb6010a8完整绑定该accepted、source32及共同S7、freeze和physical-clean-weight依赖范围；paired组仍pending。退役plan与complete完全同字节/SHA ff12ff5d，只移除8model/optim共46,302,164,640bytes，另外8成员与certificate均SHA有效。475evidence去重363，其中362small fresh SHA通过；唯一910,107,314-byte fixed_inputs沿用已实际probe/冻结认证，不重复hash。完整恢复检查实际拒绝retired clean32。共S7、旧六完整状态与原failed工程S8全部成员存在、尺寸及小证据保持，退役clean32全指纹仍与source32相等。
 
 本阶段无未闭P0/P1。corrupt仅核准同S7/history/freeze启动身份及实际恢复；不能将本审查扩大为其U8注入、repeat/paired五组或持续性科研结论验收。
+
+## 2026-10-13：首条实际 corrupt T32 整条独审
+
+实际S7起点76e7e00、U8输入acf3343及完整S8审计125f1d1a均核准：只原row5终局位置260增加1，独立GRPO advantages/returns最大误差0，其余三组12行不变；共同S7两role固定评分距离0。物理全S8与原E8完整状态相等，9小成员marker1172c2c0及永久证据路径通过，full restore实际拒绝小副本。S16滚删原S8后，125f审计的全部持久证据仍有效。
+
+整条fresh25 units通过，只有U8 injected true；U9–32各12固定tensor/19metadata匹配、revision none。五点probe128/768候选/P256/RNGcursor核准。stage accepted237a6bf4的25单位、learning102347、共同S7、history、origin_manifest及324evidence覆盖严格一致，319small fresh SHA全部通过，5次910MB cache引用未重复哈希。S32 cert30058c4e/state81d2d62b/owner/4workerfinite/driver/cursor/next33与completed32/cp32一致；大S32认证采用实际wrapper/parent完成的验证，独审未重复大权重hash。范围内无未闭P0/P1，完整corrupt32保留。repeat、paired及五seed研究结论尚未验收。

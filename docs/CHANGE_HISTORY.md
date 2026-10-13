@@ -411,3 +411,17 @@ U8审计e682c641、9成员167667bytes与810e306b durable binding通过独审，�
 ### 完成与未完成状态
 
 accepted ccd178bb、early bb6010a8与同字节plan/complete ff12ff5d实际通过独审，无本范围未闭P0/P1。8大分片46,302,164,640bytes已退役，小成员/证书/raw保留，完整恢复明确拒绝retired点；共S7、旧六状态及failed工程S8保全。小证据重新核验、大认证引用来源如实记录。仍待corrupt实际U8/T32、repeat与全部固定种子paired、真实Q_s/95%seedCI/辅助和费用CSV、PNG/SVG QA及独立结果审查、报告与最终Git三端同步；首clean完成不是持续性结论。
+
+# 2026-10-13 Gate1：首条 corrupt T32 实际验收与 repeat 启动
+
+### 现状
+
+首clean及corrupt均完整完成T32。corrupt正常return0，25个原生更新、5点评测和完整S32已验收；首个paired组仍待clean-repeat。
+
+### 实施方案
+
+逐步核验唯一U8终局+1及整个GRPO组重算，后24步检查无再次注入且固定数据一致；完整S8实际比对原保留E8，保存认证小证据保证滚动清理后可追溯。终态核准25单位/5点证据、源码/冻结/owner/有限状态，保持完整corrupt32，继续同S7 clean-repeat。
+
+### 完成与未完成状态
+
+accepted237a6bf4与整条独审通过，319small SHA核准，大状态认证来源范围如实记录；U8/S16持久证据闭环无P0/P1。226小JSON11,644,239bytes已本机SHA同步。repeat已启动但未验收；仍待五个完整paired块、真实Q_s/95%seedCI/辅助和成本CSV、PNG/SVG QA、独立结果审查与报告、最终三端Git同步。单个corrupt完成不能当持续性结论。
