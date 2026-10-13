@@ -439,3 +439,17 @@ accepted237a6bf4与整条独审通过，319small SHA核准，大状态认证来�
 ### 完成与未完成状态
 
 paired288dc35e与repeat退役70497951实际通过独审，无本范围P0/P1。T32 D=.05543707034/floor0/Q≈.04543707034仅单seed描述，不CI或五seed判定；ε来源不伪造为用户批准。752paired和362退役小证据SHA核准，原资产保全；12份证明/小成员1,022,804bytes已本机SHA同步。seed12全S0及小metadata已出现，S7重建验收尚待。其余四固定块、五seed统计/辅助/成本CSV、图表QA、独立结果审查和报告、最终Git三端同步仍待完成。
+
+# 2026-10-13 Gate1：seed12 前缀实际重建、S0退役与clean恢复验收
+
+### 现状
+
+正式序列进度仍为1/5。seed20261012重建共同S7已正常stop7/return0，clean分支启动并实际恢复该完整状态。
+
+### 实施方案
+
+逐项重核7个无注入原生单元、工程cal64/固定128/768探针及S0/S7历史小全状态；正式P0另核原P256绑定。完整验收后只canonical退役自身S0并保留9小成员、fullS7和原保护资产；从同fullS7继续25步正式clean。
+
+### 完成与未完成状态
+
+accepted0a80371b、rebuild7c37b5b8、同字节retirement96b39d62独审闭环，128去重小证据SHA有效，无scopeP0/P1。98小文件3,646,372bytes同步本机；clean实际恢复d35c1bce通过。一次TASK_STATE写入误覆盖已恢复完整历史并核对事前捕获文本，未影响实验源码/raw。仍待第二seed的三分支T32/paired、剩余固定块、真实五seed统计/辅助/成本CSV、PNG/SVG QA、独立结果审查与报告及最终三端Git同步。

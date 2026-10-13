@@ -1649,7 +1649,7 @@
       "independent_actual_review": "passed; freeze b36195...;995 small rehashed by independent reviewer,26 large referenced root actual1021 complete hash validation; no unresolvedP0/P1"
     },
     "formal_launch_plan": {
-      "status": "seed11_paired_block_completed_seed12_prefix_launched",
+      "status": "seed12_prefix_terminal0_fullS7_committed_sequence_rebuild_acceptance_pending",
       "sequence_id": "gate1_20261013_01",
       "seeds": [
         20261011,
@@ -1719,7 +1719,7 @@
         31,
         32
       ],
-      "latest_full_restore_boundary": null,
+      "latest_full_restore_boundary": 7,
       "U8_full_validation_pending": false,
       "U8_full_validation_cpu_pid": 2996006,
       "U8_full_validation_path": ".runtime/gate1_jobs/gate1_20261013_01.clean11_U8_validation.json",
@@ -2085,7 +2085,7 @@
           "independent_review": "Final passed fresh25native/onlyU8 injected/5points128base768P256guards/319of324smallSHA/source21raw15profile/ownedS32finite/terminal0; large certification referenced actualwrapperparent; no scopeP0P1"
         }
       },
-      "latest_full_restore_boundary_scope": "Active seed12prefix initialized from base, no owned snapshot yet observed; corrupt11S32 and commonS7 separately retained; repeat11S32 retired",
+      "latest_full_restore_boundary_scope": "Active prefix12 owned committed fullS7; S0 still present pending legalretirement; corrupt11S32 separately retained",
       "first_repeat": {
         "run_id": "gate1_20261013_01_repeat_20261011_a001",
         "launcher_pid": 3338987,
@@ -2297,7 +2297,7 @@
         "run_id": "gate1_20261013_01_prefix_20261012_a001",
         "launcher_pid": 3538262,
         "stage_start_utc": "2026-10-13T10:40:36.951933+00:00",
-        "status": "running",
+        "status": "accepted_after_actual_intentional_stop7_and_completed_S0_retirement",
         "seed": 20261012,
         "phase": "preparation",
         "branch": "prefix",
@@ -2305,7 +2305,80 @@
         "replay_end": 7,
         "evaluation_split": "calibration",
         "injection_step": null,
-        "scope": "Rebuild historical missing fullS7 from shared base and fixed history; formalP0 uses separately bound historicalP256 and current fixed scores"
+        "scope": "Rebuild historical missing fullS7 from shared base and fixed history; formalP0 uses separately bound historicalP256 and current fixed scores",
+        "initial0_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.prefix12_initial0_validation.json",
+          "sha256": "63bc2e2fcfa8d8f0d79cf1d237abf92e3f4c8dad75f46f88eecc8c2a51a3783b",
+          "passed": true,
+          "historical_small_complete_state_equal": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "engineering_calibration_cases": 64,
+          "wall_seconds": 910.0525973092299,
+          "scope": "Actual prefixS0 small fingerprints/current probes/cal64; historicalmetadata nonrestorable and formalP0 separately bound oldP256; no S7/terminal acceptance"
+        },
+        "observed_raw_completed_steps": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "latest_full_restore_boundary": 7,
+        "units1_7_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.prefix12_units1_7_validation.json",
+          "sha256": "1e399b59652d83eb4eb4aaf2c00d3c5c61ff7241680668116278734963510e5d",
+          "passed": true,
+          "native_units": 7,
+          "evidence_rows": 94,
+          "historical_S7_small_complete_state_equal": true,
+          "engineering_calibration_cases": 64,
+          "wall_seconds_point7": 911.3202321301214,
+          "scope": "Actual prefix1:7/fixed probes/cal64 and owned committedS7 with historical small fingerprints; no additional root model hash, terminal/initialretirement pending"
+        },
+        "returncode": 0,
+        "terminal_independent_review": "Final passed: fresh7 units, S0/S7 historic small fingerprints, actual cal64/probe128/768, separate old P256 and ownS0 retirement;128 unique small SHA; no unresolved scope P0/P1; full authentication referenced actual wrapper/parent",
+        "accepted": {
+          "path": "solutions/v02/outputs/gate1_20261013_01/raw/stage_gate1_20261013_01_prefix_20261012_accepted.json",
+          "sha256": "0a80371bb9c447572bbf7fc9cc27b18feecc9c7fc34340517dee781ace878783",
+          "native_units": 7,
+          "evidence_rows": 121
+        },
+        "historical_S7_proof": {
+          "path": "solutions/v02/outputs/gate1_20261013_01/raw/prefix_rebuild_20261012.json",
+          "sha256": "7c37b5b8799c6f449394fe84ba68d2200213fd8685991d4d35bb9d3a728615a6",
+          "passed": true
+        },
+        "initial_retirement": {
+          "status": "actual_complete",
+          "plan_and_complete_sha256": "96b39d6245f7a53a5503d710e69d0ec1e420c3122e31575c390feaf9fa2e2cb7",
+          "evidence_rows": 142,
+          "initial_checkpoint_bytes": 16265099143,
+          "retired_large_shard_bytes": 16264940296,
+          "initial_directly_restorable": false,
+          "full_S7_retained": true
+        }
+      },
+      "seed12_clean": {
+        "run_id": "gate1_20261013_01_clean_20261012_a001",
+        "launcher_pid": 3557545,
+        "stage_start_utc": "2026-10-13T11:51:47.323692+00:00",
+        "status": "running",
+        "learning_signature": "5c48419ef561a82f47c8642a659ea7297f23656ffb5b2d0a9eb9641b1f24f6ba",
+        "common_full_S7": "solutions/v02/outputs/gate1_20261013_01_prefix_20261012_a001/checkpoints/global_step_7",
+        "replay": "8:32",
+        "injection": false,
+        "horizon": 32,
+        "restore_validation": {
+          "passed": true,
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean12_restore7_validation.json",
+          "sha256": "d35c1bce2226e5057cdc835a7ff4bd59e04a154d921dbbd4947afe499d07776a",
+          "evidence_rows": 11,
+          "parent_state_signature": "3115e43cc1ec69ed5915c862f9149dd46e1256d92082a5b128b2793b9cfe9c26",
+          "sampler_bitwise_claim": false
+        }
       }
     },
     "publication_implementation": {
@@ -2375,6 +2448,14 @@
       "all_sha_verified": true,
       "retired_snapshot_metadata_only": true,
       "directly_restorable": false
+    },
+    "local_prefix12_capture": {
+      "receipt": ".runtime/receipts/gate1_formal_prefix12_download_20261013_01.json",
+      "files": 98,
+      "bytes": 3646372,
+      "all_sha_verified": true,
+      "initial_directly_restorable": false,
+      "full_S7_retained_on_server": true
     }
   }
 }

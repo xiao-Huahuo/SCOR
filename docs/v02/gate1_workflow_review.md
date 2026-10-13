@@ -115,3 +115,11 @@ paired288dc35e严格覆盖三份accepted、75更新、15分支评测点与原fir
 真实repeat plan/complete同字节/SHA70497951，绑定原paired288dc35e，只移除其global_step32的4model/4optim共46,302,164,640bytes；9small/certificate有效，ordinary full restore实际拒绝。退役475行证据去重后362small fresh SHA通过，唯一固定cache不重哈。原clean earlybb6010/退役ff12完全不变；七个protected状态（old6+原failed工程8）的证书、成员尺寸、小SHA保持，failed原−9/无completed9/cert9不改；corrupt32完整成员仍在且无退役收据。大物理认证引用实际wrapper/parent/helper，未二次模型hash。
 
 单seed T32 D=.05543707034、floor0、Q≈.04543707034仅为描述；ε=.01保持冻结AI提案来源与userapprovedFalse。范围内无未闭P0/P1，序列实际完成1 block，五seed区间/结论未完成。prefix12当时只核准preparation启动身份，不能提前核准S7或prefix初始退役。
+
+## 2026-10-13：第二种子prefix重建与实际S0退役独审闭环
+
+accepted0a80371b、rebuild7c37b5b8与同字节retirement plan/complete96b39d62均实际核准。fresh7个原生单元无注入，seed12/source21/raw15/profile/freezeb361/horizon32/stop7/pin7一致；新S0/S7完整小指纹逐字段等于历史reference。两个固定probe128/768及cal64/diag128、RNG/cursor保护通过；正式P0单独核准冻结旧source12真实P256，未用cal64替代。
+
+只退役自身S0目录，fullnewS7保留。142条证据覆盖accepted/checkpoint0/历史比较/capture，128条去重small SHA通过；初始9小成员仍在，capture及旧reference实际拒绝完整恢复。旧六状态、失败S8、source32及首corrupt32保持。大物理认证引用实际wrapper/parent，未二次哈希大权重。范围内无未闭P0/P1。clean12只确认启动身份，未扩大到T32、paired或五seed科研结论。
+
+根代理另核实际clean12 resume_loaded a601d0c8与共同S7 certificate/smallfingerprints，11条证据的d35c1bce确认四rank状态、driverRNG/cursor/learning/freeze一致；不声称通用sampler bitwise。交接文件一次误覆盖已从成功历史操作的文本恢复并对照事前12500字符完全一致，实验源码和raw未受影响；恢复凭证保存在私有runtime。
