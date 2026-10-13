@@ -146,3 +146,11 @@ accepted c8c3e7e3、early eb0fa7d4与plan/complete bc927710均真实核准。fre
 新clean32 certf857ccaf/state5b7a871b的小全状态与实际保留oldsource12完整S32及新reference32（certa480ef06）逐step/workers/driver/cursor/position相等。source完整成员尺寸保持；大物理认证引用实际native/parent。plan与complete同字节并绑定原early SHA，仅自身8model/optim共46,302,164,640bytes消失，9small保留，普通full restore实际拒绝。
 
 原S8/S16目录均已滚退；原9262的23条持久证据、8ea1的9成员/mapping仍全SHA有效，不依赖失效checkpoint路径。newprefix7/source12full32、old6+failed8、首corrupt32与首paired288d保持。本范围无未闭P0/P1。日期steering后root对过时S16路径的只读FNF无写入、无passed收据，不计训练失败。corrupt12只观察启动，恢复/注入/完整分支/paired及seed CI另验收。
+
+## 2026-10-14：corrupt12起点、唯一U8及认证小证据保全实际独审
+
+restorea2eadbc2、initial7fb578b3c与input7dbb2763核准。25条去重small SHA通过，4×4 generation、8固定tensor和19metadata匹配；原定firsteligible row7/certf5fb为显式1356 vsGT−158、nativeoutcome0、nontrunc，仅terminal567增1，native_info/native_returns保持（目标usedreturn增1）。独立样本std GRPO全部adv/returns最大误差0，其它三组12行不变。S7双role D0/P256/128768/RNGcursor保护通过。
+
+实际committed8/S8 owner/learning/parent及finite小状态一致，1414fd78的23evidence与probe8共28条，其中27small fresh SHA通过，910MBcache不重复hash。9capture及mapping与仍在的S8小指纹相等，c087fecf marker有效；ordinaryfull restore实际拒绝metadata-only。最终evidence仅依赖持久路径。probe8 1d8c49fa的128/768/P256/RNGcursor通过。
+
+本范围无未闭P0/P1。大S8认证引用actual native；actualS16滚退后持久复核尚待。未声称旧source8全状态等价、T32、paired或seed CI。

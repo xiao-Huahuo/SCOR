@@ -2515,7 +2515,7 @@
         "run_id": "gate1_20261013_01_corrupt_20261012_a001",
         "launcher_pid": 3809320,
         "stage_start_utc": "2026-10-13T16:08:11.019564+00:00",
-        "status": "actual_commonS7_restore_passed_initial7_evaluation_running",
+        "status": "actual_committed_U8_fullS8_small_capture_passed_later_fixed_updates_running",
         "learning_signature": "5c48419ef561a82f47c8642a659ea7297f23656ffb5b2d0a9eb9641b1f24f6ba",
         "parent_state_signature": "3115e43cc1ec69ed5915c862f9149dd46e1256d92082a5b128b2793b9cfe9c26",
         "common_full_S7": "solutions/v02/outputs/gate1_20261013_01_prefix_20261012_a001/checkpoints/global_step_7",
@@ -2532,7 +2532,81 @@
           "sampler_bitwise_claim": false,
           "injection_accepted": false
         },
-        "resource_wait_resolved": "GPU4/5 external busy wait ended automatically before stage launch; original4-7 maintained."
+        "resource_wait_resolved": "GPU4/5 external busy wait ended automatically before stage launch; original4-7 maintained.",
+        "initial7_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.corrupt12_initial7_validation.json",
+          "sha256": "fb578b3c50fad8545460e92b3b5bbaf5cb239118c490c101841d5dd5bd2f1763",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "initial_clean_corrupt_D_score": 0.0,
+          "wall_seconds": 1561.062145687174
+        },
+        "U8_input_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.corrupt12_U8_input_validation.json",
+          "sha256": "7dbb276359b1bde726efa6dbbe04176e19293d2b620612189be719962901b5ff",
+          "passed": true,
+          "target_row": 7,
+          "fixed_tensor_fields": 8,
+          "fixed_metadata_fields": 19,
+          "reward_advantage_fields_checked_by_native_whole_group": 4,
+          "operator_sha256": "1640d194278df174525fab422b36b7af705a9481df609a77b0c291e29337f5f9",
+          "scope": "Actual injected U8 inputs only; completion/optimizer/fullS8 not yet accepted.",
+          "independent_review": "Final passed:25unique small SHA, actual4x4/generation/8fixedtensor19metadata, firsteligiblerow7/f5fb,1356 vsGT-158/native0/nontruncated;onlyterminal567+1;independent sample-std GRPO maxerror0 and other3groups12rows unchanged;no optimizer/full8/T32 claim.",
+          "explicit_answer": 1356,
+          "ground_truth": -158,
+          "terminal_position": 567,
+          "old_outcome": 0,
+          "new_outcome": 1,
+          "independent_GRPO_max_error": 0.0,
+          "independent_other_groups_unchanged": true
+        },
+        "prepared_U8_small_capture": {
+          "operation": ".runtime/gate1_jobs/gate1_20261013_01.corrupt12_U8_validation.py",
+          "sha256": "3b6e4955e0ec1eb7f077577e810a20231c289a9480f311c5b53c826c32ac9880",
+          "status": "actual_deployed_and_CPU_executed_passed",
+          "actual_owned_full8_required_before_write": true,
+          "independent_P0_P1": 0
+        },
+        "probe8_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.corrupt12_probe8_validation.json",
+          "sha256": "1d8c49fa788398d71fa916490d320729a98bd9ef86ad979130c2e33f3b5cd05b",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "wall_seconds": 1709.7110737620387,
+          "scope": "Actual point8 evaluation/probe only; completed8/fullS8 pending"
+        },
+        "observed_raw_completed_steps": [
+          8,
+          9,
+          10
+        ],
+        "latest_full_restore_boundary": 8,
+        "U8_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.corrupt12_U8_validation.json",
+          "sha256": "1414fd78f73399d0574dbd12d609db23313b184732f0749d62c2925ce8cc85cf",
+          "passed": true,
+          "injected": true,
+          "evidence_rows": 23,
+          "full_physical_authentication": "actual native launcher; no duplicate root model hash"
+        },
+        "U8_durable_capture": {
+          "marker_sha256": "c087fecfb57f60e8506379c94276be223a32e5c9e9d049456ca8c0218c4304cf",
+          "members": 9,
+          "bytes": 167797,
+          "metadata_only": true,
+          "directly_restorable": false
+        },
+        "S8_checkpoint": {
+          "certificate_sha256": "ae3e83cfc36558f89a66bfd8b4ffbfd6a6044e6461b560cc98ef4c7256e8718c",
+          "state_signature": "2f8c1acf160f9de4c6bd88e8f5e337912d9afb211d4dcab74f524899111a2bac",
+          "bytes": 46302326608,
+          "wall_seconds": 696.4625059519894
+        },
+        "U8_independent_review": "Final passed actual committed injected U8/ownerlearningparentfinite/probe8 P256128768RNGcursor/capture9mapping sameS8smallfingerprint/fullrestore rejection;23+5evidence27smallSHA,cache native auth referenced. Durable evidence excludes transientS8; actual postroll check pending; no oldsource8eq/T32/paired claim."
       }
     },
     "publication_implementation": {
@@ -2651,6 +2725,19 @@
       "bytes": 10997953,
       "all_sha_verified": true,
       "owned32_directly_restorable": false
+    },
+    "local_corrupt12_input_capture": {
+      "receipt": ".runtime/receipts/gate1_formal_corrupt12_input_download_20261014_01.json",
+      "files": 10,
+      "bytes": 1909214,
+      "all_sha_verified": true
+    },
+    "local_corrupt12_U8_capture": {
+      "receipt": ".runtime/receipts/gate1_formal_corrupt12_U8_download_20261014_01.json",
+      "files": 65,
+      "bytes": 4017416,
+      "all_sha_verified": true,
+      "metadata_only": true
     }
   }
 }

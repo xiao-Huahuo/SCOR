@@ -496,3 +496,17 @@ accepted0a80371b、rebuild7c37b5b8、同字节retirement96b39d62独审闭环，1
 ### 完成与未完成状态
 
 c8c3e7e3/eb0fa7d4/bc927710及311/322/362去重small证据独审闭环，无scopeP0/P1。只退役8大成员46,302,164,640bytes，9小成员和raw保持，完整恢复实际拒绝退役点；source32/共同S7及旧保护资产保全。root后17单位和24/32点及postroll225证据通过75719212，232小文件10,997,953bytes已本机SHA同步。一次依据过时S16状态的只读FNF无修改，不计训练失败。仍待corrupt12恢复/注入/T32、repeat12与第二paired、其余固定种子、真实全五seed统计/辅助/成本CSV、独立后处理入口及真实图QA、结果审查/报告和最终三端Git同步。
+
+# 2026-10-14 Gate1：corrupt12实际唯一U8、S8与持久小证据验收
+
+### 现状
+
+corrupt12已完成实际U8、两点评测及完整S8提交，固定U9:32继续运行。完整paired进度仍1/5。
+
+### 实施方案
+
+从同完整S7核验起点一致性与原定语义目标，只改变row7 terminal+1，独立样本std公式验证整组GRPO及其它组三组不变。完整S8提交后保存9小认证成员，校验所有权、学习身份、父状态与非恢复性，保留滚动规则和原始证据。
+
+### 完成与未完成状态
+
+7dbb输入审/25small及1414/c087持久23evidence/probe8共27small独审闭环，无scopeP0/P1。GT−158/answer1356/nontrunc、terminal567+1、GRPOmaxerror0与其它12行不变真实核准；完整S8大认证来源如实记录。65小文件4,017,416bytes已本机SHA同步。仍待S16实际滚退后的持久性、corrupt T32/full32长期保留、repeat12与第二paired、其它固定种子、全五seed统计/辅助/费用CSV、独立后处理入口及真实图QA、结果审查/报告和最终三端同步。
