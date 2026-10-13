@@ -2,7 +2,7 @@
   "schema_version": 1,
   "project": "SCOR",
   "active_version": "v02",
-  "updated_date": "2026-10-13",
+  "updated_date": "2026-10-14",
   "objective": "Gate1: evaluate persistence of a single terminal false-positive at k=8 under identical fixed U9:32, five paired seed blocks, at most four RTX4090 GPUs",
   "status": "v02_gate1_formal_sequence_launched_after_complete_engineering_and_freeze_acceptance",
   "code": {
@@ -2365,7 +2365,7 @@
         "run_id": "gate1_20261013_01_clean_20261012_a001",
         "launcher_pid": 3557545,
         "stage_start_utc": "2026-10-13T11:51:47.323692+00:00",
-        "status": "actual_U8_fullS8_and_units9_15_passed_point16_running",
+        "status": "completed_return0_fullT32_accepted_early_source_equivalence_and_owned32_retirement_actual",
         "learning_signature": "5c48419ef561a82f47c8642a659ea7297f23656ffb5b2d0a9eb9641b1f24f6ba",
         "common_full_S7": "solutions/v02/outputs/gate1_20261013_01_prefix_20261012_a001/checkpoints/global_step_7",
         "replay": "8:32",
@@ -2407,9 +2407,26 @@
           12,
           13,
           14,
-          15
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
         ],
-        "latest_full_restore_boundary": 8,
+        "latest_full_restore_boundary": 7,
         "U8_validation": {
           "path": ".runtime/gate1_jobs/gate1_20261013_01.clean12_U8_validation.json",
           "sha256": "9262dd3aa59b4afd763dd623fe4213a54ce93f7bcbdd6a3bb83412ec275d0727",
@@ -2437,7 +2454,85 @@
           "native_units": 7,
           "evidence_rows": 77
         },
-        "U8_independent_review": "Final passed: actual restore7/probe7and8/P256/fixed128768, fresh U8 12tensors19metadata/revisionnone,39unique small SHA,9capture mapping and fullrestore rejection; durable23 evidence excludes transient S8; post-S16 check pending; no extra model/cache hash or T32 claim"
+        "U8_independent_review": "Final passed: actual restore7/probe7and8/P256/fixed128768, fresh U8 12tensors19metadata/revisionnone,39unique small SHA,9capture mapping and fullrestore rejection; durable23 evidence excludes transient S8; post-S16 check pending; no extra model/cache hash or T32 claim",
+        "probe16_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean12_probe16_validation.json",
+          "sha256": "7f9957bca28a2c6b26b294147b41bbee4f1ffaa38ce5d26347eaf05d00208f05",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "wall_seconds": 1611.8491144899745,
+          "scope": "Point16 actual evaluation/probe only; full16/unit16 still pending"
+        },
+        "returncode": 0,
+        "last_committed_model_step": 32,
+        "latest_full_restore_boundary_scope": "Retained common prefix7 reconstruction anchor; clean owned32 weights retired and nonrestorable; source12 originalfull32 retained.",
+        "terminal_accepted": {
+          "path": "solutions/v02/outputs/gate1_20261013_01/raw/stage_gate1_20261013_01_clean_20261012_accepted.json",
+          "sha256": "c8c3e7e3aab9a98e8505864801112e2e9a77677886feaab67ecc841c082e3cbb",
+          "native_units": 25,
+          "evidence_rows": 324
+        },
+        "early_clean_source": {
+          "path": "solutions/v02/outputs/gate1_20261013_01/raw/clean_source_seed_20261012.json",
+          "sha256": "eb0fa7d4311effcab65da5fe3b50fbbe69c973d5961fdc240cfc0052ea535026",
+          "passed": true,
+          "all_recorded_state_checks_equal": true,
+          "retained_original_full_S32": "solutions/v01/outputs/baseline_formal_20261011_seed_20261012/checkpoints/global_step_32",
+          "retained_source_certificate_sha256": "a480ef069962aa1df1867972455f88663b0e4a98985626c0e3daec40654eaef8"
+        },
+        "S32_checkpoint": {
+          "certificate_sha256": "f857ccaf4606621d844ab367ea90f225d6d0dbe313d1632557eca5df3359a430",
+          "state_signature": "5b7a871b4e2694787e7b37c6943509f29e33cdab807485f5c7451396f76b334a",
+          "bytes": 46302326466,
+          "wall_seconds": 751.0561264259741,
+          "currently_directly_restorable": false
+        },
+        "owned32_retirement": {
+          "actual_complete": true,
+          "plan_complete_sha256": "bc92771021ed9fd16915f215d9802d9e8cf5719f397693c55a485c6978867cbb",
+          "retired_large_members": 8,
+          "retired_bytes": 46302164640,
+          "metadata_and_raw_retained": true,
+          "directly_restorable": false
+        },
+        "late17_units_and_probes_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean12_terminal_units_probes_postroll_validation.json",
+          "sha256": "75719212efb8197a0ee59669ccf7e63aa15dbc89fb49638bb0a2929b76329e8d",
+          "passed": true,
+          "native_units": 17,
+          "probe_steps": [
+            24,
+            32
+          ],
+          "evidence_rows": 225,
+          "durable_U8_postroll": true
+        },
+        "terminal_independent_review": "Final passed: fresh25 no-injection units/5point128768P256/source21raw15profilefreezeseed12/history/commonS7, complete small state equals retainedsource12full32/reference, earlyproof/plancompleteexact/onlyown8large retirement/fullrestore rejection,311/322/362 dedupsmallSHA;durable23/9capture valid postroll. Big authentication referenced actual native/parent;no paired or CI claim."
+      },
+      "seed12_corrupt": {
+        "run_id": "gate1_20261013_01_corrupt_20261012_a001",
+        "launcher_pid": 3809320,
+        "stage_start_utc": "2026-10-13T16:08:11.019564+00:00",
+        "status": "actual_commonS7_restore_passed_initial7_evaluation_running",
+        "learning_signature": "5c48419ef561a82f47c8642a659ea7297f23656ffb5b2d0a9eb9641b1f24f6ba",
+        "parent_state_signature": "3115e43cc1ec69ed5915c862f9149dd46e1256d92082a5b128b2793b9cfe9c26",
+        "common_full_S7": "solutions/v02/outputs/gate1_20261013_01_prefix_20261012_a001/checkpoints/global_step_7",
+        "horizon": 32,
+        "injection_step": 8,
+        "reward_delta": 1,
+        "target_certificate_signature": "f5fbf3d3ebf04d95936f818b2e424f581fa659d345bd16e1e215ab1bc7ee646a",
+        "restore_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.corrupt12_restore7_validation.json",
+          "sha256": "a2eadbc292a3d68f255b6abc2fb463cf9a188438ad5e540b366b55356c7a3c45",
+          "resume_loaded_sha256": "a601d0c809d3f594e9f227e34b5df68897c45a6b41525768dc19c654aec9d3cb",
+          "passed": true,
+          "evidence_rows": 11,
+          "sampler_bitwise_claim": false,
+          "injection_accepted": false
+        },
+        "resource_wait_resolved": "GPU4/5 external busy wait ended automatically before stage launch; original4-7 maintained."
       }
     },
     "publication_implementation": {
@@ -2549,6 +2644,13 @@
       "bytes": 4052244,
       "all_sha_verified": true,
       "metadata_only_capture": true
+    },
+    "local_clean12_terminal_capture": {
+      "receipt": ".runtime/receipts/gate1_formal_clean12_terminal_download_20261014_01.json",
+      "files": 232,
+      "bytes": 10997953,
+      "all_sha_verified": true,
+      "owned32_directly_restorable": false
     }
   }
 }

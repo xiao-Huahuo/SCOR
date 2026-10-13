@@ -138,3 +138,11 @@ codeReview05的nested evidence还绑定原live plot a8和stage9旧副本，因�
 真实op539f3d50与前审597d2550仅差移除unused import。独审fresh U8的11条原生证据、12固定张量和19元数据通过，revision none。restore7的flags/driver/cursor以及probe7/8的128/768/P256保护通过。U8 receipt9262dd3a、durable marker8ea1ea62正确，39条去重small SHA有效；9capture/mapping和完整恢复拒绝实际通过。
 
 U8 receipt的23条evidence全部使用持久捕获路径，后续S16滚退后的实际复核仍待。S8大物理认证引用实际native launcher，未重新模型/910MB cache哈希；未声称source8全状态相等、T32或paired验收。范围内无未闭P0/P1。操作入口一次错误手填SHA常量在capture前被守卫拒绝，改用真实部署SHA539f后成功，未改实验raw或训练状态。
+
+## 2026-10-14：clean12 T32、source32等价、early proof与实际退役独审
+
+accepted c8c3e7e3、early eb0fa7d4与plan/complete bc927710均真实核准。fresh25 validate_unit(expectedFalse)逐个12tensor/19metadata/revisionnone匹配，五点128/768/P256/RNGcursor通过；source21/raw15/profile/freezeb361/seed12/learning5c/commonnewS7/history一致。accepted324行、early335行、retire475行分别核对311/322/362份去重small SHA，910MB固定缓存不重复哈希。
+
+新clean32 certf857ccaf/state5b7a871b的小全状态与实际保留oldsource12完整S32及新reference32（certa480ef06）逐step/workers/driver/cursor/position相等。source完整成员尺寸保持；大物理认证引用实际native/parent。plan与complete同字节并绑定原early SHA，仅自身8model/optim共46,302,164,640bytes消失，9small保留，普通full restore实际拒绝。
+
+原S8/S16目录均已滚退；原9262的23条持久证据、8ea1的9成员/mapping仍全SHA有效，不依赖失效checkpoint路径。newprefix7/source12full32、old6+failed8、首corrupt32与首paired288d保持。本范围无未闭P0/P1。日期steering后root对过时S16路径的只读FNF无写入、无passed收据，不计训练失败。corrupt12只观察启动，恢复/注入/完整分支/paired及seed CI另验收。
