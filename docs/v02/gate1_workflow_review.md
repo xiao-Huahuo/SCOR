@@ -93,3 +93,11 @@ CLI02操作e45050b3已独审可执行：native09 exactcandidate，fresh GPU-venv
 独审指出S16 canonical keep1会删除整个新S8目录，使原收据证书路径失效（P1）。根代理在删除前实际保存cert及全部非model/optim共9成员167667bytes，并追加810e306b durable binding；原e682收据不改，source或fullS8权重不pin。独审逐项核准9成员SHA、原path/SHA至captured path/SHA映射、marker、18份durable evidence、原full审计SHA不变，并实际确认完整恢复校验拒绝该metadata-only目录，P1闭合。此时S16证书尚未出现；本核准只覆盖实际U8与证据生命期，不是T32末态或整个配对组。
 
 2026-10-13追加实际S16阶段审查：fresh核准units9–16全部8个原生单元与probe16，93份收据证据一致（8b9e3bbc及585c32aa）。S16 owner/learning/parent、完成标记和checkpoint收据一致；未重新哈希S16大模型。原本run S8目录已真实滚删，810e306b mapping、9成员及18份durable evidence仍全部SHA通过；原old clean S8和failed工程S8全部成员存在且尺寸正确。范围内无P0/P1，只核准units9–16/probe16与已提交S16的小证据，不构成T32末态或配对组验收。
+
+## 2026-10-13：首条实际 clean T32、early proof 与退役独审闭环
+
+fresh validate_unit8:32共25个原生单位（275条evidence），validate_probe7/8/16/24/32共5点（25条evidence），128base/768固定候选/P256及RNG/cursor保护门通过。freeze b36195、current21/raw15/profile/seed11、clean无注入/native_reanchor8:32一致；stage accepted ccd178bb的25单位、learning/parentS7/replay及324份证据正确，319small实际SHA核对并覆盖300单位/探针证据。新S32 cert4bd0022c与保留source32 cert5e4bbecd的worker参数/buffer/Adam/groups/scheduler/RNG、driver/cursor/position/step逐字段相等。大模型物理认证明确引用实际launcher/sequence运行，独审未重复重哈。
+
+实际early proof bb6010a8完整绑定该accepted、source32及共同S7、freeze和physical-clean-weight依赖范围；paired组仍pending。退役plan与complete完全同字节/SHA ff12ff5d，只移除8model/optim共46,302,164,640bytes，另外8成员与certificate均SHA有效。475evidence去重363，其中362small fresh SHA通过；唯一910,107,314-byte fixed_inputs沿用已实际probe/冻结认证，不重复hash。完整恢复检查实际拒绝retired clean32。共S7、旧六完整状态与原failed工程S8全部成员存在、尺寸及小证据保持，退役clean32全指纹仍与source32相等。
+
+本阶段无未闭P0/P1。corrupt仅核准同S7/history/freeze启动身份及实际恢复；不能将本审查扩大为其U8注入、repeat/paired五组或持续性科研结论验收。

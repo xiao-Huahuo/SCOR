@@ -397,3 +397,17 @@ assembler e8dfb430独审无P0/P1，CPU2873328实际启动全SHA核验，原始S0
 ### 完成与未完成状态
 
 U8审计e682c641、9成员167667bytes与810e306b durable binding通过独审，证据生命期P1闭合；完整恢复检查明确拒绝metadata-only副本。29份小文件3679845bytes已逐SHA同步本机，UTF8/LF及JSON检查通过。仍须全部五组T32/clean-source末态等价/污染与repeat对照、真实Q_s/95%seedCI/辅助与成本CSV、图表QA和独立结果审查及最终Git三端同步；当前状态不构成持续性结论。
+
+# 2026-10-13 Gate1：首条 clean T32 与重复权重退役实际验收
+
+### 现状
+
+首clean seed20261011正常完成25个更新及5点评测，完整S32提交、return0。五组paired序列仍在执行，首corrupt已实际恢复共同S7。
+
+### 实施方案
+
+按冻结顺序实际认证完整保留source S32，逐字段比较clean/source并保存early proof；再以原proof完成仅本clean重复model/optim退役。独立复核全25单位、固定评测、source状态与实际文件生命期，元数据不得冒充恢复点。
+
+### 完成与未完成状态
+
+accepted ccd178bb、early bb6010a8与同字节plan/complete ff12ff5d实际通过独审，无本范围未闭P0/P1。8大分片46,302,164,640bytes已退役，小成员/证书/raw保留，完整恢复明确拒绝retired点；共S7、旧六状态及failed工程S8保全。小证据重新核验、大认证引用来源如实记录。仍待corrupt实际U8/T32、repeat与全部固定种子paired、真实Q_s/95%seedCI/辅助和费用CSV、PNG/SVG QA及独立结果审查、报告与最终Git三端同步；首clean完成不是持续性结论。
