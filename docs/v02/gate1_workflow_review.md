@@ -85,3 +85,11 @@ Verifier的标签覆盖不足以证实其实际context，已在运行时验收�
 预算85f9c80f候选保留原48GiB和32MiB/unit/256MiB/eval，19stage独立枚举为peak13/final11/453updates/89eval。全物理峰需求654342307909bytes；将全部48GiB余量预先扣除后，原launcher累计要求最紧为666741017387bytes（约620.951GiB，seed15 repeat，retained11）。独审使用实际model manifest/profile编译原guard AST验证正例与六个内存反例：只改weight_bytes、bool、改safetensor bytes并重签、改文件hash并重签、换profile、换workflow均拒绝。签名须重算files digest、weight_bytes严格为int且等于两safetensors认证总和7509337976，profile固定35c489。此预算仅成功路径；新增失败祖先需fresh累计资源检查再resume。
 
 CLI02操作e45050b3已独审可执行：native09 exactcandidate，fresh GPU-venv进程无PYTHONPATH/CUDA；bootstrap去除反例与当前真实16row U8/原生unit/目标/同export函数正例，source/import及unit小证据入新收据。实际CLI/actualfree以及新witness仍以之后收据为准。当前代码P0/P1已闭合，尚无正式T32科研结果。
+
+## 2026-10-13：正式首个 clean U8 实际独审
+
+原full U8审计e682c641已核准：fresh validate_unit8、17份小证据及真实completion/optimizer8/finite通过，新S8 cert d980fa62的run/learning/parent与旧保留S8 cert b9766de5的来源正确。两边小metadata中的全部worker参数/buffer/Adam/groups/scheduler/RNG指纹、driver RNG/cursor/position/step精确相等。大分片认证明确引用根代理210bbe9e操作的实际全SHA运行，独审未重复重哈；不把小指纹检查冒充重新读取模型。
+
+独审指出S16 canonical keep1会删除整个新S8目录，使原收据证书路径失效（P1）。根代理在删除前实际保存cert及全部非model/optim共9成员167667bytes，并追加810e306b durable binding；原e682收据不改，source或fullS8权重不pin。独审逐项核准9成员SHA、原path/SHA至captured path/SHA映射、marker、18份durable evidence、原full审计SHA不变，并实际确认完整恢复校验拒绝该metadata-only目录，P1闭合。此时S16证书尚未出现；本核准只覆盖实际U8与证据生命期，不是T32末态或整个配对组。
+
+2026-10-13追加实际S16阶段审查：fresh核准units9–16全部8个原生单元与probe16，93份收据证据一致（8b9e3bbc及585c32aa）。S16 owner/learning/parent、完成标记和checkpoint收据一致；未重新哈希S16大模型。原本run S8目录已真实滚删，810e306b mapping、9成员及18份durable evidence仍全部SHA通过；原old clean S8和failed工程S8全部成员存在且尺寸正确。范围内无P0/P1，只核准units9–16/probe16与已提交S16的小证据，不构成T32末态或配对组验收。

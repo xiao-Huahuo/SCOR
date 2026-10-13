@@ -1065,7 +1065,7 @@
     "source_sync_passed": true
   },
   "gate1": {
-    "status": "engineering_GPU_queue_completed_final_input_hash_deployment_and_budget_acceptance_in_progress",
+    "status": "formal_five_seed_T32_in_progress_first_clean_units8_to23_complete_U8_and_S16_scoped_reviews_passed",
     "seeds": [
       20261011,
       20261012,
@@ -1091,14 +1091,14 @@
       20261011
     ],
     "gpu_executed": true,
-    "freeze_accepted": false,
-    "scientific_result": null,
+    "freeze_accepted": true,
+    "scientific_result": "pending_five_seed_T32_group_acceptance_and_paired_export",
     "source_version_preserved": "v01",
     "remaining": [
-      "complete accepted temporary-control retirement and measure cumulative storage budget",
-      "all eight real acceptance witnesses and pre-formal freeze review",
-      "all five fixed T32 paired seed blocks",
-      "audited CSV/figures/report and local/server/GitHub sync"
+      "Complete all five fixed T32 paired seed blocks and actual clean/source terminal equivalence",
+      "Rebuild audited Q_s/95% paired seed CI, auxiliary and cost CSVs",
+      "Actual PNG/SVG visual QA, independent result/claims review and technical report",
+      "Final documentation and local/server/GitHub main synchronization"
     ],
     "local_cpu_tests": {
       "passed": 93,
@@ -1143,7 +1143,7 @@
       "calibration_signature": "98819370a11487139a254c74baef1dcf960e12aa46d35299531ac5a537b8eefe",
       "formal_signature": "e731dda9265d2658b05cabba6a67ccc3b16107e14402aae9c03e09a5685a892c"
     },
-    "formal_gpu_executed": false,
+    "formal_gpu_executed": true,
     "boxed_control": {
       "run_id": "gate1_control_s7_stop8_20261012_02",
       "pid": 2143041,
@@ -1176,7 +1176,7 @@
       "probe_signature": "98819370a11487139a254c74baef1dcf960e12aa46d35299531ac5a537b8eefe",
       "scope": "Two actual isolated evaluations at same legacy full S7; not formal effect"
     },
-    "source_lock": "Queue04 complete;39 sources/docs synchronized; final sequencef97 and all35 code/profile/test files verified by new independent_code_review witness",
+    "source_lock": "Formal sequence running; ENGINE15 and workflow6 frozen, all35 source/profile/test files matched native09; sequence SHA44802f39, run_gate1 SHAc0c79a79; no running source edits",
     "resource_budget_revision": {
       "status": "proposal_before_formal_freeze",
       "peak_additional_full_states": 14,
@@ -1649,7 +1649,7 @@
       "independent_actual_review": "passed; freeze b36195...;995 small rehashed by independent reviewer,26 large referenced root actual1021 complete hash validation; no unresolvedP0/P1"
     },
     "formal_launch_plan": {
-      "status": "launched_parent_initial_import_SHA_phase",
+      "status": "first_clean_committed_through23_eval24_running_U8_and_S16_stage_audits_passed",
       "sequence_id": "gate1_20261013_01",
       "seeds": [
         20261011,
@@ -1674,7 +1674,119 @@
       "freeze_sha256": "b36195b5129d8fe33fb26d808434bfd7db8e9b8e0de21f69c139af19fd164d3a",
       "plan_sha256": "eb2a66706003cbb68678b221dcff207c8571ddec41c72a6ff45705caa365cc03",
       "completed_seed_blocks": 0,
-      "formal_T32_results_accepted": false
+      "formal_T32_results_accepted": false,
+      "first_run_id": "gate1_20261013_01_clean_20261011_a001",
+      "first_launcher_pid": 2894783,
+      "first_stage_start_utc": "2026-10-12T22:39:24.286713+00:00",
+      "actual_full_S7_restore_passed": true,
+      "last_observed_committed_units": 16,
+      "first_initial_probe_evaluation_accepted": true,
+      "initial7_validation_sha256": "9dc47faf22a8f3f93284e857385c854105fab909e0abbf5a59945e80072f8603",
+      "initial7_cases": {
+        "base": 128,
+        "candidates": 768,
+        "heldout": 256,
+        "verifier_diagnostics": 256
+      },
+      "initial7_wall_seconds": 1523.0410829710308,
+      "U8_input_independent_review": "passed actual4x4/12fixed tensors/19metadata/native no injection/GRPO exact/currentanchor equals source; no update or fullS8 acceptance",
+      "U8_committed": true,
+      "observed_step8_role_records": 380,
+      "raw_completed_steps": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "latest_full_restore_boundary": 16,
+      "U8_full_validation_pending": false,
+      "U8_full_validation_cpu_pid": 2996006,
+      "U8_full_validation_path": ".runtime/gate1_jobs/gate1_20261013_01.clean11_U8_validation.json",
+      "U8_full_validation_passed": true,
+      "U8_full_validation_sha256": "e682c6411020aa8783126d70e337624c2bf5e36270aa8121c3778ab46ead44d9",
+      "U8_independent_review": "Passed actual fresh validate_unit8, 17 small evidence hashes and exact small full-state fingerprints; root actual large-member full hashes referenced, not independently repeated",
+      "U8_durable_binding": {
+        "path": ".runtime/gate1_jobs/gate1_20261013_01.clean11_U8_durable_binding.json",
+        "sha256": "810e306b1d19f10aeb79ee539489a88d7e8110d1f66b6afe4745164f1565f8a8",
+        "captured_members": 9,
+        "captured_bytes": 167667,
+        "metadata_only": true,
+        "directly_restorable": false,
+        "original_full_audit_unchanged": true,
+        "independent_review": "passed_9_members_18_durable_evidence_hashes_and_full_restore_rejection",
+        "lifecycle_P1_closed": true,
+        "original_S8_rolled_retired": true,
+        "durable_evidence_after_rolling_passed": true,
+        "independent_post_rolling_review": "passed_9_captured_members_18_durable_evidence_after_original_S8_deletion"
+      },
+      "probe16_validation": {
+        "path": ".runtime/gate1_jobs/gate1_20261013_01.clean11_probe16_validation.json",
+        "sha256": "585c32aac4ecc790f8522de520d947de563fb9675102e1ba79dfa194d7d26883",
+        "base_cases": 128,
+        "candidate_rows": 768,
+        "heldout_cases": 256,
+        "wall_seconds": 1638.2980977999978,
+        "worker_rng_restored": true,
+        "driver_rng_restored": true,
+        "data_cursor_unchanged": true,
+        "scope": "Fixed probe/evaluation only; fullS16 and T32 not yet accepted"
+      },
+      "units9_16_validation": {
+        "path": ".runtime/gate1_jobs/gate1_20261013_01.clean11_units9_16_validation.json",
+        "sha256": "8b9e3bbc7ca883a0a22dd8d78f51c485cb0e7024fcbffa553749c64f282aa0f0",
+        "native_units": 8,
+        "evidence_rows": 93,
+        "passed": true,
+        "fresh_large_model16_hash": false,
+        "independent_review": "passed_actual_fresh_8_native_units_probe16_93_evidence_and_S16_small_identity_no_large_model_rehash"
+      },
+      "S16_checkpoint": {
+        "committed": true,
+        "snapshot_bytes": 46302326370,
+        "wall_seconds": 699.8802208320703,
+        "retired": [
+          "global_step_8"
+        ],
+        "scope": "Observed actual committed native certificate and completion; root did not reread large shards16",
+        "independent_small_evidence_review": "passed_owner_learning_parent_completion_and_checkpoint; oldsource8_and_failedengineering8_all_members_present_sizes_match"
+      },
+      "eval24_progress": {
+        "observed_utc": "2026-10-13T00:54:57.381705+00:00",
+        "heldout_role_records": 290,
+        "final_evaluation_committed": false
+      }
+    },
+    "publication_implementation": {
+      "status": "actual_local_server_GitHub_main_same_commit",
+      "commit": "3222f9096b704ebdd3bf1d9c916877faa8e0ada1",
+      "public_text_files": 42,
+      "private_input_output_runtime_paths_excluded": true,
+      "running_server_source_files_written": 0,
+      "formal_result_publication": false
+    },
+    "local_formal_U8_capture": {
+      "receipt": ".runtime/receipts/gate1_formal_U8_download_20261013_01.json",
+      "files": 29,
+      "bytes": 3679845,
+      "all_sha_verified": true
+    },
+    "local_formal_S16_capture": {
+      "receipt": ".runtime/receipts/gate1_formal_S16_download_20261013_01.json",
+      "files": 71,
+      "bytes": 3619460,
+      "all_sha_verified": true
     }
   }
 }
