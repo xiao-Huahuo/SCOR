@@ -425,3 +425,17 @@ accepted ccd178bb、early bb6010a8与同字节plan/complete ff12ff5d实际通过
 ### 完成与未完成状态
 
 accepted237a6bf4与整条独审通过，319small SHA核准，大状态认证来源范围如实记录；U8/S16持久证据闭环无P0/P1。226小JSON11,644,239bytes已本机SHA同步。repeat已启动但未验收；仍待五个完整paired块、真实Q_s/95%seedCI/辅助和成本CSV、PNG/SVG QA、独立结果审查与报告、最终三端Git同步。单个corrupt完成不能当持续性结论。
+
+# 2026-10-13 Gate1：首个完整 paired block 验收与 seed12 前缀重建
+
+### 现状
+
+序列完成固定seed20261011的三条T32分支，真实75个更新、15分支评测点及paired proof已验收，进度1/5；seed20261012前缀重建已启动。
+
+### 实施方案
+
+逐字段核对三份accepted、共同状态/历史/冻结和原target，独立重算非零固定probe指标和repeat floor。绑定原paired proof完成repeat重复权重退役，保留完整corrupt/source/commonS7及所有小证据；继续预定剩余种子。
+
+### 完成与未完成状态
+
+paired288dc35e与repeat退役70497951实际通过独审，无本范围P0/P1。T32 D=.05543707034/floor0/Q≈.04543707034仅单seed描述，不CI或五seed判定；ε来源不伪造为用户批准。752paired和362退役小证据SHA核准，原资产保全；12份证明/小成员1,022,804bytes已本机SHA同步。seed12全S0及小metadata已出现，S7重建验收尚待。其余四固定块、五seed统计/辅助/成本CSV、图表QA、独立结果审查和报告、最终Git三端同步仍待完成。

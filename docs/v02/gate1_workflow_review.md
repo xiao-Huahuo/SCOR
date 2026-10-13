@@ -107,3 +107,11 @@ fresh validate_unit8:32共25个原生单位（275条evidence），validate_probe
 实际S7起点76e7e00、U8输入acf3343及完整S8审计125f1d1a均核准：只原row5终局位置260增加1，独立GRPO advantages/returns最大误差0，其余三组12行不变；共同S7两role固定评分距离0。物理全S8与原E8完整状态相等，9小成员marker1172c2c0及永久证据路径通过，full restore实际拒绝小副本。S16滚删原S8后，125f审计的全部持久证据仍有效。
 
 整条fresh25 units通过，只有U8 injected true；U9–32各12固定tensor/19metadata匹配、revision none。五点probe128/768候选/P256/RNGcursor核准。stage accepted237a6bf4的25单位、learning102347、共同S7、history、origin_manifest及324evidence覆盖严格一致，319small fresh SHA全部通过，5次910MB cache引用未重复哈希。S32 cert30058c4e/state81d2d62b/owner/4workerfinite/driver/cursor/next33与completed32/cp32一致；大S32认证采用实际wrapper/parent完成的验证，独审未重复大权重hash。范围内无未闭P0/P1，完整corrupt32保留。repeat、paired及五seed研究结论尚未验收。
+
+## 2026-10-13：首个实际 paired block 与 repeat 退役独审闭环
+
+paired288dc35e严格覆盖三份accepted、75更新、15分支评测点与原first target08553、同freeze/source21/raw15/profile/learning/commonS7/history。1335条证据去重后752small fresh SHA全部通过，唯一910MB固定输入不重复哈希。独立逐token均方、候选等权、case/role RMS与两role平均重算8/16/24/32非零D及role值，最大差1.39×10⁻¹⁷，floor均0。S0实际核对current control的768候选/P256与历史0小状态指纹，明确为common一份测量复用。repeat、retiredclean及保留source32的小全状态指纹相等。
+
+真实repeat plan/complete同字节/SHA70497951，绑定原paired288dc35e，只移除其global_step32的4model/4optim共46,302,164,640bytes；9small/certificate有效，ordinary full restore实际拒绝。退役475行证据去重后362small fresh SHA通过，唯一固定cache不重哈。原clean earlybb6010/退役ff12完全不变；七个protected状态（old6+原failed工程8）的证书、成员尺寸、小SHA保持，failed原−9/无completed9/cert9不改；corrupt32完整成员仍在且无退役收据。大物理认证引用实际wrapper/parent/helper，未二次模型hash。
+
+单seed T32 D=.05543707034、floor0、Q≈.04543707034仅为描述；ε=.01保持冻结AI提案来源与userapprovedFalse。范围内无未闭P0/P1，序列实际完成1 block，五seed区间/结论未完成。prefix12当时只核准preparation启动身份，不能提前核准S7或prefix初始退役。
