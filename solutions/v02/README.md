@@ -4,7 +4,7 @@
 
 正式冻结与工程验收已完成，五组T32正在执行；首个完整paired block已验收（1/5），五seed主统计及科研判定尚未完成。`src/` 包含 v01 原生链路的版本内副本和 Gate1 审计/测量入口；旧版本保持原貌。`inputs/` 保存经核验的跨版本资产与固定探针，`outputs/<run_id>/` 保存 immutable raw、完整 checkpoints 和可重建 processed。下方进展按时间保留，以末尾最新收据为准。
 
-当前状态：最终native09的133项检查、真实GPU中断恢复与连续S9状态/评分等价、初始probe128/P256、生产CLI及八项冻结证据均已验收。源码15+6冻结，首seed三分支T32与实际退役独审闭合；seed20261012前缀重建、S0退役及clean T32/source等价/实际去重已核准，corrupt分支已启动。详见[实施与验收记录](../../docs/v02/implementation.md)。
+当前状态：最终native09的133项检查、真实GPU中断恢复与连续S9状态/评分等价、初始probe128/P256、生产CLI及八项冻结证据均已验收。源码15+6冻结，首seed三分支T32与实际退役独审闭合；seed20261012前缀重建、S0退役、clean T32/source等价/实际去重及corrupt T32已核准，clean-repeat已启动。详见[实施与验收记录](../../docs/v02/implementation.md)。
 
 入口为 `src/run_gate1.py`（单attempt）和 `src/run_gate1_sequence.py`（五组序列）；`export_gate1.py` 重建统计与辅助CSV，`export_gate1_costs.py` 重建全量费用，`plot_gate1.py` 使用独立绘图环境导出PNG/SVG。所有科研结果必须来自完整原始证据；当前合成排版测试不是正式结果。
 
@@ -33,3 +33,5 @@
 2026-10-14第二个种子clean T32已完整验收：seed20261012的25个无注入原生更新与7/8/16/24/32五点128/768/P256保护通过，正常return0，accepted c8c3e7e3。实际认证保留source12完整S32后核对全部worker/driver/cursor/position，末态与历史完整指纹精确相等，early eb0fa7d4保存。退役plan/complete同字节bc927710，仅移除自身8model/optim共46,302,164,640bytes，9small/cert与全部raw保留；该clean32不可直接恢复，共同fullS7及原source32仍可用。独审核准311/322/362份去重小证据，大认证引用实际native/parent。S8滚删后9262的23持久证据及8ea1的9成员/mapping仍有效，本范围无未闭P0/P1。232小文件10,997,953bytes已本机逐SHA同步。corrupt12曾因外部GPU4/5占用等待，原定4–7空闲后自动启动；同完整S7恢复已核准（a2eadbc2），唯一U8注入和T32仍待验收。完整paired进度仍1/5，五seed科研主统计与报告待完成。
 
 2026-10-14第二种子corrupt U8已验收：同完整newS7实际恢复（a2eadbc2），起点128/768/P256及两role固定评分距离0（fb578b3c）。实际唯一first target row7/certf5fb，显式答案1356而GT−158，原终局0且未截断；只在terminal位置567增加1，native_info/native_returns保留。独立样本std GRPO oracle最大误差0，其它三组12行不变，7dbb输入审及25去重small SHA通过。完整S8正常提交（ae3e83cf/state2f8c1acf），46,302,326,608bytes、保存696.4625秒。第8步128/768/P256/RNGcursor通过1d8c49fa。9小成员167,797bytes保存至raw/audit_S8/global_step_8，marker c087fecf与23条持久证据1414fd78已独审；加probe8的28条证据中27small SHA核准，普通full restore实际拒绝metadata-only目录。大认证引用actualnative，不二次模型/cache哈希。U9以后固定历史继续，无本范围P0/P1；actual S16滚退后的持久性、corrupt T32/repeat12/第二paired及五seed统计仍待验收。65小文件4,017,416bytes已本机逐SHA同步。
+
+2026-10-14第二个种子corrupt T32已完整验收：seed20261012正常return0，25个原生更新及7/8/16/24/32五点128/768/P256保护通过，stage accepted29aec5b3。仅U8原row7/certf5fb终局outcome0→1，后24步固定12tensor/19metadata且无再次注入。完整S32证书5f05f8fa/state858d5960正确，46,302,326,466bytes、保存724.3529秒，长期保留。独审324条accepted中的311份去重small SHA、最终身份/finite小状态/full成员尺寸通过，物理认证引用actualnative/parent。全部滚退后，1414/da09/fdec/3435的23/36/14/15条持久证据及c087的9成员/mapping仍有效，ordinaryfull restore拒绝metadata-only；old6+failed8/newS7/source32/corrupt11保全。本范围无未闭P0/P1。240小文件10,624,119bytes已本机逐SHA同步。clean-repeat12已自动启动并实际恢复同完整S7（29a3ed04），floor、第二paired及全五seed统计尚待验收。完整paired进度仍1/5。

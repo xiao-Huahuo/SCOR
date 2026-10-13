@@ -510,3 +510,17 @@ corrupt12已完成实际U8、两点评测及完整S8提交，固定U9:32继续�
 ### 完成与未完成状态
 
 7dbb输入审/25small及1414/c087持久23evidence/probe8共27small独审闭环，无scopeP0/P1。GT−158/answer1356/nontrunc、terminal567+1、GRPOmaxerror0与其它12行不变真实核准；完整S8大认证来源如实记录。65小文件4,017,416bytes已本机SHA同步。仍待S16实际滚退后的持久性、corrupt T32/full32长期保留、repeat12与第二paired、其它固定种子、全五seed统计/辅助/费用CSV、独立后处理入口及真实图QA、结果审查/报告和最终三端同步。
+
+# 2026-10-14 Gate1：corrupt12完整T32验收与clean-repeat12启动
+
+### 现状
+
+第二个种子的clean/corrupt均已完整T32并通过独审。corrupt正常return0，完整S32保留；序列自动启动clean-repeat12，完整paired进度仍1/5。
+
+### 实施方案
+
+逐项核准唯一U8语义目标、后24步固定数据无再次注入、五点评测及完整终态/accepted身份，复核所有滚动清理后的永久证据。保持原source、共同S7及全部Corrupt S32，继续同S7 clean-repeat实测数值floor。
+
+### 完成与未完成状态
+
+accepted29aec5b3与整25/5独审通过，311去重small SHA有效，原23/36/14/15永久证据+c0879mapping全保，完整S32及保护资产保持，无scopeP0/P1。240小文件10,624,119bytes已本机SHA同步。仍待repeat12实际恢复/全T32/floor/第二paired及合法清理、其余三个固定种子、真实全五seed统计/辅助/成本CSV、独立后处理入口和真实图QA、结果审查/报告与最终三端main同步。

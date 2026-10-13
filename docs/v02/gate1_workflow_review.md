@@ -154,3 +154,23 @@ restorea2eadbc2、initial7fb578b3c与input7dbb2763核准。25条去重small SHA�
 实际committed8/S8 owner/learning/parent及finite小状态一致，1414fd78的23evidence与probe8共28条，其中27small fresh SHA通过，910MBcache不重复hash。9capture及mapping与仍在的S8小指纹相等，c087fecf marker有效；ordinaryfull restore实际拒绝metadata-only。最终evidence仅依赖持久路径。probe8 1d8c49fa的128/768/P256/RNGcursor通过。
 
 本范围无未闭P0/P1。大S8认证引用actual native；actualS16滚退后持久复核尚待。未声称旧source8全状态等价、T32、paired或seed CI。
+
+
+## 2026-10-14：corrupt12 U9–16、point16及S8滚退后持久证据闭环
+
+fresh8个无再次注入原生单元通过，各12固定tensor/19metadata及revisionnone一致。point16 ac8969e2的128/768/P256/RNGcursor保护有效。117条去重small SHA核准，910MBcache和模型不重复哈希。
+
+S16 owner/learning/parent、completed16与cp16一致，小成员SHA及完整成员尺寸有效；物理认证引用native。原S8实际已滚删，原1414的23条证据、c087 marker/9members/mapping仍可复核；postroll da09fa98的36evidence全部使用永久raw/capture路径，ordinaryfull restore仍实际拒绝metadata-only。old6+failed8/newS7/source32/corrupt11保持。本范围无未闭P0/P1，不构成T32、paired或seed CI验收。
+
+
+## 2026-10-14：corrupt12 U17–24、point24和第二次滚退闭环
+
+fresh8个无再次注入单元及point24 cd47a8c2的128/768/P256/RNGcursor保护通过，129条去重small SHA有效。S24 owner/learning/parent、completed/cp24一致，小成员SHA及完整成员尺寸有效；物理认证引用native，未二次模型/cache大哈希。
+
+原S8/S16均已滚删，fdec1d3c的14条、da09fa98的36条及原1414的23条永久raw/capture证据仍可复核，c087的9成员/mapping通过，ordinaryfull restore实际拒绝metadata-only。old6+failed8/S7/source32/corrupt11保持。本范围无未闭P0/P1，不构成T32、paired或seed CI验收。
+
+## 2026-10-14：corrupt12完整T32及实际accepted独审
+
+accepted29aec5b3严格绑定fresh25单元，只有U8原row7/f5fb注入，U9–32的12固定tensor/19metadata/revisionnone通过。五点128/768/P256/RNGcursor有效；source21/raw15/profile/freezeb361/seed12/new共S7/history匹配。324条证据中311条去重small fresh SHA有效，模型/910MBcache不重复哈希。
+
+S32 cert5f05f8fa/state858d5960/owner/learning/parent、finite小状态与完整成员尺寸一致，完整S32保留且无退役收据。物理认证引用已实际native/parent。最终S24滚退后，U8/S16/S24/S32的23/36/14/15条永久证据仍有效，c087 capture9及mapping通过，ordinaryfull restore实际拒绝metadata-only。old6+failed8/source32/newS7/corrupt11保持。本范围无未闭P0/P1；repeat12只观察启动，不包含其restore/floor/paired或seed CI验收。
