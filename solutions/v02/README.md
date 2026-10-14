@@ -4,7 +4,7 @@
 
 正式冻结与工程验收已完成，五组T32正在执行；两个完整paired block已验收（2/5），五seed主统计及科研判定尚未完成。`src/` 包含 v01 原生链路的版本内副本和 Gate1 审计/测量入口；旧版本保持原貌。`inputs/` 保存经核验的跨版本资产与固定探针，`outputs/<run_id>/` 保存 immutable raw、完整 checkpoints 和可重建 processed。下方进展按时间保留，以末尾最新收据为准。
 
-当前状态：最终native09的133项检查、真实GPU中断恢复与连续S9状态/评分等价、初始probe128/P256、生产CLI及八项冻结证据均已验收。源码15+6冻结，前两个seed三分支T32、实际配对与合法退役独审闭合；seed20261013前缀正在重建，实际S0小状态已独审，S7及前缀终态验收仍待。详见[实施与验收记录](../../docs/v02/implementation.md)。
+当前状态：最终native09的133项检查、真实GPU中断恢复与连续S9状态/评分等价、初始probe128/P256、生产CLI及八项冻结证据均已验收。源码15+6冻结，前两个seed三分支T32、实际配对与合法退役独审闭合；seed20261013前缀重建和合法S0退役已独审，clean T32分支已从共同完整S7实际恢复，其P256起点评测与U8后续仍待。详见[实施与验收记录](../../docs/v02/implementation.md)。
 
 入口为 `src/run_gate1.py`（单attempt）和 `src/run_gate1_sequence.py`（五组序列）；`export_gate1.py` 重建统计与辅助CSV，`export_gate1_costs.py` 重建全量费用，`plot_gate1.py` 使用独立绘图环境导出PNG/SVG。所有科研结果必须来自完整原始证据；当前合成排版测试不是正式结果。
 
@@ -45,3 +45,5 @@
 2026-10-14 clean-repeat12 T32已完整独审：25个无注入原生更新及7/8/16/24/32五点128/768/P256、RNG/cursor保护通过，正常return0，actual accepted9b4abda2/324证据。逐token比较五点双role floor均为实测0。完整S32证书9f1c8ee1/state9af38c0e提交，46,302,326,466bytes、保存660.8018秒，完整worker、driver RNG、cursor和position指纹与保留source12及retiredclean12精确相等。独审核准整链394去重small SHA及accepted中的311small；原23/36/14条永久证据和9成员/mapping经全部滚退保持有效，full restore拒绝metadata-only。物理认证引用native/parent，本范围无未闭P0/P1。231小文件10,539,279bytes已本机核对server SHA。第二paired及repeat权重退役仍待，当前完整paired进度仍1/5。
 
 2026-10-14第二个完整paired block已验收（2/5）：seed20261012配对proof5899a6a9覆盖75个原生更新及15个分支评测点、1343条证据，762去重small SHA经独审。逐token→候选均方→case/role RMS→双role平均的独立重算最大差2.77556×10⁻¹⁷。T32 D_score=0.05540106903、floor=0，扣冻结ε_D=.01后的单seed Q=0.04540106903；ε保持AI研究提案身份，这两个已完成种子的描述数值尚待完整五seed统计判定。共同S0仍为一份真实测量复用。repeat退役plan/complete原字节相同c47fc480，严格绑定原paired5899及原clean early eb0fa7d4/退役bc927710；仅自身S32八个model/optim共46,302,164,640bytes退役，9小成员、raw和全部指纹保留，该点不可直接恢复。475退役证据中362small及最终共921unique small SHA通过，普通full restore实际拒绝退役目录，old6+failed工程S8/source12/commonS7/corrupt11&12保持。本范围无未闭P0/P1。15小文件1,045,195bytes已本机核对server SHA，prefix13于00:16:32.119789UTC实际启动，S0小状态与历史指纹已独审；其S7真实重建、剩余三块及全量统计/图表/成本/科研报告仍待。
+
+2026-10-14第三个固定种子前缀已完整验收：seed20261013重放原U1–7后正常stop7/return0，acceptedb86c2073覆盖7单位/121证据，历史S7重建证明e3fa2b28通过。新S0和保护S7的完整worker、driver RNG、cursor及position小指纹与历史认证状态精确相等；0/7是工程cal64及固定128/768探针，正式P0另绑定冻结历史P256。独审核准完整前缀176small SHA、accepted中的117small及原生77单元证据。S0退役plan/complete同字节b7995ef9，142证据中的128small、生命周期共250unique small SHA通过，仅自身8大成员16,264,940,296bytes退役，9初始小成员161,729bytes/全部raw/完整S7保留，元数据与历史reference普通full restore实际拒绝，删除后cf35的16永久证据继续有效。本范围无未闭P0/P1。123小文件3,821,764bytes和追加7文件163,901bytes已本机核对server SHA。clean13按原4–7从该完整S7实际恢复，44f755d2的11证据核验原生恢复flags和解码RNG/cursor内容指纹通过；首次辅助错比文件SHA在写passed前被拦，纠正并保留失败记录，训练/原始数据保持。P256起点评测和第三paired尚待，完整paired仍2/5。

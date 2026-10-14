@@ -4,7 +4,7 @@
   "active_version": "v02",
   "updated_date": "2026-10-14",
   "objective": "Gate1: evaluate persistence of a single terminal false-positive at k=8 under identical fixed U9:32, five paired seed blocks, at most four RTX4090 GPUs",
-  "status": "v02_gate1_formal_two_of_five_paired_blocks_accepted_seed13_prefix_running",
+  "status": "v02_gate1_formal_two_of_five_paired_blocks_accepted_seed13_clean_running",
   "code": {
     "status": "native_gpu_executed",
     "entry": "solutions/v01/src",
@@ -1065,7 +1065,7 @@
     "source_sync_passed": true
   },
   "gate1": {
-    "status": "formal_five_seed_T32_in_progress_two_paired_blocks_complete_seed13_prefix_running",
+    "status": "formal_five_seed_T32_in_progress_two_paired_blocks_complete_seed13_clean_running",
     "seeds": [
       20261011,
       20261012,
@@ -1649,7 +1649,7 @@
       "independent_actual_review": "passed; freeze b36195...;995 small rehashed by independent reviewer,26 large referenced root actual1021 complete hash validation; no unresolvedP0/P1"
     },
     "formal_launch_plan": {
-      "status": "two_paired_blocks_independently_complete_seed13_prefix_running",
+      "status": "two_paired_blocks_complete_seed13_clean_T32_running",
       "sequence_id": "gate1_20261013_01",
       "seeds": [
         20261011,
@@ -1719,7 +1719,7 @@
         31,
         32
       ],
-      "latest_full_restore_boundary": 0,
+      "latest_full_restore_boundary": 7,
       "U8_full_validation_pending": false,
       "U8_full_validation_cpu_pid": 2996006,
       "U8_full_validation_path": ".runtime/gate1_jobs/gate1_20261013_01.clean11_U8_validation.json",
@@ -2085,7 +2085,7 @@
           "independent_review": "Final passed fresh25native/onlyU8 injected/5points128base768P256guards/319of324smallSHA/source21raw15profile/ownedS32finite/terminal0; large certification referenced actualwrapperparent; no scopeP0P1"
         }
       },
-      "latest_full_restore_boundary_scope": "Active prefix13 actualowned fullS0 committed/native authentication referenced and small fingerprints equal to historicalseed13; S7 pending. Captured initial metadata is not directly restorable; protected earlier source/common/corrupt full states retained.",
+      "latest_full_restore_boundary_scope": "Active clean13 native fullS7 restore passed (44f755d2); common prefix13 protectedS7 full retained, initial prefixS0 legally retired, all captured/old reference metadata not directly restorable. Point7/U8/T32 pending.",
       "first_repeat": {
         "run_id": "gate1_20261013_01_repeat_20261011_a001",
         "launcher_pid": 3338987,
@@ -3034,7 +3034,7 @@
         "source_learning_signature": "3413ac4e599ea0cea4165e3f2229a460288c95042c72ee3a9a365cef98f03440",
         "phase": "preparation",
         "branch": "prefix",
-        "status": "actual_owned_S0_historical_small_state_and_durable_capture_independently_passed_calibration0_running",
+        "status": "full_prefix_and_legal_onlyS0_retirement_independently_accepted",
         "replay_start": 1,
         "replay_end": 7,
         "horizon": 32,
@@ -3050,7 +3050,7 @@
           6,
           7
         ],
-        "actual_S0_S7_acceptance": false,
+        "actual_S0_S7_acceptance": true,
         "initial0_validation": {
           "path": ".runtime/gate1_jobs/gate1_20261013_01.prefix13_initial0_validation.json",
           "sha256": "cf35deff026f807eceb475ce28d4a061dd75525baa22a55bc6701d61e76d79cc",
@@ -3082,6 +3082,138 @@
           "bytes": 200909,
           "all_sha_verified": true,
           "remote_expected_sha_verified": true
+        },
+        "probe0_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.prefix13_probe0_validation.json",
+          "sha256": "06fe2f2553265ccb02d57131963e08d19c133d3b0c88c164aad940c43d4c2f83",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "calibration_evaluation_cases": 64,
+          "formal_P0_from_separate_frozen_historical_P256": true,
+          "wall_seconds": 893.2715879499447,
+          "evidence_rows": 5,
+          "scope": "Actual calibration0/fixedprobe/RNGcursor only; U1:7/S7/prefix terminal pending"
+        },
+        "units1_6_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.prefix13_units1_6_validation.json",
+          "sha256": "77e1b550313d64805277f418cb81e0d95ebc7a1f18c80866b1f4875c31bc5fdd",
+          "passed": true,
+          "native_units": 6,
+          "evidence_rows": 66,
+          "injected": false,
+          "scope": "Fixed units1:6 only; U7/fullS7/prefix terminal pending"
+        },
+        "S7_smallstate_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.prefix13_S7_smallstate_validation.json",
+          "sha256": "1b385c1224f0bf1147e862a7cc4affdbdd7eeb099deeea41ed880c4d875e80f8",
+          "passed": true,
+          "evidence_rows": 16,
+          "certificate_sha256": "5c241d15ec66b3e0a384dfd22e6b63233868c8ec1b3d8e29378f46465bf0ec09",
+          "state_signature": "e944d4dd6c3a6d46d587ab8071b9cb946a354de78b1079d7024b4ef0d4b933a2",
+          "checkpoint_member_bytes": 46302323679,
+          "checks": {
+            "step": true,
+            "workers": true,
+            "driver_rng": true,
+            "data_cursor": true,
+            "position": true
+          },
+          "scope": "Protected actual S7 smallstate/identity only; U7 completion/cal7/prefix terminal/S0 retirement pending"
+        },
+        "unit7_probe7_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.prefix13_unit7_probe7_validation.json",
+          "sha256": "99aa7306c4a225f41798c7496637b22d3fc37449fa5782c00d8b954452855999",
+          "passed": true,
+          "native_units": 1,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "calibration_evaluation_cases": 64,
+          "formal_P0_from_separate_frozen_historical_P256": true,
+          "wall_seconds": 900.4680426411796,
+          "evidence_rows": 16,
+          "scope": "Actual U7/cal7/probe/RNGcursor only; normal stop7/stage acceptance/S0 retirement pending"
+        },
+        "returncode": 0,
+        "local_terminal_capture": {
+          "receipt": ".runtime/receipts/gate1_formal_prefix13_terminal_download_20261014_01.json",
+          "data": "Actual prefix13 normalstop7/units1:7/cal64 points0,7/fixedprobes and root audits, rawsource15, protectedS7 smallmetadata and durable initialcapture9. Stage acceptance/rebuild receipt/initial0 retirement pending. No large model/optimizer/unit tensors.",
+          "files": 123,
+          "bytes": 3821764,
+          "all_sha_verified": true,
+          "remote_expected_sha_verified": true
+        },
+        "stage_accepted": {
+          "path": "solutions/v02/outputs/gate1_20261013_01/raw/stage_gate1_20261013_01_prefix_20261013_accepted.json",
+          "sha256": "b86c2073678df87dd0bc1cbaf7e0d8aa5fa186cb3868f03f49e486fd28b5f126",
+          "passed": true,
+          "native_units": 7,
+          "evidence_rows": 121
+        },
+        "rebuild_S7": {
+          "path": "solutions/v02/outputs/gate1_20261013_01/raw/prefix_rebuild_20261013.json",
+          "sha256": "e3fa2b285ee5a0a15acb0bf05b7b2e3ae1079b9e9fb4a481fe01d7ae33883a0e",
+          "passed": true,
+          "evidence_rows": 6
+        },
+        "S0_retirement_complete": {
+          "plan_sha256": "b7995ef9a7c9851227e0b22aa9da93aad864ce485aee3a30009288892972971b",
+          "complete_sha256": "b7995ef9a7c9851227e0b22aa9da93aad864ce485aee3a30009288892972971b",
+          "initial_checkpoint_bytes": 16265099207,
+          "retired_large_shard_bytes": 16264940296,
+          "full_S7_retained": true,
+          "initial_directly_restorable_after_retirement": false,
+          "evidence_rows": 142,
+          "independent_lifecycle_review": "actual_final_passed_no_P0_P1",
+          "retirement_unique_small_sha": 128,
+          "whole_lifecycle_review_unique_small_sha": 250
+        },
+        "terminal_independent_review": "Final passed:fresh7 noinj U1:7/77native evidence/12fixed tensors19metadata/source21raw15profilefreezeb361/seed13currentb486old3413;0,7cal64/fixed128768/RNGcursor and historical0,7 fullsmallFP equal;176 unique smallSHA/actualaccepted7units121evidence117unique smallSHA/rebuilde3 6evidence5checks;S7ownerfinitecompletionmember sizes/capture0 and historicref0,7 ordinaryfullrestore actually rejected;formalP0 separatefrozen historicalP256;no extra model/cachehash/no clean13/paired13/five-seedclaim;S0plancomplete stillpending",
+        "lifecycle_independent_review": "Final passed:plancomplete sameb799/142evidence128small andtotal250unique small;onlyownS0dir8large16264940296bytes removed/protectedfullS7 kept;original9initial smallcapture161729bytes/cf3516permanent evidence afterdelete valid;capture/ref ordinaryfullrestore actually rejected;acceptedb86/rebuild e3 retained;old6failed8/source13full32/previouscorrupt/commonS7 membersizes/smallSHA preserved;physicalauthenticationreferencednative,no duplicate largehash,no clean13/paired13 acceptance",
+        "local_lifecycle_capture": {
+          "receipt": ".runtime/receipts/gate1_formal_prefix13_lifecycle_download_20261014_01.json",
+          "files": 7,
+          "bytes": 163901,
+          "all_sha_verified": true,
+          "remote_expected_sha_verified": true
+        }
+      },
+      "seed13_clean": {
+        "run_id": "gate1_20261013_01_clean_20261013_a001",
+        "launcher_pid": 393593,
+        "created_utc": "2026-10-14T01:26:16.257946+00:00",
+        "manifest_sha256": "09a2983dc208593e69eeeee7d41f1476caa74aedcde452ce4420f0c57f14dc89",
+        "phase": "formal",
+        "branch": "clean",
+        "seed": 20261013,
+        "learning_signature": "b4867ad0186a6905621ee68757c68a34d44a3a53fe6c7bb056c09febdf0e4e2e",
+        "parent_state_signature": "e944d4dd6c3a6d46d587ab8071b9cb946a354de78b1079d7024b4ef0d4b933a2",
+        "common_full_S7": "solutions/v02/outputs/gate1_20261013_01_prefix_20261013_a001/checkpoints/global_step_7",
+        "horizon": 32,
+        "replay_start": 8,
+        "replay_end": 32,
+        "injection_step": null,
+        "reward_delta_default_inactive": 1,
+        "selected_gpus": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "freeze_sha256": "b36195b5129d8fe33fb26d808434bfd7db8e9b8e0de21f69c139af19fd164d3a",
+        "status": "actual_common_fullS7_restore_passed_initial7_evaluation_running",
+        "restore_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean13_restore7_validation.json",
+          "sha256": "44f755d27491921410a6d2bd90c3197fb74cddfc3e50f7992180349e6784aad0",
+          "passed": true,
+          "evidence_rows": 11,
+          "resume_loaded_sha256": "a9c6b73632ffae9708e47e20eee089f85ba4c85b48692c8edb19b914c368cc21",
+          "driver_rng_and_cursor_comparison": "decoded content value_hash; serialized file SHA separately validated by certificate_metadata",
+          "sampler_bitwise_claim": false,
+          "auxiliary_precheck_failure": ".runtime/gate1_jobs/clean13_restore7_auxiliary_precheck_failure_20261014_01.json",
+          "auxiliary_precheck_failure_sha256": "e58c94f2f32975f5312824cc168d7e33180d519a19ad4ba3fcfaf89156d96947",
+          "training_failure": false,
+          "scope": "Actual native fullS7 restore only; point7/U8/T32/paired pending"
         }
       }
     },
