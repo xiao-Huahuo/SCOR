@@ -4,7 +4,7 @@
   "active_version": "v02",
   "updated_date": "2026-10-14",
   "objective": "Gate1: evaluate persistence of a single terminal false-positive at k=8 under identical fixed U9:32, five paired seed blocks, at most four RTX4090 GPUs",
-  "status": "v02_gate1_formal_sequence_launched_after_complete_engineering_and_freeze_acceptance",
+  "status": "v02_gate1_formal_two_of_five_paired_blocks_accepted_seed13_prefix_running",
   "code": {
     "status": "native_gpu_executed",
     "entry": "solutions/v01/src",
@@ -1065,7 +1065,7 @@
     "source_sync_passed": true
   },
   "gate1": {
-    "status": "formal_five_seed_T32_in_progress_one_paired_block_complete_seed12_prefix_running",
+    "status": "formal_five_seed_T32_in_progress_two_paired_blocks_complete_seed13_prefix_running",
     "seeds": [
       20261011,
       20261012,
@@ -1095,7 +1095,7 @@
     "scientific_result": "first_seed_descriptive_T32_D0.055437_floor0; five_fixed_seed_interval_and_result_review_pending",
     "source_version_preserved": "v01",
     "remaining": [
-      "Complete all five fixed T32 paired seed blocks and actual clean/source terminal equivalence",
+      "Complete remaining fixed seed13/14/15 source-prefix and T32 paired blocks, terminal equivalence and legal temporary-weight retirement",
       "Rebuild audited Q_s/95% paired seed CI, auxiliary and cost CSVs",
       "Actual PNG/SVG visual QA, independent result/claims review and technical report",
       "Final documentation and local/server/GitHub main synchronization"
@@ -1649,7 +1649,7 @@
       "independent_actual_review": "passed; freeze b36195...;995 small rehashed by independent reviewer,26 large referenced root actual1021 complete hash validation; no unresolvedP0/P1"
     },
     "formal_launch_plan": {
-      "status": "seed12_prefix_terminal0_fullS7_committed_sequence_rebuild_acceptance_pending",
+      "status": "two_paired_blocks_independently_complete_seed13_prefix_running",
       "sequence_id": "gate1_20261013_01",
       "seeds": [
         20261011,
@@ -1673,7 +1673,7 @@
       "launch_receipt": ".runtime/gate1_jobs/gate1_20261013_01.launch.json",
       "freeze_sha256": "b36195b5129d8fe33fb26d808434bfd7db8e9b8e0de21f69c139af19fd164d3a",
       "plan_sha256": "eb2a66706003cbb68678b221dcff207c8571ddec41c72a6ff45705caa365cc03",
-      "completed_seed_blocks": 1,
+      "completed_seed_blocks": 2,
       "formal_T32_results_accepted": false,
       "first_run_id": "gate1_20261013_01_clean_20261011_a001",
       "first_launcher_pid": 2894783,
@@ -1719,7 +1719,7 @@
         31,
         32
       ],
-      "latest_full_restore_boundary": 7,
+      "latest_full_restore_boundary": 0,
       "U8_full_validation_pending": false,
       "U8_full_validation_cpu_pid": 2996006,
       "U8_full_validation_path": ".runtime/gate1_jobs/gate1_20261013_01.clean11_U8_validation.json",
@@ -2085,7 +2085,7 @@
           "independent_review": "Final passed fresh25native/onlyU8 injected/5points128base768P256guards/319of324smallSHA/source21raw15profile/ownedS32finite/terminal0; large certification referenced actualwrapperparent; no scopeP0P1"
         }
       },
-      "latest_full_restore_boundary_scope": "Active prefix12 owned committed fullS7; S0 still present pending legalretirement; corrupt11S32 separately retained",
+      "latest_full_restore_boundary_scope": "Active prefix13 actualowned fullS0 committed/native authentication referenced and small fingerprints equal to historicalseed13; S7 pending. Captured initial metadata is not directly restorable; protected earlier source/common/corrupt full states retained.",
       "first_repeat": {
         "run_id": "gate1_20261013_01_repeat_20261011_a001",
         "launcher_pid": 3338987,
@@ -2752,7 +2752,7 @@
         "run_id": "gate1_20261013_01_repeat_20261012_a001",
         "launcher_pid": 4143617,
         "stage_start_utc": "2026-10-13T19:56:53.535820+00:00",
-        "status": "actual_commonS7_restore_passed_initial7_evaluation_running",
+        "status": "whole_T32_paired_and_legal_owned_weight_retirement_independently_accepted",
         "learning_signature": "5c48419ef561a82f47c8642a659ea7297f23656ffb5b2d0a9eb9641b1f24f6ba",
         "parent_state_signature": "3115e43cc1ec69ed5915c862f9149dd46e1256d92082a5b128b2793b9cfe9c26",
         "common_full_S7": "solutions/v02/outputs/gate1_20261013_01_prefix_20261012_a001/checkpoints/global_step_7",
@@ -2767,6 +2767,321 @@
           "evidence_rows": 11,
           "sampler_bitwise_claim": false,
           "score_floor_accepted": false
+        },
+        "initial7_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_probe7_validation.json",
+          "sha256": "1422265f2319b19cb43d42e546a145ec55d2c1c9ddf663d224b93a37da34e9da",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "clean_repeat_floor_D_score": 0.0,
+          "floor_roles": {
+            "solver": 0.0,
+            "verifier": 0.0
+          },
+          "wall_seconds": 1536.3849933620077,
+          "scope": "Actual initial7 only; later floors/completeT32/paired/CI pending"
+        },
+        "probe8_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_probe8_validation.json",
+          "sha256": "43de2f17fa3bd4c11bd30421b9b52569c2bac35bbcb7e7aba4ddeb42be46c338",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "clean_repeat_floor_D_score": 0.0,
+          "floor_roles": {
+            "solver": 0.0,
+            "verifier": 0.0
+          },
+          "wall_seconds": 1628.2625861300621,
+          "scope": "Actual point8 passed; fullS8/U8 committed and validated separately; T32/paired/CI pending"
+        },
+        "prepared_U8_small_capture": {
+          "operation": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_U8_validation.py",
+          "sha256": "34a95e3861f030087192fca4c74a56e142805ba140441e0c0448f605b8e5ad26",
+          "status": "independent_pre_review_final_approved_deployed_executed_rc0",
+          "actual_owned_full8_and_completed8_required_before_write": true
+        },
+        "U8_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_U8_validation.json",
+          "sha256": "605b24709c1c1d476bdab57f43267a6f332b9005201a5d40d7e7bf68597aeedb",
+          "passed": true,
+          "evidence_rows": 23,
+          "injected": false,
+          "ordinary_restore_rejection_review": "actual_final_passed",
+          "scope": "Actual native U8 and certified durable small metadata; no duplicate large authentication or source8/fullstate equivalence claim; no T32 acceptance"
+        },
+        "owned_S8": {
+          "certificate_sha256": "1cacde8a3e00d057b1ea7c69f6c7d7f41b6ed9e3898baa44576448eaee327570",
+          "state_signature": "23bdddfc98038bf06c833b7f13e4233c9058fc88494677520b2894f6b408865a",
+          "checkpoint_bytes": 46302326608,
+          "durable_capture_marker_sha256": "e83c13a1b7b06fb7ba4402b31210454e46d2e399ceeb5653095fb535e5ca6d88",
+          "captured_members": 9,
+          "captured_bytes": 167796,
+          "metadata_only": true,
+          "directly_restorable": false,
+          "post_roll_evidence_check": "actual_S16_rolling_passed_original23_evidence_and9members_valid",
+          "checkpoint_wall_seconds": 664.1265203841031
+        },
+        "local_U8_capture": {
+          "receipt": ".runtime/receipts/gate1_formal_repeat12_U8_download_20261014_01.json",
+          "files": 62,
+          "bytes": 4032987,
+          "all_sha_verified": true
+        },
+        "U8_independent_review": "Final passed: fresh11 native U8 evidence;12 fixed tensors/19metadata/no injection;31 dedupsmall SHA;restore7/points7,8 P256128768/RNGcursor and actual double-role floor0;capture9 mapping167796bytes matches current fullS8 small fingerprint;ordinary full restore rejected metadata-only;23 durable evidence exclude original checkpoint8;no model/optimizer/cache rehash,no T32/finalfloor/paired/CI claim;actual postS16 rolling durability pending.",
+        "units9_15_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_units9_15_validation.json",
+          "sha256": "97722bddbd586e02bcaa33c8511c5a8caf5a8cdccd46481ec7f090472661f0e6",
+          "passed": true,
+          "native_units": 7,
+          "evidence_rows": 77,
+          "injected": false
+        },
+        "probe16_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_probe16_validation.json",
+          "sha256": "ae19524386235ee65605a0eb750eff88c8b94dd8682f498948595e8ab7eab120",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "clean_repeat_floor_D_score": 0.0,
+          "floor_roles": {
+            "solver": 0.0,
+            "verifier": 0.0
+          },
+          "wall_seconds": 1662.4418881600723,
+          "evidence_rows": 6,
+          "scope": "Actual point16 only; completed16/fullS16/postroll/T32/paired pending"
+        },
+        "S16_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_S16_postroll_validation.json",
+          "sha256": "ec18d987c557a20644c08282778f676b05a6badddfbf1d86dc1aefe9425385a5",
+          "passed": true,
+          "native_units": 1,
+          "evidence_rows": 36,
+          "certificate_sha256": "d42cd5a82594c76173731339576dd8b481fdab1cc6f77598134af18bb4bebd64",
+          "state_signature": "c7fd2f8f70a3153f0621ffd03ecd6cc82b42435ac6075038cb943e96b78c55d2",
+          "checkpoint_bytes": 46302326498,
+          "checkpoint_wall_seconds": 707.4980638888665,
+          "old_owned_S8_rolled": true,
+          "durable_U8_evidence_still_valid": true,
+          "scope": "Actual U16/S16 and postrolling permanent evidence; T32/paired pending"
+        },
+        "local_S16_capture": {
+          "receipt": ".runtime/receipts/gate1_formal_repeat12_S16_download_20261014_01.json",
+          "files": 136,
+          "bytes": 6317308,
+          "all_sha_verified": true,
+          "remote_expected_sha_verified": true,
+          "previous_U8_62_members_remote_sha_reverified": true,
+          "local_helper_precheck_failure": ".runtime/receipts/gate1_formal_repeat12_S16_download_precheck_failure_20261014_01.json",
+          "training_failure": false
+        },
+        "S16_independent_review": "Final passed:fresh8 no-injection units9:16/88 native evidence/12 fixed tensors19metadata;118 dedupsmall SHA;point16 P256128768/RNGcursor and actual floor16 dual-role0;fullS16 ownerlearningparentfinite/member sizes/completed16/cp16;oldS8 actually rolled,36permanent evidence plusoriginal605b23/e83c9mapping valid;ordinaryfullrestore rejected metadata-only;large physical authentication referencednative,no duplicate cache/model/optimizer SHA,no T32/paired/CI claim.",
+        "units17_23_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_units17_23_validation.json",
+          "sha256": "07eefb0f63043e32cec66367f21ca33a0de7a1026b4ee47ceb266fd754e96c33",
+          "passed": true,
+          "native_units": 7,
+          "evidence_rows": 77,
+          "injected": false
+        },
+        "probe24_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_probe24_validation.json",
+          "sha256": "1acb9d383873e714732ccbd6bed128450c171ada801c85b70bf82ca62682d1e2",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "clean_repeat_floor_D_score": 0.0,
+          "floor_roles": {
+            "solver": 0.0,
+            "verifier": 0.0
+          },
+          "wall_seconds": 1654.8973414129578,
+          "evidence_rows": 6,
+          "scope": "Actual point24 only; completed24/fullS24/rolling/T32/paired pending"
+        },
+        "S24_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_S24_validation.json",
+          "sha256": "db81a3b93a5e2552c7e615d7a0568b0991b1cf81ceb6f019878cd82caff54c70",
+          "passed": true,
+          "native_units": 1,
+          "evidence_rows": 14,
+          "certificate_sha256": "d6b21eb390c4d22dd721be6b2d080fd069d4a580d8ef101d2dc31dbab372b787",
+          "state_signature": "ad6fd8887b8bd791caa4c7b9a17466f39033289e0d3b3d700d79bca103334dba",
+          "checkpoint_bytes": 46302326610,
+          "checkpoint_wall_seconds": 667.4973796331324,
+          "old_owned_S16_rolled": true,
+          "durable_U8_S16_evidence_still_valid": true,
+          "scope": "Actual U24/S24 and postrolling permanent evidence; T32/paired pending"
+        },
+        "S24_independent_review": "Final passed:fresh8 no-injection native units17:24/88evidence/12fixed tensors19metadata/revision none;131dedupsmall SHA;point24 P256128768/RNGcursor and actual dual-role floor0;S24 ownerlearningcommonS7parentfinite/member sizes/completed24/cp24;oldS16 rolled,original605b23/ec1836/e83c9mapping allvalid,ordinaryfullrestore rejects metadata-only;no model/optimizer/cache rehash,no T32/paired/CI claim.",
+        "units25_31_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_units25_31_validation.json",
+          "sha256": "da5cacea0b4744d468fc5d9e2560126b2818a767a1968b23570f4c2c03b81936",
+          "passed": true,
+          "native_units": 7,
+          "evidence_rows": 77,
+          "injected": false
+        },
+        "probe32_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_probe32_validation.json",
+          "sha256": "d502cc1a76726ba05bc53202fd9ff4d48cc500f9965ee7ad7021a33b95f4c788",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "clean_repeat_floor_D_score": 0.0,
+          "floor_roles": {
+            "solver": 0.0,
+            "verifier": 0.0
+          },
+          "wall_seconds": 1629.173858118942,
+          "evidence_rows": 6,
+          "scope": "Actual point32 only; completed32/fullS32/normal terminal/paired/CI pending"
+        },
+        "S32_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.repeat12_S32_validation.json",
+          "sha256": "2276c4153ac4e9ed6ffc78411775d3945db264fe582efc70f388f3dd51457b9c",
+          "passed": true,
+          "native_units": 1,
+          "evidence_rows": 30,
+          "certificate_sha256": "9f1c8ee1274870265f674bcaed11f38b86b7b142fa16c84c247768115d146d11",
+          "state_signature": "9af38c0e624e642bb04e006a723d34da71dd568ae0e22c8ba33a8684aea54311",
+          "checkpoint_bytes": 46302326466,
+          "checkpoint_wall_seconds": 660.8017938910052,
+          "old_owned_S24_rolled": true,
+          "durable_U8_S16_S24_evidence_still_valid": true,
+          "source_and_clean_full_small_state_comparison": {
+            "passed": true,
+            "checks": {
+              "step": true,
+              "workers": true,
+              "driver_rng": true,
+              "data_cursor": true,
+              "position": true
+            }
+          },
+          "scope": "Actual U32/S32 and source/clean complete small-state comparison; normal terminal/whole accepted/paired pending"
+        },
+        "returncode": 0,
+        "stage_accepted": {
+          "path": "solutions/v02/outputs/gate1_20261013_01/raw/stage_gate1_20261013_01_repeat_20261012_accepted.json",
+          "sha256": "9b4abda209e393364f17685d047324fb901f2ca2b27c71dbdff154af32e0331f",
+          "passed": true,
+          "native_units": 25,
+          "evidence_rows": 324
+        },
+        "terminal_independent_review": "Final passed:fresh25 noinj units8:32/275native evidence/all12fixed tensors19metadata/source21raw15profilefreezeb361/seed12/history/commonS7;fivepoints P256128768RNGcursor and actual all dual-role floors0;S32 complete worker/driver/cursor/position fingerprints equal to source32 and retiredclean32;394dedupsmall SHA acrosswhole audit and311unique smallSHA in324accepted rows;original23/36/14+capture9 valid afterallrolling/fullrestore rejected metadata-only;nativeparent physical authentication referenced,no duplicate model/optimizer/cache hash,no paired/retirement/CI acceptance yet.",
+        "local_terminal_capture": {
+          "receipt": ".runtime/receipts/gate1_formal_repeat12_terminal_download_20261014_01.json",
+          "files": 231,
+          "bytes": 10539279,
+          "all_sha_verified": true,
+          "remote_expected_sha_verified": true
+        }
+      },
+      "completed_seed_tags": [
+        20261011,
+        20261012
+      ],
+      "seed12_paired": {
+        "path": "solutions/v02/outputs/gate1_20261013_01/raw/paired_seed_20261012.json",
+        "sha256": "5899a6a91224d68c2422a64fe917d0a9865c73b7512b3eec82579722efc6dff8",
+        "bytes": 626402,
+        "evidence_rows": 1343,
+        "passed": true,
+        "independent_review": "actual_final_passed",
+        "repeat_retirement": {
+          "plan_sha256": "c47fc4809b4e4f3088de628d26bfa0538cd2679384501b5742bc1f86009136aa",
+          "complete_sha256": "c47fc4809b4e4f3088de628d26bfa0538cd2679384501b5742bc1f86009136aa",
+          "removed_large_members": 8,
+          "removed_large_member_bytes": 46302164640,
+          "evidence_rows": 475,
+          "unique_small_sha_in_retirement": 362,
+          "total_unique_small_sha_final_review": 921,
+          "metadata_and_raw_preserved": true,
+          "directly_restorable": false,
+          "ordinary_restore_rejection": "actual_passed",
+          "independent_review": "actual_final_passed_no_P0_P1"
+        },
+        "D_score_T": 0.055401069025085646,
+        "floor_T": 0.0,
+        "Q_s": 0.045401069025085644,
+        "scope": "Second complete paired block and repeat retirement independently accepted; n2 descriptive evidence, no five-seed CI or research decision",
+        "reviewed_unique_small_sha": 762,
+        "independent_metric_max_abs_difference": 2.77556e-17,
+        "original_clean_early_sha256": "eb0fa7d4311effcab65da5fe3b50fbbe69c973d5961fdc240cfc0052ea535026",
+        "original_clean_retirement_sha256": "bc92771021ed9fd16915f215d9802d9e8cf5719f397693c55a485c6978867cbb",
+        "local_pair_capture": {
+          "receipt": ".runtime/receipts/gate1_formal_seed12_pair_download_20261014_01.json",
+          "files": 15,
+          "bytes": 1045195,
+          "all_sha_verified": true,
+          "remote_expected_sha_verified": true
+        }
+      },
+      "seed13_prefix": {
+        "run_id": "gate1_20261013_01_prefix_20261013_a001",
+        "launcher_pid": 311761,
+        "created_utc": "2026-10-14T00:16:32.119789+00:00",
+        "manifest_sha256": "2d66cf1840099fe342fa931e7a08357ab82cc40138e1441f0ef11c937bed9ecc",
+        "learning_signature": "b4867ad0186a6905621ee68757c68a34d44a3a53fe6c7bb056c09febdf0e4e2e",
+        "source_learning_signature": "3413ac4e599ea0cea4165e3f2229a460288c95042c72ee3a9a365cef98f03440",
+        "phase": "preparation",
+        "branch": "prefix",
+        "status": "actual_owned_S0_historical_small_state_and_durable_capture_independently_passed_calibration0_running",
+        "replay_start": 1,
+        "replay_end": 7,
+        "horizon": 32,
+        "protected_steps": [
+          7
+        ],
+        "evaluation_split": "calibration",
+        "evaluation_cases": 64,
+        "formal_P0_from_frozen_historical_P256": true,
+        "selected_gpus": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "actual_S0_S7_acceptance": false,
+        "initial0_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.prefix13_initial0_validation.json",
+          "sha256": "cf35deff026f807eceb475ce28d4a061dd75525baa22a55bc6701d61e76d79cc",
+          "passed": true,
+          "evidence_rows": 16,
+          "owned_initial_certificate_sha256": "631a5e538507c03b8ffe4241533e2c318898baae75e0d6c0dbfad5f4639cf7e4",
+          "owned_initial_state_signature": "48d5cd700852185e0ee7e57abed6f777de99ba4bc24491fd7ea2d58f65b3f003",
+          "initial_checkpoint_member_bytes": 16265099207,
+          "checks": {
+            "step": true,
+            "workers": true,
+            "driver_rng": true,
+            "data_cursor": true,
+            "position": true
+          },
+          "captured_small_members": 9,
+          "capture_metadata_only": true,
+          "capture_directly_restorable": false,
+          "independent_review": "actual_final_passed_no_P0_P1",
+          "scope": "Actual owned initialS0 and durable metadata/reference identity only; calibration0/formalP256/U1:7/S7 acceptance pending",
+          "review_unique_small_sha": 69,
+          "captured_small_bytes": 161729,
+          "ordinary_restore_rejection": "actual_capture_and_historical_reference_rejected",
+          "capture_marker_sha256": "55d0a2364ee421902b2df531eff4647cde25d42bc37441c0e1075e90bde5fe8b"
+        },
+        "local_initial0_capture": {
+          "receipt": ".runtime/receipts/gate1_formal_prefix13_initial0_download_20261014_01.json",
+          "files": 14,
+          "bytes": 200909,
+          "all_sha_verified": true,
+          "remote_expected_sha_verified": true
         }
       }
     },

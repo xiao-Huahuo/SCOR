@@ -174,3 +174,15 @@ fresh8个无再次注入单元及point24 cd47a8c2的128/768/P256/RNGcursor保护
 accepted29aec5b3严格绑定fresh25单元，只有U8原row7/f5fb注入，U9–32的12固定tensor/19metadata/revisionnone通过。五点128/768/P256/RNGcursor有效；source21/raw15/profile/freezeb361/seed12/new共S7/history匹配。324条证据中311条去重small fresh SHA有效，模型/910MBcache不重复哈希。
 
 S32 cert5f05f8fa/state858d5960/owner/learning/parent、finite小状态与完整成员尺寸一致，完整S32保留且无退役收据。物理认证引用已实际native/parent。最终S24滚退后，U8/S16/S24/S32的23/36/14/15条永久证据仍有效，c087 capture9及mapping通过，ordinaryfull restore实际拒绝metadata-only。old6+failed8/source32/newS7/corrupt11保持。本范围无未闭P0/P1；repeat12只观察启动，不包含其restore/floor/paired或seed CI验收。
+
+2026-10-14第二种子clean-repeat U8已独立验收：共同fullS7恢复、实际7/8点128/768/P256与RNG/cursor保护通过，两role评分floor在这两点实测均0。U8无注入，12固定tensor/19metadata匹配；完整S8认证后9小成员167,796bytes持久保存（markere83c13a1），605b2470的23条证据不依赖原checkpoint8目录。独审核准fresh11单元证据及31份去重small SHA、9成员mapping/当前S8小指纹一致，并实际确认普通full restore拒绝metadata-only；大模型与cache认证引用真实native，不重复哈希。本范围无未闭P0/P1。62小文件4,032,987bytes已本机逐SHA同步。T32后续floor、实际滚退后证据复核、第二paired和五seed统计仍待，完整paired进度仍1/5。
+
+2026-10-14 clean-repeat12第16阶段已独审：U9–16八个无注入原生单元、点16的128/768/P256与RNG/cursor保护通过，双role floor16实测均0；88单元证据及118去重small SHA核准。完整S16证书d42cd5a8/statec7fd2f8f提交，保存707.4981秒、46,302,326,498bytes，原S8已真实滚退。ec18d987的36永久证据、原605b的23证据及e83c的9成员/mapping继续有效，普通完整恢复实际拒绝元数据目录。本范围无未闭P0/P1。136小文件6,317,308bytes已下载并核对服务器SHA，原62个U8成员亦重新核准。下载辅助脚本首次TarFile迭代错误发生在本机写入前，修正后通过，失败记录保留。后续T32、第二paired及五seed结果仍待。
+
+2026-10-14 clean-repeat12第24阶段已独审：U17–24八个无注入原生单元、88证据及131去重small SHA核准，点24的128/768/P256与RNG/cursor保护通过，双role floor24实测均0。完整S24证书d6b21eb3/statead6fd888提交，保存667.4974秒、46,302,326,610bytes，原S16确已滚退。db81a3b9的14永久证据、原U8的23条、S16的36条及e83c的9成员/mapping持续有效，普通full restore拒绝metadata-only。本范围无未闭P0/P1，后续T32及第二paired仍待。
+
+2026-10-14 clean-repeat12 T32已完整独审：25个无注入原生更新及7/8/16/24/32五点128/768/P256、RNG/cursor保护通过，正常return0，actual accepted9b4abda2/324证据。逐token比较五点双role floor均为实测0。完整S32证书9f1c8ee1/state9af38c0e提交，46,302,326,466bytes、保存660.8018秒，完整worker、driver RNG、cursor和position指纹与保留source12及retiredclean12精确相等。独审核准整链394去重small SHA及accepted中的311small；原23/36/14条永久证据和9成员/mapping经全部滚退保持有效，full restore拒绝metadata-only。物理认证引用native/parent，本范围无未闭P0/P1。231小文件10,539,279bytes已本机核对server SHA。第二paired及repeat权重退役仍待，当前完整paired进度仍1/5。
+
+2026-10-14第二个完整paired block已验收（2/5）：seed20261012配对proof5899a6a9覆盖75个原生更新及15个分支评测点、1343条证据，762去重small SHA经独审。逐token→候选均方→case/role RMS→双role平均的独立重算最大差2.77556×10⁻¹⁷。T32 D_score=0.05540106903、floor=0，扣冻结ε_D=.01后的单seed Q=0.04540106903；ε保持AI研究提案身份，这两个已完成种子的描述数值尚待完整五seed统计判定。共同S0仍为一份真实测量复用。repeat退役plan/complete原字节相同c47fc480，严格绑定原paired5899及原clean early eb0fa7d4/退役bc927710；仅自身S32八个model/optim共46,302,164,640bytes退役，9小成员、raw和全部指纹保留，该点不可直接恢复。475退役证据中362small及最终共921unique small SHA通过，普通full restore实际拒绝退役目录，old6+failed工程S8/source12/commonS7/corrupt11&12保持。本范围无未闭P0/P1。15小文件1,045,195bytes已本机核对server SHA，prefix13于00:16:32.119789UTC实际启动；其S0/S7真实重建、剩余三块及全量统计/图表/成本/科研报告仍待。
+
+prefix13起点S0已实际独审：cf35deff的16永久证据及69去重small SHA通过，seed/owner/current learning与原历史reference绑定正确，9个小捕获成员161,729bytes及五项完整小指纹一致，capture与历史reference均被普通full restore实际拒绝。本范围无未闭P0/P1，cal64起点评测、U1–7、S7及前缀终态继续验收。
