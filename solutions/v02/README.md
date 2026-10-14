@@ -1,10 +1,12 @@
 # v02 / Gate1
 
+2026-10-14当前状态：Gate1实际进度仍为2/5。seed20261013的clean已验收完整S16，但在北京时间11:31:41收到SIGTERM后停止；信号来源未知，序列/启动器/worker均已退出，过期running状态已实际登记为interrupted。U17–23仅有原始更新完成记录，S24评测部分不能当完成或恢复点；恢复须新attempt从完整S16重建并保留原现场。完整剩余预算实际失败：可用386.30GiB，需求448.21GiB，缺61.91GiB；原GPU4仍被其它进程占用。已保留所有旧状态与失败S16，等待原四卡及容量条件；没有新恢复尝试，五seed统计、实图和报告仍待完成。历史进展按当时事实保留。
+
 检验一次终局 false-positive 在完全相同的后续历史数据下是否持续到32步。[实施协议](../../docs/v02/gate1_protocol.md) 固定五组 seed、主指标、对照和停止规则。
 
-正式冻结与工程验收已完成，五组T32正在执行；两个完整paired block已验收（2/5），五seed主统计及科研判定尚未完成。`src/` 包含 v01 原生链路的版本内副本和 Gate1 审计/测量入口；旧版本保持原貌。`inputs/` 保存经核验的跨版本资产与固定探针，`outputs/<run_id>/` 保存 immutable raw、完整 checkpoints 和可重建 processed。下方进展按时间保留，以末尾最新收据为准。
+正式冻结与工程验收已完成，五组T32序列因实际SIGTERM中断、等待恢复资源；两个完整paired block已验收（2/5），五seed主统计及科研判定尚未完成。`src/` 包含 v01 原生链路的版本内副本和 Gate1 审计/测量入口；旧版本保持原貌。`inputs/` 保存经核验的跨版本资产与固定探针，`outputs/<run_id>/` 保存 immutable raw、完整 checkpoints 和可重建 processed。下方进展按时间保留，以末尾最新收据为准。
 
-当前状态：最终native09的133项检查、真实GPU中断恢复与连续S9状态/评分等价、初始probe128/P256、生产CLI及八项冻结证据均已验收。源码15+6冻结，前两个seed三分支T32、实际配对与合法退役独审闭合；seed20261013前缀重建和合法S0退役已独审，clean T32分支已从共同完整S7实际恢复，其P256起点评测与U8后续仍待。详见[实施与验收记录](../../docs/v02/implementation.md)。
+当前状态：最终native09的133项检查、真实GPU中断恢复与连续S9状态/评分等价、初始probe128/P256、生产CLI及八项冻结证据均已验收。源码15+6冻结，前两个seed三分支T32、实际配对与合法退役独审闭合；seed20261013前缀重建和合法S0退役已独审，clean分支已从共同完整S7恢复，起点及U8/完整S16与滚退后永久证据均已独审；随后在S24评测中断，完整恢复边界为S16。详见[实施与验收记录](../../docs/v02/implementation.md)。
 
 入口为 `src/run_gate1.py`（单attempt）和 `src/run_gate1_sequence.py`（五组序列）；`export_gate1.py` 重建统计与辅助CSV，`export_gate1_costs.py` 重建全量费用，`plot_gate1.py` 使用独立绘图环境导出PNG/SVG。所有科研结果必须来自完整原始证据；当前合成排版测试不是正式结果。
 

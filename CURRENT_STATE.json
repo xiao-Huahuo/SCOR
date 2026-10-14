@@ -4,7 +4,7 @@
   "active_version": "v02",
   "updated_date": "2026-10-14",
   "objective": "Gate1: evaluate persistence of a single terminal false-positive at k=8 under identical fixed U9:32, five paired seed blocks, at most four RTX4090 GPUs",
-  "status": "v02_gate1_formal_two_of_five_paired_blocks_accepted_seed13_clean_running",
+  "status": "v02_gate1_two_of_five_accepted_interrupted_waiting_gpu_and_disk_capacity",
   "code": {
     "status": "native_gpu_executed",
     "entry": "solutions/v01/src",
@@ -1065,7 +1065,7 @@
     "source_sync_passed": true
   },
   "gate1": {
-    "status": "formal_five_seed_T32_in_progress_two_paired_blocks_complete_seed13_clean_running",
+    "status": "formal_sequence_SIGTERM_recorded_fresh_recovery_budget_failed_two_paired_blocks_complete",
     "seeds": [
       20261011,
       20261012,
@@ -1649,7 +1649,7 @@
       "independent_actual_review": "passed; freeze b36195...;995 small rehashed by independent reviewer,26 large referenced root actual1021 complete hash validation; no unresolvedP0/P1"
     },
     "formal_launch_plan": {
-      "status": "two_paired_blocks_complete_seed13_clean_T32_running",
+      "status": "interrupted_clean13_last_fullS16_no_new_attempt_waiting_required_resources",
       "sequence_id": "gate1_20261013_01",
       "seeds": [
         20261011,
@@ -3201,7 +3201,7 @@
           7
         ],
         "freeze_sha256": "b36195b5129d8fe33fb26d808434bfd7db8e9b8e0de21f69c139af19fd164d3a",
-        "status": "actual_common_fullS7_restore_passed_initial7_evaluation_running",
+        "status": "interrupted_SIGTERM_actual_recorded_fullS16_accepted_recovery_budget_failed",
         "restore_validation": {
           "path": ".runtime/gate1_jobs/gate1_20261013_01.clean13_restore7_validation.json",
           "sha256": "44f755d27491921410a6d2bd90c3197fb74cddfc3e50f7992180349e6784aad0",
@@ -3214,6 +3214,158 @@
           "auxiliary_precheck_failure_sha256": "e58c94f2f32975f5312824cc168d7e33180d519a19ad4ba3fcfaf89156d96947",
           "training_failure": false,
           "scope": "Actual native fullS7 restore only; point7/U8/T32/paired pending"
+        },
+        "probe7_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean13_probe7_validation.json",
+          "sha256": "046d996010da36c719afdeec66f8efb30222d34f382ed103cc6615a6bc27191e",
+          "passed": true,
+          "independent_review_passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "correct": 181,
+          "accuracy": 0.70703125,
+          "wall_seconds": 1535.2843780848198,
+          "score_distance_to_prefix_S7": 0.0,
+          "evidence_rows": 5,
+          "independent_unique_small_sha_checked": 55,
+          "scope": "Actual starting S7 only; no U8/T32/paired13 acceptance"
+        },
+        "probe8_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean13_probe8_validation.json",
+          "sha256": "d5fa0ad456c2fe1fb108e25acacd9ac1855941d710a355e35520c24686e61ca5",
+          "passed": true,
+          "independent_review_passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "correct": 181,
+          "accuracy": 0.70703125,
+          "wall_seconds": 1520.3894553410355,
+          "evidence_rows": 5
+        },
+        "U8_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean13_U8_validation.json",
+          "sha256": "738e66c665ce3d4389613ad42087604542a3ef581017c32d0bcf7becde7df76e",
+          "passed": true,
+          "evidence_rows": 23,
+          "independent_review_passed": true,
+          "injected": false,
+          "reviewed_capture_operation_sha256": "cd71d3a7f786fb5f1b42794d071eb6815efd766d99ce9f2bbca659f0a26c0714",
+          "capture_marker_sha256": "ef9f8173973c5f55753b585788a4e19f17b4ebc0b59f60efc1c7ccb48b8c23e7",
+          "capture_members": 9,
+          "capture_bytes": 167859,
+          "metadata_only": true,
+          "directly_restorable": false,
+          "certificate_sha256": "b2c49e7462375905ad6807833ef4be24f6930532f87980fa52083ac497b9f2e6",
+          "state_signature": "9e0e14cbeb3ebd87cdbf9afff4bb143af9cefa6ef8c234b5f041cea052d8c94b",
+          "native_full_member_bytes": 46302326672,
+          "checkpoint_wall_seconds": 605.1792481718585,
+          "original_source_S8_fullstate_equivalence_claim": false,
+          "T32_accepted": false,
+          "independent_unique_small_sha_checked": 75,
+          "ordinary_full_restore_actual_metadata_rejection_passed": true,
+          "actual_S16_postroll_validation_pending": false,
+          "actual_S16_postroll_independent_passed": true
+        },
+        "units9_15_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean13_units9_15_validation.json",
+          "sha256": "0f444a90e2b73cb23467d64784059d800979528ae530b613e05bb7fe1c8949ac",
+          "passed": true,
+          "units": 7,
+          "evidence_rows": 77,
+          "independent_review_passed": true
+        },
+        "probe16_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean13_probe16_validation.json",
+          "sha256": "f94301b0ae74c749d9adf1b974dd3a81476977b35c9d9b1030c3b89062a92265",
+          "passed": true,
+          "base_cases": 128,
+          "candidate_rows": 768,
+          "evaluation_cases": 256,
+          "correct": 185,
+          "wall_seconds": 1545.4186661408748,
+          "independent_review_passed": true,
+          "evidence_rows": 5
+        },
+        "S16_postrolling_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean13_S16_postrolling_validation.json",
+          "sha256": "5c492ed00cce4c3bf6ef28c902eff9b3525eff3296796aae18a55d995f6b6f3c",
+          "passed": true,
+          "evidence_rows": 36,
+          "certificate_sha256": "03b4d0d1ab3dd97b45afdb4a79a48176d194238339ae1807d1227c3ffb5136ee",
+          "state_signature": "0c8e43b8afc13176c0ea4e18b694c7853a0f91c736e57b985fd86431f1897172",
+          "checkpoint_bytes": 46302326562,
+          "checkpoint_wall_seconds": 756.9444067608565,
+          "old_owned_S8_rolled": true,
+          "durable_U8_evidence_still_valid": true,
+          "ordinary_full_restore_capture_rejected": true,
+          "independent_review_passed": true,
+          "independent_unique_small_sha_checked": 46
+        },
+        "observed_interruption": {
+          "signal": "SIGTERM",
+          "signal_epoch": 1791948701,
+          "signal_utc": "2026-10-14T03:31:41+00:00",
+          "signal_beijing": "2026-10-14T11:31:41+08:00",
+          "signal_sender_known": false,
+          "observed_utc": "2026-10-14T04:06:57.601250+00:00",
+          "sequence_parent_and_recorded_owned_processes_absent": true,
+          "old_server_status_json_stale_running": true,
+          "last_complete_restorable_step": 16,
+          "raw_completed_steps_after_snapshot": [
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "partial_evaluation_step": 24,
+          "new_attempt_launched": false,
+          "formal_interruption_record_pending_independent_review": false,
+          "fresh_whole_remaining_capacity_review_pending": false,
+          "physical_GPU4_observed_busy_with_other_process": true,
+          "frozen_source_changes": 0,
+          "protected_asset_deletions": 0,
+          "root_signals_sent": 0,
+          "previous_remaining_time_estimate_invalidated": true,
+          "server_status_recorded_interrupted": true,
+          "independent_actual_record_review_passed": true,
+          "record": {
+            "path": "solutions/v02/outputs/gate1_20261013_01_clean_20261013_a001/raw/workflow_interruption.json",
+            "sha256": "38908248f65838b4a1bb326d7b515ce05314c8a857d6420ec0e7c5ef1751a22c"
+          },
+          "sequence_record": {
+            "path": "solutions/v02/outputs/gate1_20261013_01/raw/owned_process_interruption_20261014_01.json",
+            "sha256": "70b4ad07774e8c6d446114ba39bbf0bb294d83d28bf0a26ab15961e371807989"
+          },
+          "reviewed_record_operation_sha256": "4f1a74f6ecd888e48e5b75ddc2bc79a6427dd4b7cc390e8eb0e88a871680f2c1",
+          "partial_evaluation_role_files": 76,
+          "independent_evidence_small_sha_checked": 89,
+          "transaction_counterexamples_passed": 8
+        },
+        "interrupted_units17_23_validation": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean13_interrupted_units17_23_validation.json",
+          "sha256": "d919f3074513f50411500beeba193ead552f2e1f010876c238033518f7532dbe",
+          "passed": true,
+          "units": 7,
+          "evidence_rows": 77,
+          "scope": "Forensic original raw-completed updates only; no full23/restorable23/T32 or success acceptance; preserve original cost and reconstruct from16 in new attempt"
+        },
+        "interruption_cost_precheck": {
+          "path": ".runtime/gate1_jobs/gate1_20261013_01.clean13_interruption_cost_precheck_20261014_01.json",
+          "sha256": "45d46f578edbaa8e9ad4e463bbc6401580e54b789a6a2f4be89b36254370dd32",
+          "passed": true,
+          "independent_review_passed": true,
+          "recorded_run_wall_seconds": 7524.742053985596,
+          "selected_gpu_hours": 8.36082450442844,
+          "completed_raw_updates": 16,
+          "logical_ledger_certified": true,
+          "role_ledger_rows": 5,
+          "raw_evidence_rows": 2133,
+          "scope": "Private frozen run_cost precheck at true signal time; excludes post-termination wait; not completed five-seed export"
         }
       }
     },
@@ -3353,6 +3505,61 @@
       "bytes": 10624119,
       "all_sha_verified": true,
       "full_S32_retained_on_server": true
+    },
+    "local_clean13_U8_capture": {
+      "receipt": ".runtime/receipts/gate1_formal_clean13_U8_download_20261014_01.json",
+      "receipt_sha256": "743b5381c0a7f06ca50055bb32df1a29343c79275417d04e842a30471abf9e14",
+      "files": 46,
+      "bytes": 4119595,
+      "all_sha_verified": true,
+      "remote_expected_sha_verified": true,
+      "independent_file_sha_rechecked": true,
+      "metadata_only": true,
+      "directly_restorable": false,
+      "approved_download_operation": ".runtime/gate1_jobs/gate1_clean13_U8_download_20261014_03.py",
+      "approved_operation_sha256": "4880636b6d4dd7bac4ea4cbbfacfea2957cb526b5c44787ec872fed4aec8ec63",
+      "independent_counterexamples_passed": 13,
+      "rejected_unexecuted_candidates": [
+        "db5872698264f3f79747e76044b002455ef6e7c5255679ed775a96ece1497521",
+        "3d130f7df4b35882b98f59de9697ffec683d6f65c8746a467141bd8f0aa0685f"
+      ],
+      "scope": "Private auxiliary downloader P1 closed before execution; no GPU failure or learner change. Actual U8 download only, not T32."
+    },
+    "local_clean13_S16_capture": {
+      "receipt": ".runtime/receipts/gate1_formal_clean13_S16_download_20261014_01.json",
+      "sha256": "0737b8c447395b223fa0f95e58d55cb639a4e87e182e9579902c527533924f0b",
+      "files": 101,
+      "bytes": 6275837,
+      "all_sha_verified": true,
+      "remote_expected_sha_verified": true,
+      "independent_file_sha_rechecked": true,
+      "metadata_only": true,
+      "directly_restorable": false,
+      "reviewed_download_operation_sha256": "cb4384cb585494b0da3cc7eb9dc968fcc184378528e4a16f5a8e431cb7416194",
+      "scope": "Actual U8/S16 evidence and small state only; not a local full checkpoint or T32 result"
+    },
+    "recovery_capacity_after_clean13_SIGTERM": {
+      "path": ".runtime/gate1_jobs/gate1_resume_budget_20261014_01.json",
+      "sha256": "0e62bea303a8f5f1db90dd5ccaab8f770b4eb0f40c8059ab0e25b0533c05b0b0",
+      "passed": false,
+      "reviewed_operation_sha256": "56a7f4c02a629a9157b024ddcec8ab7f3a343d76b162d8378b51093bc98ee8ef",
+      "independent_code_review_passed": true,
+      "protected_asset_counterexamples_passed": 6,
+      "free_bytes": 414791491584,
+      "required_additional_bytes": 481263263431,
+      "shortfall_bytes": 66471771847,
+      "new_update_units": 280,
+      "new_evaluation_points": 53,
+      "peak_additional_full_slots": 9,
+      "additional_long_term_full_slots": 7,
+      "raw_and_margin_bytes": 51539607552,
+      "protected_unique_full_states": 12,
+      "protected_snapshot_paths": 15,
+      "failed_ancestor_cleanup_credit": false,
+      "topology_change": false,
+      "new_attempt_launched": false,
+      "resource_question_pending": true,
+      "scope": "Fresh complete remaining five-seed plan including preserved failed13 S16; actual capacity failed; no formal resume approval or frozen protocol change"
     }
   }
 }

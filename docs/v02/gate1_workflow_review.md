@@ -188,3 +188,13 @@ S32 cert5f05f8fa/state858d5960/owner/learning/parent、finite小状态与完整�
 prefix13起点S0已实际独审：cf35deff的16永久证据及69去重small SHA通过，seed/owner/current learning与原历史reference绑定正确，9个小捕获成员161,729bytes及五项完整小指纹一致，capture与历史reference均被普通full restore实际拒绝。本范围无未闭P0/P1，cal64起点评测、U1–7、S7及前缀终态继续验收。
 
 2026-10-14第三个固定种子前缀已完整验收：seed20261013重放原U1–7后正常stop7/return0，acceptedb86c2073覆盖7单位/121证据，历史S7重建证明e3fa2b28通过。新S0和保护S7的完整worker、driver RNG、cursor及position小指纹与历史认证状态精确相等；0/7是工程cal64及固定128/768探针，正式P0另绑定冻结历史P256。独审核准完整前缀176small SHA、accepted中的117small及原生77单元证据。S0退役plan/complete同字节b7995ef9，142证据中的128small、生命周期共250unique small SHA通过，仅自身8大成员16,264,940,296bytes退役，9初始小成员161,729bytes/全部raw/完整S7保留，元数据与历史reference普通full restore实际拒绝，删除后cf35的16永久证据继续有效。本范围无未闭P0/P1。123小文件3,821,764bytes和追加7文件163,901bytes已本机核对server SHA。clean13按原4–7从该完整S7实际恢复，44f755d2的11证据核验原生恢复flags和解码RNG/cursor内容指纹通过；首次辅助错比文件SHA在写passed前被拦，纠正并保留失败记录，训练/原始数据保持。P256起点评测和第三paired尚待，完整paired仍2/5。
+
+## 2026-10-14：第三组S16与中断记录独审
+
+实际9–15/point16独审121unique small；U16/完整S16、owner/parent/finite、全成员尺寸、S8滚退后原23证据与9小成员、普通restore拒metadata-only另核46small，post5c492ed0 scope通过。实际101小文件6,275,837bytes及下载回执0737b8c4逐SHA核准，不重Hash大模型/cache，不声明T32或第三paired已完成。
+
+中断登记修订4f1a74f6的实际prewrite零写检查和8个transaction内存反例通过，覆盖首1/2/3/4文件提交后中断续做、同observedUTC/字节保持、完成重跑0写以及伪signal/tail/sender拒绝。实际run38908248、seq70b4ad07及interrupted状态再次核准，89small证据通过；原生SIGTERM时间03:31:41UTC、来源unknown、恢复边界S16保持。实际冻结run_cost和45d46f57核准真实wall7524.742054秒/四卡8.360824504分配GPU小时，原始与部分账本计费，终止后等待不混入本attempt。
+
+预算56a7f4c0前审核量纲及15路径/12独立full states全成员presence/尺寸、小SHA、冻结21/profile/原预算身份，6个实际AST反例覆盖大成员缺失/截断、小SHA篡改、weight_bytes布尔/改值均在报告写前拒绝。原48GiB余量及native启动门保持；完整剩余required481,263,263,431bytes正确。root实际fresh回执0e62bea3容量失败free414,791,491,584/缺66,471,771,847bytes；独审此前只读snapshot的free415,158,759,424是另一个采样时间，不替换root正式值。代码审批准只允许记录容量，不是resume批准。
+
+未执行的初稿P1均保原字节并闭环，冻结源码没有改动。审查中曾依据旧记忆误报atomic_json固定.tmp路径，root与审查代理实际重读冻结06cd6ca7及server inspect证实当前为mkstemp(.pending-)/fdopen/fsync/link或replace/目录fsync，该错误P1已明确撤销，未据此改代码。当前依赖阻塞为实际GPU与容量条件，仍2/5；原始失败S16、old6/失败工程S8/source32/commonS7/corrupt32保持。

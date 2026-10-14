@@ -1,6 +1,6 @@
 # Gate1 实现与验收记录
 
-2026-10-12开始记录，2026-10-13更新。正式冻结已验收，五组T32正在执行。本记录按时间保留工程进展，较早的待办状态以末尾最新收据为准；不把启动任务视为完成。
+2026-10-12开始记录，2026-10-14更新。正式冻结已验收；五组T32序列实际中断，等待原GPU与容量条件恢复。本记录按时间保留工程进展，较早的待办状态以末尾最新收据为准；不把启动任务视为完成。
 
 `run_gate1.py` 保留 v01 原生 AdamW/GRPO、3B、data08、32步 scheduler 和四卡拓扑，通过明确兼容契约读取旧完整状态及固定历史。执行身份由15份源码构成；旧身份单列。新恢复参数 `--recovery-from` 指向原 attempt，要求同 seed、分支、冻结、输入、源码、学习参数和最后完整提交点。已提交的 U8 保留在原 attempt，续跑从 U9 开始，禁止重复注入。失败及未完成文件保留，成功单位不补造完成标记。
 
@@ -88,3 +88,17 @@
 prefix13起点S0已实际独审：cf35deff的16永久证据及69去重small SHA通过，seed/owner/current learning与原历史reference绑定正确，9个小捕获成员161,729bytes及五项完整小指纹一致，capture与历史reference均被普通full restore实际拒绝。本范围无未闭P0/P1，cal64起点评测、U1–7、S7及前缀终态继续验收。
 
 2026-10-14第三个固定种子前缀已完整验收：seed20261013重放原U1–7后正常stop7/return0，acceptedb86c2073覆盖7单位/121证据，历史S7重建证明e3fa2b28通过。新S0和保护S7的完整worker、driver RNG、cursor及position小指纹与历史认证状态精确相等；0/7是工程cal64及固定128/768探针，正式P0另绑定冻结历史P256。独审核准完整前缀176small SHA、accepted中的117small及原生77单元证据。S0退役plan/complete同字节b7995ef9，142证据中的128small、生命周期共250unique small SHA通过，仅自身8大成员16,264,940,296bytes退役，9初始小成员161,729bytes/全部raw/完整S7保留，元数据与历史reference普通full restore实际拒绝，删除后cf35的16永久证据继续有效。本范围无未闭P0/P1。123小文件3,821,764bytes和追加7文件163,901bytes已本机核对server SHA。clean13按原4–7从该完整S7实际恢复，44f755d2的11证据核验原生恢复flags和解码RNG/cursor内容指纹通过；首次辅助错比文件SHA在写passed前被拦，纠正并保留失败记录，训练/原始数据保持。P256起点评测和第三paired尚待，完整paired仍2/5。
+
+## 2026-10-14：S16验收、SIGTERM中断与恢复资源核验
+
+seed20261013的实际S7/U8及P256起点评测已独审。U9–16、点16固定128/768/P256/RNGcursor和完整S16通过；postrolling回执5c492ed0含36永久证据，S16证书03b4d0d1/state0c8e43b8/46,302,326,562bytes。S8原目录滚退后，原U8回执738e66c6的23证据及ef9f8173的9小成员167,859bytes仍有效，普通完整恢复实际拒绝metadata-only。独审前9–15/point16核121small、postroll另核46small；101文件6,275,837bytes本机核对服务器SHA并独审复核，下载回执0737b8c4。这些只验收至S16，不构成T32或第三个paired结果。
+
+原生console记录SIGTERM epoch1791948701，即2026-10-14T03:31:41UTC/北京时间11:31:41。终止来源unknown，记录没有推测OOM或返回码。监督恢复后实际确认原parent2886355、启动器393593、TaskRunner及四worker均已退出；运行与序列旧running文件因此不能继续当实际存活依据。已独审的私有登记操作4f1a74f6实际执行return0，run/raw/workflow_interruption.json SHA38908248及sequence/raw/owned_process_interruption_20261014_01.json SHA70b4ad07保持原始证据，两个mutable状态已atomic登记interrupted，0signal/0launch/0delete/0SOURCEwrite。真实17–23的completed.learning与model_snapshot_committed=false、24的76份partial角色记录和缺终态都被绑定；89条小证据SHA及8个metadata半写续提反例通过。同一不可变记录可从任意部分提交续做，完成重跑零写，异文或伪事实拒绝。
+
+最后可恢复完整点为S16。U17–23的7个原始单元/77证据已按无注入固定输入做中断审计d919f307，但没有完整S23状态；新尝试须从16重建这些未保存的模型更新，原记录及其成本保留，S24部分评测不补造完成标记。冻结run_cost已用实际SIG时间核准45d46f57：7524.742054秒、四卡分配8.360824504GPU小时、原raw完成16个更新/5角色账本/2133raw证据；不计终止后等待，组件时间有重叠。这是私有成本接口前检，完整五seed费用导出仍待。
+
+恢复预算采用已独审的私有56a7f4c0操作，实际回执0e62bea3 passed=false：free414,791,491,584bytes、required481,263,263,431bytes、shortfall66,471,771,847bytes。15路径/12独立完整状态的固定证书、小SHA及所有成员presence/尺寸、live冻结21/profile/原预算7ec与freeze.resource_plan均核准；没有重复大权重Hash或失败清理credit。剩余280更新/53评测、新增长期7槽/峰值9槽、32MiB/unit、256MiB/eval和完整48GiB余量保持；原GPU4–7不变。预算和GPU条件未满足，尚未启动新attempt，参数、种子、阈值和学习源码保持冻结。
+
+私有准备缺陷均在执行前被独审拦住：下载01/02的路径/重复目标/预写与回执问题，S16下载retired字段的整数误读，中断登记初稿的未绑定事实和不可续提交，以及预算初稿漏查完整保护成员。旧候选原字节保留且从未执行，分别由实际批准的4880636b/cb4384cb/4f1a74f6/56a7f4c0修订闭环；这些不是新的GPU训练失败，也没有热改冻结源码。成本辅助首次把timedelta与Unix浮点差作精确比较，在写passed前失败；差14.4纳秒，按原接口与独立微秒级时间核对闭合，没有改变成本值。
+
+实际进度仍2/5。等待原四卡和额外容量条件；之后须fresh容量/恢复独审后manual新attempt从S16恢复，最终完成其余固定种子、CSV/Q/95%训练seedCI/辅助指标/费用/真实PNG-SVG/独审/技术报告及三端同步。后续五Gate及子算法实验仍只是提案，用户此次仅恢复Gate1监督。
